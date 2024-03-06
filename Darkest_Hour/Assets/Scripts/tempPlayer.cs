@@ -20,6 +20,7 @@ public class tempPlayer : MonoBehaviour
 
     void Start()
     {
+ 
     }
 
     void Update()
