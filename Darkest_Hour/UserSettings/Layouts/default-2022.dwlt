@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 109
+  controlID: 26
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -932,7 +932,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: e8f9ffff
       m_LastClickedID: 0
       m_ExpandedIDs: 30fbffff
       m_RenameOverlay:
@@ -1003,7 +1003,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Material
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1011,15 +1011,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Material
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\cbell\Desktop\PP3 Homework\Darkest-Hour\Darkest_Hour
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 76590000
-    m_LastClickedID: 22902
+    m_SelectedIDs: 72590000
+    m_LastClickedID: 22898
     m_ExpandedIDs: 000000006c59000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1079,18 +1079,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 6067000000960000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Test Floor Scene
+      m_OriginalName: Test Floor Scene
       m_EditFieldRect:
         serializedVersion: 2
-        x: 0
+        x: 35
         y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
+        width: 239
+        height: 16
+      m_UserData: -1560
       m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_IsRenaming: 1
+      m_OriginalEventType: 7
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
