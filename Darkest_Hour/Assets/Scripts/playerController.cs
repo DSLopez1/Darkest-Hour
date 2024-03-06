@@ -12,12 +12,12 @@ public class playerControllerScript : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float gravity;
 
-
+ 
 
     Vector3 move;
     Vector3 playerVel;
     int jumpCount;
-    
+   
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class playerControllerScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         movement();
     }
 
@@ -54,13 +54,12 @@ public class playerControllerScript : MonoBehaviour
         controller.Move(playerVel * Time.deltaTime);
     }
 
-
+    
 
     public void takeDamage(int amount)
     {
         HP -= amount;
 
-       
     }
 
 }
