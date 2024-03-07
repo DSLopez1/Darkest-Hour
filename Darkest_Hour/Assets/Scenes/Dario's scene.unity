@@ -406,6 +406,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Player 1st Person
       objectReference: {fileID: 0}
+    - target: {fileID: 2686745320472071391, guid: f6416af733fe02948b7d5678ea200e32, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8889624516882705791, guid: f6416af733fe02948b7d5678ea200e32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.5
@@ -860,11 +864,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.25
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1776550272
 Transform:
@@ -894,7 +898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92071e4e56a84ec409498acdc4be29a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

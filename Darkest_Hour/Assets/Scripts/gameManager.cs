@@ -9,12 +9,19 @@ public class gameManager : MonoBehaviour
     [SerializeField] private GameObject menuActive;
     [SerializeField] private GameObject menuPause;
 
+    [Header("-----player------")] 
+
+    [SerializeField] public GameObject player;
+    [SerializeField] public tempPlayer playerScript;
+
     private bool isPaused;
 
     // Start is called before the first frame update
     void Awake()
     {
         instance = this;
+        player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<tempPlayer>();
 
 
     }

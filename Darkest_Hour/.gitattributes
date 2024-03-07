@@ -1,0 +1,55 @@
+# Set the default behavior, in case users don't have core.autocrlf set.
+* text=auto
+
+# Unity-specific settings
+*.unity text eol=lf
+*.prefab text eol=lf
+*.mat text eol=lf
+*.anim text eol=lf
+*.meta text eol=lf
+*.asset text eol=lf
+*.controller text eol=lf
+
+# Force text for shader files, but normalize line endings to LF
+*.shader text eol=lf
+
+# Force text for script files, but normalize line endings to LF
+*.cs text eol=lf
+
+# Treat .json files as text to ensure proper merge handling
+*.json text eol=lf
+
+# Image files are binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.tga binary
+*.gif binary
+
+# Audio files are binary
+*.mp3 binary
+*.ogg binary
+*.wav binary
+
+# Video files are binary
+*.mp4 binary
+*.mov binary
+
+# 3D Models
+*.fbx binary
+*.obj binary
+
+# Ignore diffs for binaries
+*.jpg -diff
+*.png -diff
+*.exe -diff
+*.dll -diff
+
+# Custom settings for .gitignore files
+.gitignore eol=lf
+
+# Exclude files from export
+/export-ignore
+
+# Force eol=lf for bash scripts and enforce script execution
+*.sh text eol=lf

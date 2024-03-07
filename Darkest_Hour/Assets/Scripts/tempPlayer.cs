@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tempPlayer : MonoBehaviour
+public class tempPlayer : MonoBehaviour, IDamage
 {
     [Header("----- Componenets -----")]
     [SerializeField] CharacterController controller;
 
-    [Header("----- Player Stats -----")]
-    [SerializeField] float playerSpeed;
+    [Header("----- Player Stats -----")] 
+    [SerializeField] public int HP;
+    [SerializeField] public float playerSpeed;
     [SerializeField] public int jumpMax;
     [SerializeField] float jumpForce;
     [SerializeField] float gravity;
@@ -47,6 +48,11 @@ public class tempPlayer : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;
 
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    public void TakeDamage(int amount)
+    {
+        HP -= amount;
     }
 
 }
