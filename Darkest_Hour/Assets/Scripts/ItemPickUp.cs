@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ItemPickUp : MonoBehaviour, IntInteractable
+public class ItemPickUp : MonoBehaviour, INtInteractable
 {
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -16,6 +16,6 @@ public class ItemPickUp : MonoBehaviour, IntInteractable
 
     public void Interact()
     {
-        gameManager.instance.playerScript.playerSpeed += 20;
+        GameManager.instance.playerScript.playerSpeed += 20;
     }
 }

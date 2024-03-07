@@ -2,63 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerControllerScript : MonoBehaviour
+public class PlayerControllerScript : MonoBehaviour
 {
-    [SerializeField] CharacterController controller;
+    [SerializeField] private CharacterController _controller;
 
-    [SerializeField] int HP;
-    [SerializeField] float playerSpeed;
-    [SerializeField] int jumpMax;
-    [SerializeField] float jumpForce;
-    [SerializeField] float gravity;
+    [SerializeField] private int _hp;
+    [SerializeField] private float _playerSpeed;
+    [SerializeField] private int _jumpMax;
+    [SerializeField] private float _jumpForce;
+    [SerializeField] private float _gravity;
 
- 
 
-    Vector3 move;
-    Vector3 playerVel;
-    int jumpCount;
+    private Vector3 _move;
+    private Vector3 _playerVel;
+    private int _jumpCount;
    
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     { 
-        movement();
+        Movement();
     }
 
-    void movement()
+    private void Movement()
     {
-        if (controller.isGrounded)
+        if (_controller.isGrounded)
         {
-            jumpCount = 0;
-            playerVel = Vector3.zero;
+            _jumpCount = 0;
+            _playerVel = Vector3.zero;
         }
 
-        move = Input.GetAxis("Horizontal") * transform.right
+        _move = Input.GetAxis("Horizontal") * transform.right
             + Input.GetAxis("Vertical") * transform.forward;
 
-        controller.Move(move * playerSpeed * Time.deltaTime);
+        _controller.Move(_move * _playerSpeed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
+        if (Input.GetButtonDown("Jump") && _jumpCount < _jumpMax)
         {
-            playerVel.y = jumpForce;
-            jumpCount++;
+            _playerVel.y = _jumpForce;
+            _jumpCount++;
         }
 
-        playerVel.y += gravity * Time.deltaTime;
-        controller.Move(playerVel * Time.deltaTime);
+        _playerVel.y += _gravity * Time.deltaTime;
+        _controller.Move(_playerVel * Time.deltaTime);
     }
 
     
 
-    public void takeDamage(int amount)
+    public void TakeDamage(int amount)
     {
-        HP -= amount;
+        _hp -= amount;
 
     }
 

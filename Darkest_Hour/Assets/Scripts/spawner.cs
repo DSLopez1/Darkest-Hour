@@ -2,51 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
-    [SerializeField] GameObject objectToSpawn;
-    [SerializeField] int numToSpawn;
-    [SerializeField] int spawnTimer;
-    [SerializeField] Transform[] spawnPos;
+    [SerializeField] private GameObject _objectToSpawn;
+    [SerializeField] private int _numToSpawn;
+    [SerializeField] private int _spawnTimer;
+    [SerializeField] private Transform[] _spawnPos;
 
-    int spawnCount;
-    bool isSpawning;
-    bool startSpawning;
+    private int _spawnCount;
+    private bool _isSpawning;
+    private bool _startSpawning;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (startSpawning && !isSpawning && spawnCount < numToSpawn)
+        if (_startSpawning && !_isSpawning && _spawnCount < _numToSpawn)
         {
-            StartCoroutine(spawn());
+            StartCoroutine(Spawn());
         }
     }
 
-    IEnumerator spawn()
+    private IEnumerator Spawn()
     {
-        isSpawning = true;
+        _isSpawning = true;
 
         // Picks random spawn location
-        int arrayPos = Random.Range(0, spawnPos.Length);
+        int arrayPos = Random.Range(0, _spawnPos.Length);
         // Creates object
-        Instantiate(objectToSpawn, spawnPos[arrayPos].position, spawnPos[arrayPos].rotation);
+        Instantiate(_objectToSpawn, _spawnPos[arrayPos].position, _spawnPos[arrayPos].rotation);
         // Increase count
-        spawnCount++;
-        yield return new WaitForSeconds(spawnTimer);
-        isSpawning = false;
+        _spawnCount++;
+        yield return new WaitForSeconds(_spawnTimer);
+        _isSpawning = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Payload") || other.CompareTag("Player"))
         {
-            startSpawning = true;
+            _startSpawning = true;
         }
     }
 }

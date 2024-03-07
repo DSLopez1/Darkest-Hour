@@ -3,26 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraController : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
-    [SerializeField] Transform followTarget;
+    [SerializeField] private Transform _followTarget;
 
-    [SerializeField] float rotationSpeed = 2f;
-    [SerializeField] float distance = 5;
+    [SerializeField] private float _rotationSpeed = 2f;
+    [SerializeField] private float _distance = 5;
 
-    [SerializeField] float minVerticalAngle = -45;
-    [SerializeField] float maxVerticalAngle = 45;
+    [SerializeField] private float _minVerticalAngle = -45;
+    [SerializeField] private float _maxVerticalAngle = 45;
 
-    [SerializeField] Vector2 framingOffset;
+    [SerializeField] private Vector2 _framingOffset;
 
-    [SerializeField] bool invertX;
-    [SerializeField] bool invertY;
+    [SerializeField] private bool _invertX;
+    [SerializeField] private bool _invertY;
 
-    float rotationX;
-    float rotationY;
+    private float _rotationX;
+    private float _rotationY;
 
-    float invertXVal;
-    float invertYVal;
+    private float _invertXVal;
+    private float _invertYVal;
 
 
     private void Start()
@@ -33,19 +33,19 @@ public class cameraController : MonoBehaviour
 
     private void Update()
     {
-        invertXVal = (invertX) ? -1 : 1;
-        invertYVal = (invertY) ? -1 : 1;
+        _invertXVal = (_invertX) ? -1 : 1;
+        _invertYVal = (_invertY) ? -1 : 1;
 
-        rotationX += Input.GetAxis("Mouse Y") * invertYVal * rotationSpeed;
-        rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
+        _rotationX += Input.GetAxis("Mouse Y") * _invertYVal * _rotationSpeed;
+        _rotationX = Mathf.Clamp(_rotationX, _minVerticalAngle, _maxVerticalAngle);
 
-        rotationY += Input.GetAxis("Mouse X") * invertXVal * rotationSpeed;
+        _rotationY += Input.GetAxis("Mouse X") * _invertXVal * _rotationSpeed;
 
-        var targetRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        var targetRotation = Quaternion.Euler(_rotationX, _rotationY, 0);
 
-        var focusPosition = followTarget.position + new Vector3(framingOffset.x, framingOffset.y);
+        var focusPosition = _followTarget.position + new Vector3(_framingOffset.x, _framingOffset.y);
 
-        transform.position = focusPosition - targetRotation * new Vector3(0, 0, distance);
+        transform.position = focusPosition - targetRotation * new Vector3(0, 0, _distance);
         transform.rotation = targetRotation;
     }
 }

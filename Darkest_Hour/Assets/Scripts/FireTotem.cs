@@ -10,7 +10,7 @@ public class FireTotem : MonoBehaviour
 
     private bool _isPulsing;
 
-    void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         IDamage dmg = other.GetComponent<IDamage>();
 
@@ -23,7 +23,7 @@ public class FireTotem : MonoBehaviour
         }
     }
 
-    IEnumerator FirePulse(IDamage dmg)
+    private IEnumerator FirePulse(IDamage dmg)
     {
         _isPulsing = true;
 

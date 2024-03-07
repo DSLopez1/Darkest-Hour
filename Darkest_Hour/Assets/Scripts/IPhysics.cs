@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IPhysics
 {
-    void physicsDir(Vector3 dir);
+    void PhysicsDir(Vector3 dir);
 }

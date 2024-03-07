@@ -2,57 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tempPlayer : MonoBehaviour, IDamage
+public class TempPlayer : MonoBehaviour, IDamage, IPhysics
 {
     [Header("----- Componenets -----")]
-    [SerializeField] CharacterController controller;
+    [SerializeField]
+    private CharacterController _controller;
 
     [Header("----- Player Stats -----")] 
-    [SerializeField] public int HP;
+    [SerializeField] public int hp;
     [SerializeField] public float playerSpeed;
     [SerializeField] public int jumpMax;
-    [SerializeField] float jumpForce;
-    [SerializeField] float gravity;
-    [SerializeField] float sprintMod;
+    [SerializeField] private float _jumpForce;
+    [SerializeField] private float _gravity;
+    [SerializeField] private float _sprintMod;
+    [SerializeField] private float _dashForce;
+    [SerializeField] private float _pushBackResolution;
 
-    Vector3 move;
-    Vector3 playerVelocity;
-    int jumpCount;
+    private Vector3 _move;
+    private Vector3 _playerVelocity;
+    private Vector3 _pushBack;
+    private int _jumpCount;
 
-    void Start()
+    private void Start()
     {
  
     }
 
-    void Update()
+    private void Update()
     {
         Movement();
     }
 
-    void Movement()
+    private void Movement()
     {
-        if (controller.isGrounded)
+
+        _pushBack = Vector3.Lerp(_pushBack, Vector3.zero, _pushBackResolution);
+
+        if (_controller.isGrounded)
         {
-            jumpCount = 0;
-            playerVelocity = Vector3.zero;
+            _jumpCount = 0;
+            _playerVelocity = Vector3.zero;
         }
-        move = Input.GetAxis("Horizontal") * transform.right
+        _move = Input.GetAxis("Horizontal") * transform.right
              + Input.GetAxis("Vertical") * transform.forward;
 
-        controller.Move(move * playerSpeed * Time.deltaTime);
-        if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
+        _controller.Move(_move * playerSpeed * Time.deltaTime);
+        if (Input.GetButtonDown("Jump") && _jumpCount < jumpMax)
         {
-            playerVelocity.y = jumpForce;
-            jumpCount++;
+            _playerVelocity.y = _jumpForce;
+            _jumpCount++;
         }
-        playerVelocity.y += gravity * Time.deltaTime;
 
-        controller.Move(playerVelocity * Time.deltaTime);
+        _playerVelocity.y += _gravity * Time.deltaTime;
+        _controller.Move((_playerVelocity + _pushBack) * Time.deltaTime);
     }
 
     public void TakeDamage(int amount)
     {
-        HP -= amount;
+        hp -= amount;
     }
 
+    public void PhysicsDir(Vector3 dir)
+    {
+        _pushBack += dir;
+    }
+
+    public Vector3 getMoveVec() { return _move; }
+    
 }

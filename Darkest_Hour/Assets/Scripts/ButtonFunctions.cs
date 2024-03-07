@@ -5,19 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
-    public void resume()
+    public void Resume()
     {
-        gameManager.instance.stateUnpaused();
+        GameManager.instance.StateUnpaused();
     }
-
-    public void restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        gameManager.instance.stateUnpaused();
+        GameManager.instance.StateUnpaused();
     }
-
-    public void quit()
+    public void Quit()
     {
         Application.Quit();
+    }
+
+    public void BuyDash()
+    {
+
     }
 }
