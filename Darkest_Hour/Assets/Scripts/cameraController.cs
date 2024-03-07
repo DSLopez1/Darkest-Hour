@@ -5,47 +5,47 @@ using UnityEngine;
 
 public class cameraController : MonoBehaviour
 {
-    [SerializeField] Transform followTarget;
+    [SerializeField]
+    private float _mouseSensitivity = 3.0f;
 
-    [SerializeField] float rotationSpeed = 2f;
-    [SerializeField] float distance = 5;
+    private float _rotationY;
+    private float _rotationX;
 
-    [SerializeField] float minVerticalAngle = -45;
-    [SerializeField] float maxVerticalAngle = 45;
+    [SerializeField]
+    private Transform _target;
 
-    [SerializeField] Vector2 framingOffset;
+    [SerializeField]
+    private float _distanceFromTarget = 3.0f;
 
-    [SerializeField] bool invertX;
-    [SerializeField] bool invertY;
+    private Vector3 _currentRotation;
+    private Vector3 _smoothVelocity = Vector3.zero;
 
-    float rotationX;
-    float rotationY;
+    [SerializeField]
+    private float _smoothTime = 0.2f;
 
-    float invertXVal;
-    float invertYVal;
+    [SerializeField]
+    private Vector2 _rotationXMinMax = new Vector2(-40, 40);
 
-
-    private void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
 
     private void Update()
     {
-        invertXVal = (invertX) ? -1 : 1;
-        invertYVal = (invertY) ? -1 : 1;
+        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity;
 
-        rotationX += Input.GetAxis("Mouse Y") * invertYVal * rotationSpeed;
-        rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
+        _rotationY += mouseX;
+        _rotationX += mouseY;
 
-        rotationY += Input.GetAxis("Mouse X") * invertXVal * rotationSpeed;
+        //Apply clamping for x rotation
+        _rotationX = Mathf.Clamp(_rotationX, _rotationXMinMax.x, _rotationXMinMax.y);
 
-        var targetRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        Vector3 nextRotation = new Vector3(_rotationX, _rotationY);
 
-        var focusPosition = followTarget.position + new Vector3(framingOffset.x, framingOffset.y);
+        //Apply damping between rotation changes
+        _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
 
-        transform.position = focusPosition - targetRotation * new Vector3(0, 0, distance);
-        transform.rotation = targetRotation;
+        //Subtract forward vector of the Gameobject to point its forward vector to the target
+        transform.position = _target.position - transform.forward * _distanceFromTarget;
+
+
     }
 }
