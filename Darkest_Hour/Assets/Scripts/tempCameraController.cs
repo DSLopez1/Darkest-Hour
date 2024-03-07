@@ -2,39 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tempCameraController : MonoBehaviour
+public class TempCameraController : MonoBehaviour
 {
-    [SerializeField] int sensitivity;
-    [SerializeField] int lockVertMin;
-    [SerializeField] int lockVertMax;
-    [SerializeField] bool invertY;
+    [SerializeField] private int _sensitivity;
+    [SerializeField] private int _lockVertMin;
+    [SerializeField] private int _lockVertMax;
+    [SerializeField] private bool _invertY;
 
-    float rotX;
+    private float _rotX;
 
-    void Start()
+    private void Start()
     {
         // Lock & hide cursor
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    private void Update()
     {
         // Get input
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * _sensitivity;
+        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * _sensitivity;
 
         // Invert look
-        if (invertY)
-        { rotX += mouseY; }
+        if (_invertY)
+        { _rotX += mouseY; }
         else
-        { rotX -= mouseY; }
+        { _rotX -= mouseY; }
 
         // Clamp the rot on the x-axis
-        rotX = Mathf.Clamp(rotX, lockVertMin, lockVertMax);
+        _rotX = Mathf.Clamp(_rotX, _lockVertMin, _lockVertMax);
 
         // Rotate the cam on the x-axis
-        transform.localRotation = Quaternion.Euler(rotX, 0, 0);
+        transform.localRotation = Quaternion.Euler(_rotX, 0, 0);
 
         // Rotate the player on the y-axis
         transform.parent.Rotate(Vector3.up * mouseX);

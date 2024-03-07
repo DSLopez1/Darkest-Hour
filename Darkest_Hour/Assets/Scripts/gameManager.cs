@@ -1,59 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static gameManager instance;
+    public static GameManager instance;
 
-    [SerializeField] private GameObject menuActive;
-    [SerializeField] private GameObject menuPause;
+    [SerializeField] private GameObject _menuActive;
+    [SerializeField] private GameObject _menuPause;
+    [SerializeField] private GameObject _menuShop;
 
     [Header("-----player------")] 
 
     [SerializeField] public GameObject player;
-    [SerializeField] public tempPlayer playerScript;
+    [SerializeField] public TempPlayer playerScript;
 
-    private bool isPaused;
+    private bool _isPaused;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         instance = this;
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<tempPlayer>();
+        playerScript = player.GetComponent<TempPlayer>();
 
 
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetButtonDown("Cancel") && menuActive == null)
+        if (Input.GetButtonDown("Cancel") && _menuActive == null)
         {
-            statePaused();
-            menuActive = menuPause;
-            menuActive.SetActive(isPaused);
+            StatePaused();
+            _menuActive = _menuPause;
+            _menuActive.SetActive(_isPaused);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && _menuActive == null)
+        {
+            StatePaused();
+            _menuActive = _menuShop;
+            _menuShop.SetActive(true);
         }
     }
 
-    public void statePaused()
+    public void StatePaused()
     {
-        isPaused = !isPaused;
-
+        _isPaused = !_isPaused;
+        Debug.Log("paused");
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    public void stateUnpaused()
+    public void StateUnpaused()
     {
-        isPaused = !isPaused;
+        _isPaused = !_isPaused;
 
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        menuActive.SetActive(false);
-        menuActive = null;
+        _menuActive.SetActive(false);
+        _menuActive = null;
     }
 }

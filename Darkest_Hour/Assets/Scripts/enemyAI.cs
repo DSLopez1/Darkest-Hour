@@ -4,26 +4,28 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class enemyAI : MonoBehaviour
+public class EnemyAi : MonoBehaviour
 {
     [Header("----- Componenets -----")]
-    [SerializeField] Animator anim;
-    [SerializeField] Renderer model;
-    [SerializeField] NavMeshAgent agent;
+    [SerializeField]
+    private Animator _anim;
+    [SerializeField] private Renderer _model;
+    [SerializeField] private NavMeshAgent _agent;
     //[SerializeField] Transform shootPos;
     //[SerializeField] Transform headPos;
     //[SerializeField] AudioSource aud;
 
     [Header("----- Enemy Stats -----")]
-    [SerializeField] int HP;
-    [SerializeField] int viewCone;
+    [SerializeField]
+    private int _hp;
+    [SerializeField] private int _viewCone;
     //[SerializeField] int shootCone;
-    [SerializeField] int targetFaceSpeed;
-    [SerializeField] int animSpeedTrans;
-    [SerializeField] int roamPauseTime;
-    [SerializeField] int roamDis;
-    [SerializeField] int pointsGiven;
-    [SerializeField] int physicsResolve;
+    [SerializeField] private int _targetFaceSpeed;
+    [SerializeField] private int _animSpeedTrans;
+    [SerializeField] private int _roamPauseTime;
+    [SerializeField] private int _roamDis;
+    [SerializeField] private int _pointsGiven;
+    [SerializeField] private int _physicsResolve;
 
     //[Header("----- UI-----")]
     //[SerializeField] Image HPBar;
@@ -38,44 +40,43 @@ public class enemyAI : MonoBehaviour
     //[SerializeField] AudioClip deathSound;
     //[Range(0, 1)][SerializeField] float deathVol;
 
-    bool targetInRange;
+    private bool _targetInRange;
     //bool isPlayingSteps;
 
     // Player dest info
-    float angleToPlayer;
-    Vector3 playerDir;
+    private float _angleToPlayer;
+    private Vector3 _playerDir;
 
-    int HPOrig;
-    Color color;
-    Vector3 startingPos;
-    bool destChosen;
-    float stoppingDistanceOrig;
+    private int _hpOrig;
+    private Color _color;
+    private Vector3 _startingPos;
+    private bool _destChosen;
+    private float _stoppingDistanceOrig;
 
 
-
-    void Start()
+    private void Start()
     {
         // Initialize 
-        startingPos = transform.position;
-        HPOrig = HP;
+        _startingPos = transform.position;
+        _hpOrig = _hp;
         //updateUI();
-        color = model.material.color;
-        stoppingDistanceOrig = agent.stoppingDistance;
+        _color = _model.material.color;
+        _stoppingDistanceOrig = _agent.stoppingDistance;
     }
 
-    void Update()
+    private void Update()
     {
         // Capture velocity normalized to lerp animations as needed
-        float animSpeed = agent.velocity.normalized.magnitude;
+        float animSpeed = _agent.velocity.normalized.magnitude;
 
         // Lerp animations
-        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), animSpeed, Time.deltaTime * animSpeedTrans));
+        _anim.SetFloat("Speed", Mathf.Lerp(_anim.GetFloat("Speed"), animSpeed, Time.deltaTime * _animSpeedTrans));
 
         // Checks if player is in range
-        if (!targetInRange)
+        if (!_targetInRange)
         {
             // Roam because player isn't in range
-            StartCoroutine(roam());
+            StartCoroutine(Roam());
         }
         else
         {
@@ -83,33 +84,33 @@ public class enemyAI : MonoBehaviour
         }
     }
 
-    public void physicsDir(Vector3 dir)
+    public void PhysicsDir(Vector3 dir)
     {
-        agent.velocity += dir;
+        _agent.velocity += dir;
     }
 
-    IEnumerator roam()
+    private IEnumerator Roam()
     {
         // Make sure reamining distance is very small, or on point, & destChosen is false
-        if (agent.remainingDistance < 0.05f && !destChosen)
+        if (_agent.remainingDistance < 0.05f && !_destChosen)
         {
             // Chooses destination, updates stopping distance to allow roam, pause time
-            destChosen = true;
-            agent.stoppingDistance = 0;
-            yield return new WaitForSeconds(roamPauseTime);
+            _destChosen = true;
+            _agent.stoppingDistance = 0;
+            yield return new WaitForSeconds(_roamPauseTime);
 
             // Randomizes roam points
-            Vector3 randomPos = Random.insideUnitSphere * roamDis;
+            Vector3 randomPos = Random.insideUnitSphere * _roamDis;
             // Connects back to starting pos
-            randomPos += startingPos;
+            randomPos += _startingPos;
 
             // Roams enemy to random position on the layer selected (1 for this case)
             // Makes sure the point hits inside the NavMesh
             NavMeshHit hit;
-            NavMesh.SamplePosition(randomPos, out hit, roamDis, 1);
-            agent.SetDestination(hit.position);
+            NavMesh.SamplePosition(randomPos, out hit, _roamDis, 1);
+            _agent.SetDestination(hit.position);
 
-            destChosen = false;
+            _destChosen = false;
         }
     }
 
@@ -142,7 +143,7 @@ public class enemyAI : MonoBehaviour
     //    }
     //}
 
-    void faceTarget()
+    private void FaceTarget()
     {
         // Rotates to player if they're within stopping range
         // Makes rot ignore player's Y pos
@@ -150,34 +151,34 @@ public class enemyAI : MonoBehaviour
         //transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * targetFaceSpeed);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            targetInRange = true;
+            _targetInRange = true;
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            targetInRange = false;
-            agent.stoppingDistance = 0;
+            _targetInRange = false;
+            _agent.stoppingDistance = 0;
         }
     }
 
     public void TakeDamage(int amount)
     {
         // Play damage animation
-        anim.SetTrigger("Damage");
+        _anim.SetTrigger("Damage");
 
         // Take damage
-        HP -= amount;
+        _hp -= amount;
 
         // Flash red
-        StartCoroutine(flashMat());
-        if (HP <= 0)
+        StartCoroutine(FlashMat());
+        if (_hp <= 0)
         {
             Destroy(gameObject);
         }
@@ -186,11 +187,11 @@ public class enemyAI : MonoBehaviour
        // updateUI();
     }
 
-    IEnumerator flashMat()
+    private IEnumerator FlashMat()
     {
-        model.material.color = Color.red;
+        _model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        model.material.color = color;
+        _model.material.color = _color;
     }
 
    

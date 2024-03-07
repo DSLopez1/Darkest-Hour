@@ -9,7 +9,7 @@ public class WaterTotem : MonoBehaviour
 
     private bool _isPulsing;
 
-    void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         IDamage dmg = other.GetComponent<IDamage>();
 
@@ -22,7 +22,7 @@ public class WaterTotem : MonoBehaviour
         }
     }
 
-    IEnumerator HealPulse(IDamage dmg)
+    private IEnumerator HealPulse(IDamage dmg)
     {
         _isPulsing = true;
 
