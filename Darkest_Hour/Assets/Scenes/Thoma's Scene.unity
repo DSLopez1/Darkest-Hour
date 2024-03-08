@@ -1306,6 +1306,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3491754120923537441, guid: 6aa8acc58df958c4ead515be4702d1d0, type: 3}
+      propertyPath: cooldown
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491754120923537441, guid: 6aa8acc58df958c4ead515be4702d1d0, type: 3}
+      propertyPath: activeTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983584619358411211, guid: 6aa8acc58df958c4ead515be4702d1d0, type: 3}
+      propertyPath: cooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983584619358411211, guid: 6aa8acc58df958c4ead515be4702d1d0, type: 3}
+      propertyPath: activeTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049925968349440389, guid: 6aa8acc58df958c4ead515be4702d1d0, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4555746326957912017, guid: 6aa8acc58df958c4ead515be4702d1d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
