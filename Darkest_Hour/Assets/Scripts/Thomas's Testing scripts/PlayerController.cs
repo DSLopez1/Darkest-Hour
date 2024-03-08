@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 12f;
+    [SerializeField] float moveSpeed = 5f;
     [SerializeField] float rotationSpeed = 500f;
 
     Quaternion targetRotation;
 
     CameraController cameraController;
     Animator animator;
+    CharacterController characterController;
 
     private void Awake()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
         animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
     }
 
     private void Update()
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
         if (moveAmount > 0)
         {
-            transform.position += moveDir * moveSpeed * Time.deltaTime;
+            characterController.Move(moveDir * moveSpeed * Time.deltaTime);
             targetRotation = Quaternion.LookRotation(moveDir);
         }
 
