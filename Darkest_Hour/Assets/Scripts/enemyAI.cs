@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IDamage
 {
     [Header("----- Componenets -----")]
     [SerializeField] private Animator _anim;
@@ -37,6 +37,7 @@ public class EnemyAI : MonoBehaviour
     private Vector3 _startingPos;
     private bool _destChosen;
     private float _stoppingDistanceOrig;
+    private bool _isAttacking;
 
 
     private void Start()
@@ -72,11 +73,23 @@ public class EnemyAI : MonoBehaviour
 
     virtual protected IEnumerator Attack()
     {
-        yield return new WaitForSeconds(_attackDelay);
+        _isAttacking = true;
+
+        // Check if player is in range
         if (_agent.remainingDistance <= _agent.stoppingDistance)
         {
-            
+            // Warn player attack is coming **ADD WARNING**
+
+            // Delay attack
+            yield return new WaitForSeconds(_attackDelay);
+
+            // Attack
+            Debug.Log("Hit");
         }
+
+        // Space out attacks
+        yield return new WaitForSeconds(_timeBetweenAttacks);
+        _isAttacking = false;
     }
 
     public void PhysicsDir(Vector3 dir)
@@ -128,7 +141,7 @@ public class EnemyAI : MonoBehaviour
                 // Moves to player
                 _agent.SetDestination(GameManager.instance.player.transform.position);
                 // Checks if player is in view cone
-                if (_angleToPlayer <= _viewCone)
+                if (!_isAttacking && _angleToPlayer <= _viewCone)
                 {
                     StartCoroutine(Attack());
                 }
