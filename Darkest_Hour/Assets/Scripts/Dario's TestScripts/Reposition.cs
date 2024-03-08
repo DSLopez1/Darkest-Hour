@@ -11,10 +11,12 @@ public class Reposition : Ability
     public float force;
     private Vector3 _velocity;
     private float tempGrav;
+    [SerializeField] float _moveSpeed;
+
+    IPhysics phys;
 
     public override void Casting()
     {
-        IPhysics phys;
         phys = GameManager.instance.player.GetComponent<IPhysics>();
         _velocity.y = 1;
 
@@ -31,5 +33,8 @@ public class Reposition : Ability
     {
         cooldownImage = GameManager.instance.ability4Image;
         GameManager.instance.PlayerCam.cameraLocked = true;
+
+        phys.PhysicsDir((GameManager.instance.player.transform.position - GameManager.instance.playerScript.targetLocation.position).normalized * _moveSpeed);
+        
     }
 }

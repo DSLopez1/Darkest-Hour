@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  _pulseInterval: 0.5
+  _pulseInterval: 0.05
   activeTime: 0
 --- !u!23 &2046225222583274105
 MeshRenderer:

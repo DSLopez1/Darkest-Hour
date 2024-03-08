@@ -19,3 +19,4 @@ MonoBehaviour:
   cooldownImage: {fileID: 0}
   _onCooldown: 0
   force: 100
+  _moveSpeed: 70

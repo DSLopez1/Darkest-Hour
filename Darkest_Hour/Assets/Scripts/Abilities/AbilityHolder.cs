@@ -77,6 +77,5 @@ public class AbilityHolder : MonoBehaviour
                 }
                 break;
         }
-        
     }
 }

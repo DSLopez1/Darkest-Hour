@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TargeterProjectile : MonoBehaviour
+{
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private float speed;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        Vector3 movement = transform.forward * speed * Time.deltaTime;
+        rb.MovePosition(rb.position + movement);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+
+        if (other.isTrigger)
+            return;
+        GameManager.instance.playerScript.targetLocation = transform;
+        speed = 0;
+    }
+}
