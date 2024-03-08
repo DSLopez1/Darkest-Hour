@@ -29,8 +29,6 @@ public class FirebeamObj : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.isTrigger)
-            return;
 
        IDamage dmg = other.GetComponent<IDamage>();
 
@@ -38,6 +36,7 @@ public class FirebeamObj : MonoBehaviour
        {
            if (!isTicking)
            {
+               Debug.Log("starting courtine");
                StartCoroutine(burn(dmg));
            }
        }

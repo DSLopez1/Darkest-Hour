@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("-----player------")] 
 
     [SerializeField] public GameObject player;
-    [SerializeField] public TempPlayer playerScript;
+    [SerializeField] public ThirdPersonMovement playerScript;
 
     [Header("-----AbilityUI------")]
     [SerializeField] public Image dashImage;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<TempPlayer>();
+        playerScript = player.GetComponent<ThirdPersonMovement>();
 
 
     }
