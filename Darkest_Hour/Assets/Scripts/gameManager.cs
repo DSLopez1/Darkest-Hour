@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -19,9 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public PlayerController playerScript;
 
     [Header("-----AbilityUI------")]
-    [SerializeField] public Image ability1;
-
-    [SerializeField] public Image ability2;
+    [SerializeField] public Image ability1Image;
+    [SerializeField] public Image ability2Image;
 
     private bool _isPaused;
 

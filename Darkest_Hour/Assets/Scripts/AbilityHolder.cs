@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class AbilityHolder : MonoBehaviour
 {
-    public Image cooldownImage;
     public Ability ability;
     public float cooldown;
     public float activeTime;
@@ -52,11 +51,11 @@ public class AbilityHolder : MonoBehaviour
                 if (cooldown > 0)
                 {
                     cooldown -= Time.deltaTime;
-                    GameManager.instance.ability1.fillAmount = cooldown / ability._cooldownTime;
+                    ability.cooldownImage.fillAmount = cooldown / ability._cooldownTime;
                 }
                 else
                 {
-                    GameManager.instance.ability1.fillAmount = 0;
+                    ability.cooldownImage.fillAmount = 0;
                     state = abilityState.ready;
                 }
                 break;
