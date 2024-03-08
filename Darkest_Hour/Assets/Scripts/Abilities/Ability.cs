@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class Ability : ScriptableObject
 {
 
-    public string _name;
-    public float _cooldownTime;
-    public float _activeTime;
+    public string name;
+    public float cooldownTime;
+    public float activeTime;
+    public float castTime;
     public Image cooldownImage;
 
     public bool _onCooldown;
@@ -17,6 +18,7 @@ public class Ability : ScriptableObject
     {
     }
 
-
-
+    public virtual void Casting()
+    {
+    }
 }

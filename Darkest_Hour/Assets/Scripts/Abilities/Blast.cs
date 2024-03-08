@@ -18,7 +18,7 @@ public class Blast : Ability
 
         GameObject instantiateObj = Instantiate(blastObj, GameManager.instance.player.transform);
         blastScript = instantiateObj.GetComponent<BlastObjScript>();
-        blastScript.activeTime = _activeTime;
+        blastScript.activeTime = activeTime;
         blastScript.damage = _damage;
         blastScript.radius = _radius;
     }

@@ -44,8 +44,7 @@ public class PlayerController : MonoBehaviour, IPhysics
 
         _moveDir = (cameraController.PlanarRotation * moveInput) * playerSpeed;
 
-        // Adding gravity
-
+        //Gravity
         if (!characterController.isGrounded)
         {
             _pushBack.y -= gravity * Time.deltaTime;
@@ -54,6 +53,7 @@ public class PlayerController : MonoBehaviour, IPhysics
         {
             _pushBack.y = 0;
         }
+
         if (moveAmount > 0)
         {
             characterController.Move((_moveDir + _pushBack) * Time.deltaTime);

@@ -18,7 +18,7 @@ public class FireBeam : Ability
         Debug.Log("Activating");
         GameObject instantiatedBeam = Instantiate(beam, GameManager.instance.playerScript.firePos);
         FirebeamObj beamScript = instantiatedBeam.GetComponent<FirebeamObj>();
-        beamScript.activeTime = _activeTime;
+        beamScript.activeTime = activeTime;
         beamScript.damage = _damage;
     }
 

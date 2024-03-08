@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public GameObject player;
     [SerializeField] public PlayerController playerScript;
+    [SerializeField] public CameraController PlayerCam;
 
     [Header("-----AbilityUI------")]
     [SerializeField] public Image ability1Image;
     [SerializeField] public Image ability2Image;
     [SerializeField] public Image ability3Image;
+    [SerializeField] public Image ability4Image;
 
     private bool _isPaused;
 
