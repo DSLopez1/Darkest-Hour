@@ -47,6 +47,14 @@ public class AbilityHolder : MonoBehaviour
                 break;
 
             case abilityState.cooldown:
+                if (cooldown > 0)
+                {
+                    cooldown -= Time.deltaTime;
+                }
+                else
+                {
+                    state = abilityState.ready;
+                }
                 break;
         }
         
