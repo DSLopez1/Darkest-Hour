@@ -4,48 +4,33 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class EnemyAi : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     [Header("----- Componenets -----")]
-    [SerializeField]
-    private Animator _anim;
+    [SerializeField] private Animator _anim;
     [SerializeField] private Renderer _model;
     [SerializeField] private NavMeshAgent _agent;
-    //[SerializeField] Transform shootPos;
-    //[SerializeField] Transform headPos;
-    //[SerializeField] AudioSource aud;
+    [SerializeField] private Transform _headPos;
 
     [Header("----- Enemy Stats -----")]
-    [SerializeField]
-    private int _hp;
+    [SerializeField] private int _hp;
     [SerializeField] private int _viewCone;
-    //[SerializeField] int shootCone;
     [SerializeField] private int _targetFaceSpeed;
     [SerializeField] private int _animSpeedTrans;
     [SerializeField] private int _roamPauseTime;
     [SerializeField] private int _roamDis;
     [SerializeField] private int _pointsGiven;
     [SerializeField] private int _physicsResolve;
+    [SerializeField] private int _attackDelay;
+    [SerializeField] private int _timeBetweenAttacks;
 
-    //[Header("----- UI-----")]
-    //[SerializeField] Image HPBar;
-
-    //[Header("Audio")]
-    //[SerializeField] AudioClip[] soundsSteps;
-    //[Range(0, 1)][SerializeField] float soundStepVol;
-    //[SerializeField] AudioClip soundsShoot;
-    //[Range(0, 1)][SerializeField] float soundShootVol;
-    //[SerializeField] AudioClip hurtSound;
-    //[Range(0, 1)][SerializeField] float hurtVol;
-    //[SerializeField] AudioClip deathSound;
-    //[Range(0, 1)][SerializeField] float deathVol;
-
-    private bool _targetInRange;
-    //bool isPlayingSteps;
+    [Header("----- UI-----")]
+    [SerializeField] Image _HPBar;
 
     // Player dest info
     private float _angleToPlayer;
     private Vector3 _playerDir;
+    private bool _targetInRange;
 
     private int _hpOrig;
     private Color _color;
@@ -59,7 +44,7 @@ public class EnemyAi : MonoBehaviour
         // Initialize 
         _startingPos = transform.position;
         _hpOrig = _hp;
-        //updateUI();
+        UpdateUI();
         _color = _model.material.color;
         _stoppingDistanceOrig = _agent.stoppingDistance;
     }
@@ -80,7 +65,17 @@ public class EnemyAi : MonoBehaviour
         }
         else
         {
-            //canSeePlayer();
+            // Player is in range check if it they're in the view cone
+            CanSeePlayer();
+        }
+    }
+
+    virtual protected IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(_attackDelay);
+        if (_agent.remainingDistance <= _agent.stoppingDistance)
+        {
+            
         }
     }
 
@@ -114,41 +109,43 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    //void canSeePlayer()
-    //{
-    //    // Finds where player is
-    //    playerDir = gameManager.instance.player.transform.position - headPos.position;
-    //    angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
+    void CanSeePlayer()
+    {
+        // Finds where player is
+        _playerDir = GameManager.instance.player.transform.position - _headPos.position;
+        _angleToPlayer = Vector3.Angle(new Vector3(_playerDir.x, 0, _playerDir.z), transform.forward);
 
-    //    // Check if Raycast hits player or something else
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(headPos.position, playerDir, out hit))
-    //    {
-    //        // Did we hit both the player & the player is in the cone
-    //        if (hit.collider.CompareTag(targetChoice))
-    //        {
-    //            // Moves to player
-    //            agent.SetDestination(gameManager.instance.player.transform.position);
-    //            // Starts shooting if not already shooting & in cone of gun
-    //            if (!isShooting && angleToPlayer <= shootCone)
-    //            {
-    //                StartCoroutine(shoot());
-    //            }
+        // Check if Raycast hits player or something else
+        RaycastHit hit;
+        if (Physics.Raycast(_headPos.position, _playerDir, out hit))
+        {
+            // Did we hit both the player & the player is in the cone
+            if (hit.collider.CompareTag("Player"))
+            {
+                // Reset stopping distance to original number
+                _agent.stoppingDistance = _stoppingDistanceOrig;
 
-    //            if (agent.remainingDistance < agent.stoppingDistance) { faceTarget(); }
+                // Moves to player
+                _agent.SetDestination(GameManager.instance.player.transform.position);
+                // Checks if player is in view cone
+                if (_angleToPlayer <= _viewCone)
+                {
+                    StartCoroutine(Attack());
+                }
 
-    //            // Reset stopping distance to original number
-    //            agent.stoppingDistance = stoppingDistanceOrig;
-    //        }
-    //    }
-    //}
+                if (_agent.remainingDistance < _agent.stoppingDistance) { FaceTarget(); }
+
+                
+            }
+        }
+    }
 
     private void FaceTarget()
     {
         // Rotates to player if they're within stopping range
         // Makes rot ignore player's Y pos
-        //Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, transform.position.y, playerDir.z));
-        //transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * targetFaceSpeed);
+        Quaternion rot = Quaternion.LookRotation(new Vector3(_playerDir.x, transform.position.y, _playerDir.z));
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * _targetFaceSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -183,8 +180,7 @@ public class EnemyAi : MonoBehaviour
             Destroy(gameObject);
         }
         // Lower HP on HP bar
-
-       // updateUI();
+       UpdateUI();
     }
 
     private IEnumerator FlashMat()
@@ -194,10 +190,10 @@ public class EnemyAi : MonoBehaviour
         _model.material.color = _color;
     }
 
-   
-    //void updateUI()
-    //{
-    //    // Updates HP bar
-    //    HPBar.fillAmount = (float)HP / HPOrig;
-    //}
+
+    void UpdateUI()
+    {
+        // Updates HP bar
+        _HPBar.fillAmount = (float)_hp / _hpOrig;
+    }
 }

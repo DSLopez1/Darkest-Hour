@@ -733,17 +733,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601762426748d9042bb86de3630d2aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 5234022504639620749}
-  model: {fileID: 4218010439003063161}
-  agent: {fileID: 4177554877566655115}
-  HP: 50
-  viewCone: 45
-  targetFaceSpeed: 5
-  animSpeedTrans: 5
-  roamPauseTime: 2
-  roamDis: 15
-  pointsGiven: 10
-  physicsResolve: 1
+  _anim: {fileID: 5234022504639620749}
+  _model: {fileID: 4218010439003063161}
+  _agent: {fileID: 4177554877566655115}
+  _headPos: {fileID: 3307830635132565172}
+  _hp: 5
+  _viewCone: 45
+  _targetFaceSpeed: 5
+  _animSpeedTrans: 5
+  _roamPauseTime: 3
+  _roamDis: 15
+  _pointsGiven: 2
+  _physicsResolve: 1
 --- !u!95 &5234022504639620749
 Animator:
   serializedVersion: 5
@@ -779,7 +780,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
