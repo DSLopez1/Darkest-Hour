@@ -112,5 +112,5 @@ MonoBehaviour:
   minVerticalAngle: -10
   maxVerticalAngle: 20
   framingOffset: {x: 0, y: 0}
-  invertX: 1
-  invertY: 1
+  invertX: 0
+  invertY: 0
