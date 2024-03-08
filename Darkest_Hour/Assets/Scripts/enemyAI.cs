@@ -28,9 +28,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [SerializeField] Image _HPBar;
 
     // Player dest info
-    private float _angleToPlayer;
-    private Vector3 _playerDir;
-    private bool _targetInRange;
+    public float _angleToPlayer;
+    public Vector3 _playerDir;
+    public bool _targetInRange;
 
     private int _hpOrig;
     private Color _color;
@@ -128,29 +128,19 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         _playerDir = GameManager.instance.player.transform.position - _headPos.position;
         _angleToPlayer = Vector3.Angle(new Vector3(_playerDir.x, 0, _playerDir.z), transform.forward);
 
-        // Check if Raycast hits player or something else
-        RaycastHit hit;
-        if (Physics.Raycast(_headPos.position, _playerDir, out hit))
+        // Reset stopping distance to original number
+        _agent.stoppingDistance = _stoppingDistanceOrig;
+
+        // Moves to player
+        _agent.SetDestination(GameManager.instance.player.transform.position);
+        // Checks if player is in view cone
+        if (!_isAttacking && _angleToPlayer <= _viewCone)
         {
-            // Did we hit both the player & the player is in the cone
-            if (hit.collider.CompareTag("Player"))
-            {
-                // Reset stopping distance to original number
-                _agent.stoppingDistance = _stoppingDistanceOrig;
-
-                // Moves to player
-                _agent.SetDestination(GameManager.instance.player.transform.position);
-                // Checks if player is in view cone
-                if (!_isAttacking && _angleToPlayer <= _viewCone)
-                {
-                    StartCoroutine(Attack());
-                }
-
-                if (_agent.remainingDistance < _agent.stoppingDistance) { FaceTarget(); }
-
-                
-            }
+            StartCoroutine(Attack());
         }
+        // Turn to face player
+        if (_agent.remainingDistance < _agent.stoppingDistance) { FaceTarget(); }
+
     }
 
     private void FaceTarget()
