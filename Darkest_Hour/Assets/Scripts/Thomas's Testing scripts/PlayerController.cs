@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IPhysics
     [SerializeField] float rotationSpeed = 500f;
     [SerializeField] public Transform firePos;
     [SerializeField] private float physResolve;
+    [SerializeField] public float gravity;
 
     Quaternion targetRotation;
 
@@ -42,6 +43,16 @@ public class PlayerController : MonoBehaviour, IPhysics
         var moveInput = (new Vector3(h, 0, v)).normalized;
 
         _moveDir = (cameraController.PlanarRotation * moveInput) * playerSpeed;
+
+        //Gravity
+        if (!characterController.isGrounded)
+        {
+            _pushBack.y -= gravity * Time.deltaTime;
+        }
+        else
+        {
+            _pushBack.y = 0;
+        }
 
         if (moveAmount > 0)
         {

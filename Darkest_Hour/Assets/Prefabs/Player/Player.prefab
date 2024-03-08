@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 6693634222053226695}
   - component: {fileID: 3983584619358411211}
   - component: {fileID: 3491754120923537441}
+  - component: {fileID: 1763365142005368720}
   - component: {fileID: 4049925968349440389}
   - component: {fileID: 2497651228858688221}
   m_Layer: 0
@@ -408,6 +409,7 @@ MonoBehaviour:
   rotationSpeed: 500
   firePos: {fileID: 5438970665096870089}
   physResolve: 3
+  gravity: 25
 --- !u!114 &3983584619358411211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +442,22 @@ MonoBehaviour:
   cooldown: 0
   activeTime: 0
   key: 101
+--- !u!114 &1763365142005368720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026371295747471216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4b529fc6b86aa40988d231edfa92aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: ac560ce87ea6d4c40b0c95009aa59392, type: 2}
+  cooldown: 0
+  activeTime: 0
+  key: 102
 --- !u!95 &4049925968349440389
 Animator:
   serializedVersion: 5

@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     float invertXval;
     float invertYval;
 
+    public bool cameraLocked = true;
+
     private void Start()
     {
         Cursor.visible = false;
@@ -35,7 +37,10 @@ public class CameraController : MonoBehaviour
         invertYval = invertY ? -1 : 1;
 
         rotationX += Input.GetAxis("Mouse Y") * invertYval * rotationSpeed;
-        rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
+        if (cameraLocked)
+        {
+            rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
+        }
 
         if (transform.eulerAngles.x < 180 && rotationX > 180)
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu]
 
@@ -13,10 +14,11 @@ public class FireBeam : Ability
 
     public override void Activate()
     {
+        cooldownImage = GameManager.instance.ability2Image;
         Debug.Log("Activating");
         GameObject instantiatedBeam = Instantiate(beam, GameManager.instance.playerScript.firePos);
         FirebeamObj beamScript = instantiatedBeam.GetComponent<FirebeamObj>();
-        beamScript.activeTime = _activeTime;
+        beamScript.activeTime = activeTime;
         beamScript.damage = _damage;
     }
 

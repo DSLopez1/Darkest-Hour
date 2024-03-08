@@ -15,6 +15,7 @@ MonoBehaviour:
   _name: FireBeam
   _cooldownTime: 5
   _activeTime: 7
+  cooldownImage: {fileID: 0}
   _onCooldown: 0
   beam: {fileID: 236470070808787033, guid: 3b5ca027bc0d3d14e95923947cb0e045, type: 3}
-  _damage: 5
+  _damage: 8

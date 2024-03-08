@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e508a98b5d290f847928acffd5fcda96, type: 3}
-  m_Name: DashAbility
+  m_Script: {fileID: 11500000, guid: df63ec0fcaea7dc40a99b9e3087fd097, type: 3}
+  m_Name: BlastAbility
   m_EditorClassIdentifier: 
-  _name: Dash
+  _name: Blast
   _cooldownTime: 3
-  _activeTime: 0.5
+  _activeTime: 1
+  cooldownImage: {fileID: 0}
   _onCooldown: 0
-  dashVelocity: 100
+  _pushBack: 5
+  _radius: 5
+  _damage: 3
+  blastObj: {fileID: 5929287929839878, guid: 97eb66ea73c52294b9c5d2e378d8f827, type: 3}
+  blastScript: {fileID: 0}
