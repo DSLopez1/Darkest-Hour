@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Dash
   _cooldownTime: 3
-  _activeTime: 0.5
+  _activeTime: 0.1
+  cooldownImage: {fileID: 0}
   _onCooldown: 0
-  dashVelocity: 100
+  dashVelocity: 25

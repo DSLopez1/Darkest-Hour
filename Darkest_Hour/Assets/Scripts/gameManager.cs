@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("-----AbilityUI------")]
     [SerializeField] public Image ability1Image;
     [SerializeField] public Image ability2Image;
+    [SerializeField] public Image ability3Image;
 
     private bool _isPaused;
 
