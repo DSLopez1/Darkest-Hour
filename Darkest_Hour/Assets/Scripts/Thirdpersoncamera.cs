@@ -17,6 +17,8 @@ public class Thirdpersoncamera : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+
+        Cursor.visible = false;
         _targetDistance = Vector3.Distance(transform.position, target.transform.position);
     }
 

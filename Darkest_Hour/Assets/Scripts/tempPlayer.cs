@@ -5,8 +5,7 @@ using UnityEngine;
 public class TempPlayer : MonoBehaviour, IDamage, IPhysics
 {
     [Header("----- Componenets -----")]
-    [SerializeField]
-    private CharacterController _controller;
+    [SerializeField] private CharacterController _controller;
 
     [Header("----- Player Stats -----")] 
     [SerializeField] public int hp;
@@ -15,7 +14,6 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _gravity;
     [SerializeField] private float _sprintMod;
-    [SerializeField] private float _dashForce;
     [SerializeField] private float _pushBackResolution;
 
     private Vector3 _move;
@@ -36,7 +34,7 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     private void Movement()
     {
 
-        _pushBack = Vector3.Lerp(_pushBack, Vector3.zero, _pushBackResolution);
+        _pushBack = Vector3.Lerp(_pushBack, Vector3.zero, _pushBackResolution * Time.deltaTime);
 
         if (_controller.isGrounded)
         {
