@@ -180,6 +180,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     public void TakeDamage(int amount)
     {
+        Debug.Log("Taking Damage");
         // Play damage animation
         _anim.SetTrigger("Damage");
 

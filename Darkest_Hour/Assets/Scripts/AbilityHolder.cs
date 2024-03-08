@@ -52,11 +52,11 @@ public class AbilityHolder : MonoBehaviour
                 if (cooldown > 0)
                 {
                     cooldown -= Time.deltaTime;
-                    GameManager.instance.dashImage.fillAmount = cooldown / ability._cooldownTime;
+                    GameManager.instance.ability1.fillAmount = cooldown / ability._cooldownTime;
                 }
                 else
                 {
-                    GameManager.instance.dashImage.fillAmount = 0;
+                    GameManager.instance.ability1.fillAmount = 0;
                     state = abilityState.ready;
                 }
                 break;

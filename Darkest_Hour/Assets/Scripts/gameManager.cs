@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public PlayerController playerScript;
 
     [Header("-----AbilityUI------")]
-    [SerializeField] public Image dashImage;
+    [SerializeField] public Image ability1;
+
+    [SerializeField] public Image ability2;
 
     private bool _isPaused;
 
