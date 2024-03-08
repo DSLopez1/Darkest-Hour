@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public GameObject player;
     [SerializeField] public TempPlayer playerScript;
+
+    [Header("-----AbilityUI------")]
+    [SerializeField] public Image dashImage;
 
     private bool _isPaused;
 

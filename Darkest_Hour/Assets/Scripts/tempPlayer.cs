@@ -16,6 +16,9 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private float _sprintMod;
     [SerializeField] private float _pushBackResolution;
 
+    [Header("-----AbilityPos-----")] 
+    [SerializeField] public Transform firePos;
+
     private Vector3 _move;
     private Vector3 _playerVelocity;
     private Vector3 _pushBack;
