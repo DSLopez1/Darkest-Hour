@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class FirebeamObj : MonoBehaviour
 {
-    [SerializeField] private int _damage;
+    [SerializeField] public int damage;
     [SerializeField] private float _pulseInterval;
+    public float activeTime;
 
     private bool isTicking;
 
@@ -25,11 +27,20 @@ public class FirebeamObj : MonoBehaviour
             GameManager.instance.player.transform.rotation.eulerAngles.z);
 
         gameObject.transform.rotation = Quaternion.Euler(newRotation);
+        if (activeTime > 0)
+        {
+            activeTime -= Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerStay(Collider other)
     {
-
+        if (other.isTrigger)
+            return;
        IDamage dmg = other.GetComponent<IDamage>();
 
        if (dmg != null)
@@ -46,7 +57,7 @@ public class FirebeamObj : MonoBehaviour
     {
         isTicking = true;
         
-        dmg.TakeDamage(_damage);
+        dmg.TakeDamage(damage);
         yield return new WaitForSeconds(_pulseInterval);
 
         isTicking = false;

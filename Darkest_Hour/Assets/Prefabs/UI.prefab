@@ -543,6 +543,8 @@ MonoBehaviour:
   _menuShop: {fileID: 551051468204583165}
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  ability1: {fileID: 8940946280076225719}
+  ability2: {fileID: 0}
 --- !u!1 &4023589515594322742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1502,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
