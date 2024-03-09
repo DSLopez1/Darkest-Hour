@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private Renderer _model;
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Transform _headPos;
+    [SerializeField] private Collider _meleeCollider; 
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] private int _hp;
@@ -80,10 +81,23 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         {
             // Warn player attack is coming **ADD WARNING**
 
+
             // Delay attack
             yield return new WaitForSeconds(_attackDelay);
 
             // Attack
+            // Start animation
+            _anim.SetTrigger("Attack");
+
+            // Turn collider on
+            _meleeCollider.enabled = true;
+
+            // Check if collider hit player if yes deal damage
+            _meleeCollider.CompareTag("Player");
+
+            // Turn collider off
+            _meleeCollider.enabled = false;
+
             Debug.Log("Hit");
         }
 
