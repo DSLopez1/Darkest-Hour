@@ -5,6 +5,8 @@ using UnityEngine;
 public class enemMeleeAttack : MonoBehaviour
 {
     [SerializeField] int _damageAmount;
+    [SerializeField] CapsuleCollider _col;
+
     private void OnTriggerEnter(Collider other)
     {
         // Make sure triggers don't trigger triggers
@@ -13,6 +15,9 @@ public class enemMeleeAttack : MonoBehaviour
         // Check if it hit player
         if (other.CompareTag("Player"))
         {
+            // Turn off collider to prevent instances of double damage
+            _col.enabled = false;
+
             // Create damage
             IDamage dmg = other.GetComponent<IDamage>();
 

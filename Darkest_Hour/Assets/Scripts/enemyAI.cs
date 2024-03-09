@@ -104,8 +104,11 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
 
     public void MeleeColliderOff()
     {
-        // Animation turns off
-        _meleeCollider.enabled = false;
+        if (_meleeCollider.enabled)
+        {
+            // Animation turns off
+            _meleeCollider.enabled = false;
+        } 
     }
 
     public void PhysicsDir(Vector3 dir)
