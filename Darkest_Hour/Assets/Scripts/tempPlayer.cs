@@ -11,7 +11,7 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private CharacterController _controller;
 
     [SerializeField] private GameObject _targeterObject;
-    [SerializeField] private Transform _shootPos;
+    [SerializeField] public Transform shootPos;
 
     [Header("----- Player Stats -----")] 
     [SerializeField] public int hp;
@@ -79,7 +79,7 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     {
         _isShooting = true;
 
-        GameObject instObj = Instantiate(obj, _shootPos.position, Camera.main.transform.rotation);
+        GameObject instObj = Instantiate(obj, shootPos.position, Camera.main.transform.rotation);
 
         yield return new WaitForSeconds(1);
         _isShooting = false;
