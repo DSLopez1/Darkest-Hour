@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+
 public class EnemyAI : MonoBehaviour, IDamage, IPhysics
 {
     [Header("----- Componenets -----")]
@@ -29,9 +30,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [SerializeField] Image _HPBar;
 
     // Player dest info
-    public float _angleToPlayer;
-    public Vector3 _playerDir;
-    public bool _targetInRange;
+    private float _angleToPlayer;
+    private Vector3 _playerDir;
+    private bool _targetInRange;
 
     private int _hpOrig;
     private Color _color;
@@ -88,22 +89,26 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
             // Attack
             // Start animation
             _anim.SetTrigger("Attack");
-
-            // Turn collider on
-            _meleeCollider.enabled = true;
-
-            // Check if collider hit player if yes deal damage
-            _meleeCollider.CompareTag("Player");
-
-            // Turn collider off
-            _meleeCollider.enabled = false;
-
-            Debug.Log("Hit");
         }
 
         // Space out attacks
         yield return new WaitForSeconds(_timeBetweenAttacks);
         _isAttacking = false;
+    }
+
+    public void MeleeColliderOn()
+    {
+        // Animation turns on
+        _meleeCollider.enabled = true;
+    }
+
+    public void MeleeColliderOff()
+    {
+        if (_meleeCollider.enabled)
+        {
+            // Animation turns off
+            _meleeCollider.enabled = false;
+        } 
     }
 
     public void PhysicsDir(Vector3 dir)
@@ -169,7 +174,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     {
         if (other.CompareTag("Player"))
         {
-            _targetInRange = true;
+            _targetInRange = true; 
         }
     }
 
