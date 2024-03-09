@@ -109,20 +109,20 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
         _pushBack += dir;
     }
 
-    public void callLerp(Transform startPos, Vector3 endPos, float lerpSpeed)
+    public void callMove(Vector3 startPos, Vector3 endPos, float moveSpeed)
     {
-        StartCoroutine(lerpToPos(startPos, endPos, lerpSpeed));
+        StartCoroutine(moveToPos(startPos, endPos, moveSpeed));
     }
 
-    IEnumerator lerpToPos(Transform startPos, Vector3 endPos, float lerpSpeed)
+    IEnumerator moveToPos(Vector3 startPos, Vector3 endPos, float moveSpeed)
     {
         float time = 0;
-        Vector3 safeEndPos = endPos + (startPos.position - endPos).normalized * 3f;
+        Vector3 safeEndPos = endPos + (startPos - endPos).normalized * 3f;
 
         while (Vector3.Distance(transform.position, safeEndPos) > 0.01f) // 0.01f is a small threshold to avoid floating point imprecision
         {
             // Move towards the target position
-            transform.position = Vector3.MoveTowards(transform.position, safeEndPos, lerpSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, safeEndPos, moveSpeed * Time.deltaTime);
             yield return null; // Wait for the next frame
         }
 

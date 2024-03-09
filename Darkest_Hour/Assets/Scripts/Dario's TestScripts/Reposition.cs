@@ -11,10 +11,11 @@ public class Reposition : Ability
     public float force;
     private Vector3 _velocity;
     private float tempGrav;
-    [SerializeField] private float _lerpSpeed;
+    [SerializeField] private float _moveSpeed;
 
     private CharacterController _controller;
     private Rigidbody _rb;
+    private Vector3 startPos;
     IPhysics phys;
 
     public override void Casting()
@@ -23,6 +24,8 @@ public class Reposition : Ability
         _controller = GameManager.instance.player.GetComponent<CharacterController>();
         _rb = GameManager.instance.player.GetComponent<Rigidbody>();
         _velocity.y = 1;
+
+        startPos = GameManager.instance.player.transform.position;
 
         if (phys != null)
         {
@@ -36,8 +39,11 @@ public class Reposition : Ability
         cooldownImage = GameManager.instance.ability4Image;
         
         _controller.enabled = false;
-        Transform startPos = GameManager.instance.player.transform; 
-        GameManager.instance.playerScript.callLerp(startPos, GameManager.instance.playerScript.targetObjPosition, _lerpSpeed);
-        
+        if (GameManager.instance.playerScript.targetObjPosition == Vector3.zero)
+        {
+            GameManager.instance.playerScript.targetObjPosition = startPos;
+        }
+
+        GameManager.instance.playerScript.callMove(startPos, GameManager.instance.playerScript.targetObjPosition, _moveSpeed);
     }
 }
