@@ -4,16 +4,21 @@ using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
-public class PlayerController : MonoBehaviour, IPhysics
+public class PlayerController : MonoBehaviour, IDamage, IPhysics
 {
+    [Header("----- Componenets -----")]
     [SerializeField] private GameObject _targeterGameObject;
+    [SerializeField] public Transform firePos;
+    [SerializeField] public Transform targetLocation;
 
+    [Header("----- Player Stats -----")]
     [SerializeField] public float playerSpeed = 5f;
     [SerializeField] private float _rotationSpeed = 500f;
-    [SerializeField] public Transform firePos;
     [SerializeField] private float physResolve;
     [SerializeField] public float gravity;
-    [SerializeField] public Transform targetLocation;
+    [SerializeField] private int _hpMax;
+    private int _HP;
+    
 
     Quaternion targetRotation;
 
@@ -31,6 +36,7 @@ public class PlayerController : MonoBehaviour, IPhysics
         cameraController = Camera.main.GetComponent<CameraController>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        _HP = _hpMax;
     }
 
     private void Update()
@@ -40,7 +46,7 @@ public class PlayerController : MonoBehaviour, IPhysics
 
         if (Input.GetButtonDown("Fire1") && !_isShooting)
         {
-            StartCoroutine(shootProjectile(_targeterGameObject));
+            //StartCoroutine(shootProjectile(_targeterGameObject));
         }
         
     }
@@ -51,6 +57,20 @@ public class PlayerController : MonoBehaviour, IPhysics
 
         yield return new WaitForSeconds(3);
         _isShooting = false;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        // Take damage
+        _HP -= amount;
+
+        // Update UI to reflect current HP
+
+        if (_HP < 0)
+        {
+            // Talk to game manager to lose or respawn based on lives left
+            Debug.Log("You died!"); // Delete once we implement the above code
+        }
     }
 
     public Vector3 getMoveVec()

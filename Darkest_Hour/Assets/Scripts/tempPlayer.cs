@@ -9,7 +9,6 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
 {
     [Header("----- Componenets -----")]
     [SerializeField] private CharacterController _controller;
-
     [SerializeField] private GameObject _targeterObject;
     [SerializeField] private Transform _shootPos;
 
