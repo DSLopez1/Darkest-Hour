@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Reposition
   cooldownTime: 5
   activeTime: 1
-  castTime: 3
+  castTime: 2
   cooldownImage: {fileID: 0}
   _onCooldown: 0
   force: 100
-  _lerpSpeed: 0.5
+  _lerpSpeed: 200

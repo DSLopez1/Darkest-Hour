@@ -24,7 +24,7 @@ public class Reposition : Ability
         _rb = GameManager.instance.player.GetComponent<Rigidbody>();
         _velocity.y = 1;
 
-        if (phys != null && _controller.isGrounded)
+        if (phys != null)
         {
             phys.PhysicsDir(_velocity * force);
             GameManager.instance.playerScript.gravOn = false;
@@ -34,12 +34,10 @@ public class Reposition : Ability
     public override void Activate()
     {
         cooldownImage = GameManager.instance.ability4Image;
-        if (!_controller.isGrounded)
-        {
-            _controller.enabled = false;
-            Transform startPos = GameManager.instance.player.transform;
-            GameManager.instance.playerScript.callLerp(startPos, GameManager.instance.playerScript.targetLocation,
-                _lerpSpeed);
-        }
+        
+        _controller.enabled = false;
+        Transform startPos = GameManager.instance.player.transform; 
+        GameManager.instance.playerScript.callLerp(startPos, GameManager.instance.playerScript.targetObjPosition, _lerpSpeed);
+        
     }
 }

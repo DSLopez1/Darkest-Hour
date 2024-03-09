@@ -17,7 +17,10 @@ public class Dash : Ability
         Debug.Log("Dashing");
         IPhysics phys = GameManager.instance.player.GetComponent<IPhysics>();
         _velocityVector = GameManager.instance.playerScript.getMoveVec().normalized;
-        _velocityVector.y = 1;
+        if (_velocityVector == Vector3.zero)
+        {
+            _velocityVector = Camera.main.transform.forward.normalized;
+        }
         phys.PhysicsDir(_velocityVector * dashVelocity);
     }
 }
