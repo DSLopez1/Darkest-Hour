@@ -6,6 +6,7 @@ public class TargeterProjectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
+    [SerializeField] private float _lifeTime;
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +18,22 @@ public class TargeterProjectile : MonoBehaviour
     {
         Vector3 movement = transform.forward * speed * Time.deltaTime;
         rb.MovePosition(rb.position + movement);
+
+        if (_lifeTime > 0)
+        {
+            _lifeTime -= Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.isTrigger)
+        if (other.isTrigger || other.CompareTag("Player"))
             return;
         GameManager.instance.playerScript.targetLocation = transform;
         speed = 0;

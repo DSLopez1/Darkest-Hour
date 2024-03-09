@@ -6,7 +6,7 @@ using UnityEngine;
 public class FirebeamObj : MonoBehaviour
 {
     [SerializeField] public int damage;
-    [SerializeField] private float _pulseInterval;
+    [SerializeField] public float _pulseInterval;
     public float activeTime;
 
     private bool isTicking;
@@ -47,7 +47,7 @@ public class FirebeamObj : MonoBehaviour
        {
            if (!isTicking)
            {
-               Debug.Log("starting courtine");
+               Debug.Log("starting coroutine");
                StartCoroutine(burn(dmg));
            }
        }

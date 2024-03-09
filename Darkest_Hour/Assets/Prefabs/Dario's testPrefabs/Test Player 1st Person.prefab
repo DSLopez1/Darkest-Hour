@@ -58,6 +58,7 @@ MonoBehaviour:
   _gravity: -25
   _sprintMod: 2
   _pushBackResolution: 3
+  firePos: {fileID: 0}
 --- !u!114 &5089065006581261092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,10 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4b529fc6b86aa40988d231edfa92aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 4d15521019671f74283874a239d7cdc1, type: 2}
-  cooldown: 0
-  activeTime: 0
-  key: 32
+  _ability: {fileID: 11400000, guid: 922521910de29534f986df48d6759c76, type: 2}
+  key: 101
 --- !u!143 &5496495550032394081
 CharacterController:
   m_ObjectHideFlags: 0
@@ -187,7 +186,7 @@ GameObject:
   - component: {fileID: 5940115610023408722}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

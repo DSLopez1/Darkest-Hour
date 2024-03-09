@@ -34,6 +34,7 @@ public class AbilityHolder : MonoBehaviour
                 {
                     _ability.Casting();
                     state = abilityState.casting;
+                    _castTime = _ability.castTime;
                 }
                 break;
             case abilityState.casting:
@@ -44,7 +45,6 @@ public class AbilityHolder : MonoBehaviour
                 else
                 {
                     state = abilityState.cast;
-                    _castTime = _ability.castTime;
                 }
                 break;
             case abilityState.cast:

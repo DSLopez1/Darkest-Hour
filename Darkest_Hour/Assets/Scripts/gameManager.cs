@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("-----player------")] 
 
     [SerializeField] public GameObject player;
-    [SerializeField] public PlayerController playerScript;
+    [SerializeField] public TempPlayer playerScript;
     [SerializeField] public CameraController PlayerCam;
 
     [Header("-----AbilityUI------")]
@@ -31,9 +32,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<PlayerController>();
-
-
+        playerScript = player.GetComponent<TempPlayer>();
     }
 
     // Update is called once per frame

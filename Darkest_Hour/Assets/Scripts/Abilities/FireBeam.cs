@@ -10,6 +10,7 @@ public class FireBeam : Ability
     [SerializeField] private GameObject beam;
 
     [SerializeField] private int _damage;
+    [SerializeField] private float _pulseInterval;
     private FirebeamObj beamScript;
 
     public override void Activate()
@@ -20,6 +21,7 @@ public class FireBeam : Ability
         FirebeamObj beamScript = instantiatedBeam.GetComponent<FirebeamObj>();
         beamScript.activeTime = activeTime;
         beamScript.damage = _damage;
+        beamScript._pulseInterval = _pulseInterval;
     }
 
 }
