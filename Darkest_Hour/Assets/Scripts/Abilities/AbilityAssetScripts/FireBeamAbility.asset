@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7458161d187a9084ea7e52ed3cdc1c52, type: 3}
   m_Name: FireBeamAbility
   m_EditorClassIdentifier: 
-  name: 
+  name: Fire Beam
   cooldownTime: 5
   activeTime: 5
   castTime: 0
