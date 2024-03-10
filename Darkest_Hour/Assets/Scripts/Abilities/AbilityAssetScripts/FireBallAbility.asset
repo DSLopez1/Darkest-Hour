@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FireBallAbility
   m_EditorClassIdentifier: 
   name: FireBall
-  cooldownTime: 2
-  activeTime: 2
-  castTime: 2
+  cooldownTime: 0.1
+  activeTime: 0
+  castTime: 0
   cooldownImage: {fileID: 0}
   _onCooldown: 0
   fireBall: {fileID: 5991858241521416307, guid: eca31d4147b6e5846b86743bb933fecf, type: 3}

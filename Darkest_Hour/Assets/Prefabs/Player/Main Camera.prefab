@@ -49,12 +49,13 @@ MonoBehaviour:
   followTarget: {fileID: 0}
   rotationSpeed: 2
   distance: 5
-  heightOffset: 2
-  minVerticalAngle: -10
+  heightOffset: 2.5
+  minVerticalAngle: -90
   maxVerticalAngle: 20
   framingOffset: {x: 0, y: 0}
   invertX: 0
   invertY: 0
+  cameraLocked: 1
 --- !u!20 &7985588578651024856
 Camera:
   m_ObjectHideFlags: 0

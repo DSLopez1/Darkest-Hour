@@ -120,18 +120,11 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
 
         while (Vector3.Distance(transform.position, safeEndPos) > 0.01f) // 0.01f is a small threshold to avoid floating point imprecision
         {
-            // Move towards the target position
             transform.position = Vector3.MoveTowards(transform.position, safeEndPos, moveSpeed * Time.deltaTime);
-            yield return null; // Wait for the next frame
+            yield return null; 
         }
 
         transform.position = safeEndPos;
-        //while (time < 1)
-        //{
-        //    transform.position = Vector3.Lerp(startPos.position, safeEndPos, time);
-        //    time += Time.deltaTime * lerpSpeed;
-        //    yield return null;
-        //}
 
         if (_controller != null)
         {
