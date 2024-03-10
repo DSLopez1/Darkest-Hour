@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  speed: 100
-  _lifeTime: 3
+  speed: 400
+  _lifeTime: 6
 --- !u!33 &4658582038031085600
 MeshFilter:
   m_ObjectHideFlags: 0

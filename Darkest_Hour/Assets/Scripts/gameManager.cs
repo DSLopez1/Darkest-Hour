@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("-----player------")] 
 
     [SerializeField] public GameObject player;
-    [SerializeField] public TempPlayer playerScript;
+    [SerializeField] public PlayerController playerScript;
     [SerializeField] public CameraController PlayerCam;
 
     [Header("-----AbilityUI------")]
@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<TempPlayer>();
+        playerScript = player.GetComponent<PlayerController>();
+        PlayerCam = Camera.main.GetComponent<CameraController>();
     }
 
     // Update is called once per frame

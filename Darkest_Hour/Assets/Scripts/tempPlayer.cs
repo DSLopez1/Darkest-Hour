@@ -9,15 +9,15 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
 {
     [Header("----- Componenets -----")]
     [SerializeField] private CharacterController _controller;
-
     [SerializeField] private GameObject _targeterObject;
-    [SerializeField] private Transform _shootPos;
+    [SerializeField] public Transform shootPos;
 
     [Header("----- Player Stats -----")] 
     [SerializeField] public int hp;
     [SerializeField] public float playerSpeed;
     [SerializeField] public int jumpMax;
     [SerializeField] private float _jumpForce;
+    [SerializeField] private float _shootDistance;
     [SerializeField] public float gravity;
     [SerializeField] private float _sprintMod;
     [SerializeField] private float _pushBackResolution;
@@ -32,7 +32,7 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     private bool _isShooting;
     public bool gravOn = true;
 
-    public Transform targetLocation;
+    public Vector3 targetObjPosition;
 
     private void Start()
     {
@@ -42,10 +42,11 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     private void Update()
     {
         Movement();
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * _shootDistance, Color.blue);
 
-        if (Input.GetButtonDown("Fire1") && !_isShooting && !_controller.isGrounded)
+        if (Input.GetButtonDown("Fire2") && !_isShooting)
         {
-            StartCoroutine(shootProjectile(_targeterObject));
+            StartCoroutine(shootRay());
         }
     }
 
@@ -77,9 +78,23 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     {
         _isShooting = true;
 
-        GameObject instObj = Instantiate(obj, _shootPos.position, Camera.main.transform.rotation);
+        GameObject instObj = Instantiate(obj, shootPos.position, Camera.main.transform.rotation);
 
         yield return new WaitForSeconds(1);
+        _isShooting = false;
+    }
+
+    IEnumerator shootRay()
+    {
+        _isShooting = true;
+
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, _shootDistance))
+        {
+            targetObjPosition = hit.point;
+        }
+        yield return new WaitForSeconds(1);
+
         _isShooting = false;
     }
 
@@ -93,28 +108,28 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
         _pushBack += dir;
     }
 
-    public void callLerp(Transform startPos, Transform endPos, float lerpSpeed)
+    public void callMove(Vector3 startPos, Vector3 endPos, float moveSpeed)
     {
-        StartCoroutine(lerpToPos(startPos, endPos, lerpSpeed));
+        StartCoroutine(moveToPos(startPos, endPos, moveSpeed));
     }
 
-    IEnumerator lerpToPos(Transform startPos, Transform endPos, float lerpSpeed)
+    IEnumerator moveToPos(Vector3 startPos, Vector3 endPos, float moveSpeed)
     {
         float time = 0;
+        Vector3 safeEndPos = endPos + (startPos - endPos).normalized * 3f;
 
-        while (time < 1)
+        while (Vector3.Distance(transform.position, safeEndPos) > 0.01f) // 0.01f is a small threshold to avoid floating point imprecision
         {
-            transform.position = Vector3.Lerp(startPos.position, endPos.position, time);
-            time += Time.deltaTime * lerpSpeed;
-            yield return null;
+            transform.position = Vector3.MoveTowards(transform.position, safeEndPos, moveSpeed * Time.deltaTime);
+            yield return null; 
         }
 
-        transform.position = endPos.position;
+        transform.position = safeEndPos;
 
         if (_controller != null)
         {
             _controller.enabled = true;
-            targetLocation = null;
+            targetObjPosition = Vector3.zero;
             gravOn = true;
         }
     }

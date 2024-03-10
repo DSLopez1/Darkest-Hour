@@ -21,6 +21,7 @@ public class CameraController : MonoBehaviour
     float invertYval;
 
     public bool cameraLocked = true;
+    private bool _isShooting;
 
     private void Start()
     {
@@ -32,6 +33,17 @@ public class CameraController : MonoBehaviour
     }
 
     private void Update()
+    {
+        cameraRotation();
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * GameManager.instance.playerScript.shootDistance, Color.blue);
+
+        if (Input.GetButtonDown("Fire2") && !_isShooting)
+        {
+            StartCoroutine(shootRay());
+        }
+    }
+
+    void cameraRotation()
     {
         invertXval = invertX ? -1 : 1;
         invertYval = invertY ? -1 : 1;
@@ -60,6 +72,20 @@ public class CameraController : MonoBehaviour
         // Update camera position and rotation
         transform.position = targetPosition;
         transform.rotation = targetRotation;
+    }
+
+    public IEnumerator shootRay()
+    {
+        _isShooting = true;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, GameManager.instance.playerScript.shootDistance))
+        {
+            Debug.Log("Shooting ray");
+            GameManager.instance.playerScript.targetObjPosition = hit.point;
+        }
+        yield return new WaitForSeconds(1);
+
+        _isShooting = false;
     }
 
     public Quaternion PlanarRotation => Quaternion.Euler(0, rotationY, 0);

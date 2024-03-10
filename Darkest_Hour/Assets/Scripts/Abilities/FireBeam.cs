@@ -18,7 +18,7 @@ public class FireBeam : Ability
         cooldownImage = GameManager.instance.ability2Image;
         Debug.Log("Activating");
         GameObject instantiatedBeam = Instantiate(beam, GameManager.instance.playerScript.firePos);
-        FirebeamObj beamScript = instantiatedBeam.GetComponent<FirebeamObj>();
+        beamScript = instantiatedBeam.GetComponent<FirebeamObj>();
         beamScript.activeTime = activeTime;
         beamScript.damage = _damage;
         beamScript._pulseInterval = _pulseInterval;

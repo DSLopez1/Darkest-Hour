@@ -18,7 +18,6 @@ public class TargeterProjectile : MonoBehaviour
     {
         Vector3 movement = transform.forward * speed * Time.deltaTime;
         rb.MovePosition(rb.position + movement);
-
         if (_lifeTime > 0)
         {
             _lifeTime -= Time.deltaTime;
@@ -27,7 +26,6 @@ public class TargeterProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -35,7 +33,7 @@ public class TargeterProjectile : MonoBehaviour
 
         if (other.isTrigger || other.CompareTag("Player"))
             return;
-        GameManager.instance.playerScript.targetLocation = transform;
+        GameManager.instance.playerScript.targetObjPosition = transform.position;
         speed = 0;
     }
 }
