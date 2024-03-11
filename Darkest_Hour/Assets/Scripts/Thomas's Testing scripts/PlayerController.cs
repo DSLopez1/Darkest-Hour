@@ -67,7 +67,10 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         if (_HP < 0)
         {
             // Talk to game manager to lose or respawn based on lives left
+            GameManager.instance.youLose();
+
             Debug.Log("You died!"); // Delete once we implement the above code
+
         }
     }
 
