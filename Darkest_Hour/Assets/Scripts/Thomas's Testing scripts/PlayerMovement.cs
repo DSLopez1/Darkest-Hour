@@ -4,70 +4,41 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //Variables 
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float walkSpeed;
-    [SerializeField] private float runSpeed;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float rotationSpeed = 500f;
 
-    private Vector3 moveDirection;
+    Quaternion targetRotation;
 
-    [SerializeField] private bool isGrounded;
-    [SerializeField] private float groundCheckDistance;
-    [SerializeField] private LayerMask groundMask;
+    CameraController cameraController;
+    Animator animator;
+    CharacterController characterController;
 
-    //References
-    private CharacterController controller;
-
-
-    // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
-        controller = GetComponent<CharacterController>(); 
+        cameraController = Camera.main.GetComponent<CameraController>();
+        animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        Move();
-    }
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
 
-    private void Move()
-    {
-        float moveZ = Input.GetAxis("Vertical");
+        float moveAmount = Mathf.Clamp01(Mathf.Abs(h) + Mathf.Abs(v));
 
-        moveDirection = new Vector3(0, 0, moveZ);
-        
-        if(moveDirection != Vector3.zero)
+        var moveInput = (new Vector3(h, 0, v)).normalized;
+
+        var moveDir = cameraController.PlanarRotation * moveInput;
+
+        if (moveAmount > 0)
         {
-            //walk 
-            Walk();
-        }
-        else if(moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
-        {
-            //run
-            Run();
-        }
-        else if(moveDirection == Vector3.zero)
-        {
-            Idle();
+            characterController.Move(moveDir * moveSpeed * Time.deltaTime);
+            targetRotation = Quaternion.LookRotation(moveDir);
         }
 
-        controller.Move(moveDirection * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        animator.SetFloat("moveAmount", moveAmount, 0.2f, Time.deltaTime);
     }
-
-    private void Idle()
-    {
-
-    }
-
-    private void Walk()
-    {
-        moveSpeed = walkSpeed;
-    }
-
-    private void Run()
-    {
-        moveSpeed = runSpeed;
-    }
-
 }
