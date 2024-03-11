@@ -1,44 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float rotationSpeed = 500f;
+    public float speed = 5f;
+    private Animator animator;
+    public float rotationSpeed = 100f;
 
-    Quaternion targetRotation;
+    public float backwardThreshold = -0.5f;
+    private bool isAttacking = false;
 
-    CameraController cameraController;
-    Animator animator;
-    CharacterController characterController;
-
-    private void Awake()
+    void Start()
     {
-        cameraController = Camera.main.GetComponent<CameraController>();
         animator = GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
     }
 
-    private void Update()
+    void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
 
-        float moveAmount = Mathf.Clamp01(Mathf.Abs(h) + Mathf.Abs(v));
+        bool isInAttackAnimation = IsInAttackAnimation();
 
-        var moveInput = (new Vector3(h, 0, v)).normalized;
-
-        var moveDir = cameraController.PlanarRotation * moveInput;
-
-        if (moveAmount > 0)
+        if (!isInAttackAnimation)
         {
-            characterController.Move(moveDir * moveSpeed * Time.deltaTime);
-            targetRotation = Quaternion.LookRotation(moveDir);
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+
+            Vector3 movementDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+            float moveAmount = movementDirection.magnitude;
+
+            bool isMovingBackward = verticalInput < backwardThreshold;
+
+            if (isMovingBackward)
+            {
+                animator.SetBool("IsRunningBackward", true);
+            }
+            else
+            {
+                animator.SetBool("IsRunningBackward", false);
+            }
+
+            animator.SetFloat("moveAmount", moveAmount);
+
+            transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
+
+            Vector3 movementAmount = movementDirection * speed * Time.deltaTime;
+            transform.Translate(movementAmount, Space.Self);
         }
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!isInAttackAnimation)
+            {
+                animator.SetTrigger("Attack");
+                isAttacking = true;
+            }
+        }
 
-        animator.SetFloat("moveAmount", moveAmount, 0.2f, Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!isInAttackAnimation && !isAttacking)
+            {
+                animator.SetTrigger("Dodge");
+            }
+            else if (isAttacking)
+            {
+                animator.SetTrigger("Dodge");
+                animator.ResetTrigger("Attack");
+                isAttacking = false;
+            }
+        }
+    }
+
+    bool IsInAttackAnimation()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
     }
 }
