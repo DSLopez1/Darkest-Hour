@@ -10,6 +10,7 @@ public class AbilityHolder : MonoBehaviour
     private float _cooldown;
     private float _activeTime;
     private float _castTime;
+    private int hi;
 
     enum abilityState
     {
