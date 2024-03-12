@@ -15,7 +15,6 @@ public class FireBall : Ability
 
     public override void Activate()
     {
-        cooldownImage = GameManager.instance.ability3Image;
         GameManager.instance.PlayerCam.StartCoroutine(GameManager.instance.PlayerCam.shootRay());
         Instantiate(fireBall, GameManager.instance.playerScript.shootPos.position, Camera.main.transform.rotation);
         FireBallObj script = fireBall.GetComponent<FireBallObj>();

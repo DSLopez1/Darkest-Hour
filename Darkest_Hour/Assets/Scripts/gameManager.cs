@@ -20,11 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public PlayerController playerScript;
     [SerializeField] public CameraController PlayerCam;
 
-    [Header("-----AbilityUI------")]
-    [SerializeField] public Image ability1Image;
-    [SerializeField] public Image ability2Image;
-    [SerializeField] public Image ability3Image;
-    public Image ability4Image;
+    [Header("-----AbilityInterface------")]
+
+    public List<Ability> abilities = new List<Ability>();
 
     private bool _isPaused;
 

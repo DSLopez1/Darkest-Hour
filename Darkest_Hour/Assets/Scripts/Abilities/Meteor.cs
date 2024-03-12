@@ -18,7 +18,6 @@ public class Meteor : Ability
 
     public override void Activate()
     {
-        cooldownImage = GameManager.instance.ability4Image;
         _meteorScript = _meteor.GetComponent<MeteorObject>();
         GameManager.instance.PlayerCam.StartCoroutine(GameManager.instance.PlayerCam.shootRay());
 

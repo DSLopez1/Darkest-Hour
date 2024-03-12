@@ -13,7 +13,7 @@ public class Explosion : MonoBehaviour
 
         IDamage dmg = other.GetComponent<IDamage>();
 
-        if (dmg != null)
+        if (dmg != null && !other.CompareTag("Player"))
         {
             dmg.TakeDamage(damage);
         }
