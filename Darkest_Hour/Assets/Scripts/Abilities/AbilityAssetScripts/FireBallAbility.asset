@@ -18,4 +18,4 @@ MonoBehaviour:
   castTime: 0
   cooldownImage: {fileID: 0}
   _onCooldown: 0
-  fireBall: {fileID: 5991858241521416307, guid: eca31d4147b6e5846b86743bb933fecf, type: 3}
+  fireBall: {fileID: 6721284665959881925, guid: 916a7e9486ee71d48ac14c523255cffa, type: 3}

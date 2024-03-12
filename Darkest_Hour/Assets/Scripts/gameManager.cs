@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _menuActive;
     [SerializeField] private GameObject _menuPause;
+    [SerializeField] private GameObject _menuLose;
     [SerializeField] private GameObject _menuShop;
 
     [Header("-----player------")] 
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Image ability1Image;
     [SerializeField] public Image ability2Image;
     [SerializeField] public Image ability3Image;
-    [SerializeField] public Image ability4Image;
+    public Image ability4Image;
 
     private bool _isPaused;
 
@@ -72,5 +73,13 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         _menuActive.SetActive(false);
         _menuActive = null;
+    }
+
+    public void youLose()
+    {
+        StatePaused();
+
+        _menuActive = _menuLose;
+        _menuActive.SetActive(true);
     }
 }
