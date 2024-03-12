@@ -1,14 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour
 {
-
+    
     private KeyCode[] keyCodes =
     {
         KeyCode.Alpha1,
@@ -16,18 +14,15 @@ public class ButtonFunctions : MonoBehaviour
         KeyCode.Alpha3,
         KeyCode.Alpha4
     };
-
     public void Resume()
     {
         GameManager.instance.StateUnpaused();
     }
-
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameManager.instance.StateUnpaused();
     }
-
     public void Quit()
     {
         Application.Quit();
@@ -67,12 +62,12 @@ public class ButtonFunctions : MonoBehaviour
     {
         Ability tempAbility = null;
 
-
+        
         foreach (var t in GameManager.instance.abilities)
         {
             Debug.Log(t.name);
 
-            if (t.name == name)
+            if (t.name == "Meteor")
             {
                 tempAbility = t;
                 break;
@@ -99,7 +94,6 @@ public class ButtonFunctions : MonoBehaviour
                 GameManager.instance.UpdateAbilityUI();
                 break;
             }
-
         }
     }
 }

@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
     [Header("-----Abilities-----")] 
     public List<AbilityHolder> abilities = new List<AbilityHolder>();
-    
+
 
     Quaternion targetRotation;
 

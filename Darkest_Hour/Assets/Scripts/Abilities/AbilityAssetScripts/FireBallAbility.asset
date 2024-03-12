@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: FireBallAbility
   m_EditorClassIdentifier: 
   name: FireBall
-  cooldownTime: 3
+  cooldownTime: 0.1
   activeTime: 0
   castTime: 0
-  cooldownImage: {fileID: 0}
-  sprite: {fileID: 21300000, guid: c28d0cd2ac2958b408ec18297b3abb7e, type: 3}
+  cooldownImage: {fileID: 21300000, guid: bac771ac1d348e14d88c045f0f8fd067, type: 3}
   _onCooldown: 0
   fireBall: {fileID: 6721284665959881925, guid: 916a7e9486ee71d48ac14c523255cffa, type: 3}
   _damage: 20

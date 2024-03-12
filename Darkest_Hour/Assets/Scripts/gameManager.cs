@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _menuAbility;
 
 
-    [Header("-----player------")] 
+    [Header("-----player------")]
 
     [SerializeField] public GameObject player;
     [SerializeField] public PlayerController playerScript;

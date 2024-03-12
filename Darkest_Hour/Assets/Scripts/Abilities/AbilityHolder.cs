@@ -10,6 +10,7 @@ public class AbilityHolder : MonoBehaviour
     private float _cooldown;
     private float _activeTime;
     private float _castTime;
+    private int hi;
 
     enum abilityState
     {
@@ -68,11 +69,11 @@ public class AbilityHolder : MonoBehaviour
                 if (_cooldown > 0)
                 {
                     _cooldown -= Time.deltaTime;
-                    ability.cooldownImage.fillAmount = _cooldown / ability.cooldownTime;
+                    //ability.cooldownImage.fillAmount = _cooldown / ability.cooldownTime;
                 }
                 else
                 {
-                    ability.cooldownImage.fillAmount = 0;
+                    //ability.cooldownImage.fillAmount = 0;
                     state = abilityState.ready;
                 }
                 break;
