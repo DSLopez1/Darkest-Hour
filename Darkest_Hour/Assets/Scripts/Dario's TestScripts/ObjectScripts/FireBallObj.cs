@@ -10,7 +10,7 @@ public class FireBallObj : MonoBehaviour
 {
     private Rigidbody _rb;
     public Vector3 endPos;
-
+    public int damage;
     private float _height;
     [SerializeField] private float _grav;
     [SerializeField] private float _heightDisplacement;
@@ -63,8 +63,10 @@ public class FireBallObj : MonoBehaviour
             _collided = true;
 
             GameObject impact = Instantiate(impactVFX, co.contacts[0].point, Quaternion.identity);
+            Explosion exScript = impact.GetComponent<Explosion>();
+            exScript.damage = damage;
 
-            Destroy(impact, 2);
+            Destroy(impact, 1);
             Destroy(gameObject);
         }
     }

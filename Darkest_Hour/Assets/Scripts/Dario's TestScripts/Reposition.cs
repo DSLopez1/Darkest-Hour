@@ -36,7 +36,6 @@ public class Reposition : Ability
 
     public override void Activate()
     {
-        cooldownImage = GameManager.instance.ability4Image;
         
         _controller.enabled = false;
         if (GameManager.instance.playerScript.targetObjPosition == Vector3.zero)

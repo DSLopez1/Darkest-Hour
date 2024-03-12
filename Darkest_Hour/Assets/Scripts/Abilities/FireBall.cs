@@ -8,6 +8,8 @@ using UnityEngine;
 public class FireBall : Ability
 {
     [SerializeField] private GameObject fireBall;
+    [SerializeField] private int _damage;
+
 
     public override void Casting()
     {
@@ -15,9 +17,9 @@ public class FireBall : Ability
 
     public override void Activate()
     {
-        cooldownImage = GameManager.instance.ability3Image;
         GameManager.instance.PlayerCam.StartCoroutine(GameManager.instance.PlayerCam.shootRay());
         Instantiate(fireBall, GameManager.instance.playerScript.shootPos.position, Camera.main.transform.rotation);
         FireBallObj script = fireBall.GetComponent<FireBallObj>();
+        script.damage = _damage;
     }
 }
