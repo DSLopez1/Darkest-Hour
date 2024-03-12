@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7458161d187a9084ea7e52ed3cdc1c52, type: 3}
   m_Name: FireBeamAbility
   m_EditorClassIdentifier: 
-  name: Fire Beam
+  name: FireBeam
   cooldownTime: 5
   activeTime: 5
   castTime: 0
   cooldownImage: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bb1e4fe2cf9a94141b3919f97730b71b, type: 3}
   _onCooldown: 0
   beam: {fileID: 236470070808787033, guid: 3b5ca027bc0d3d14e95923947cb0e045, type: 3}
   _damage: 8
