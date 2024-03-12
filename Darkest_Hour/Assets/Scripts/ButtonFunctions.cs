@@ -27,6 +27,11 @@ public class ButtonFunctions : MonoBehaviour
         Application.Quit();
     }
 
+    public void BuyMeteor()
+    {
+        BuyAbility("Meteor");
+    }
+
     public void BuyFireBall()
     {
         BuyAbility("FireBall");

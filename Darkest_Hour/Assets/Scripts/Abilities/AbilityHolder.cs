@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AbilityHolder : MonoBehaviour
 {
-    [SerializeField] private Ability _ability;
+    public Ability ability;
     private float _cooldown;
     private float _activeTime;
     private float _castTime;
@@ -33,9 +33,9 @@ public class AbilityHolder : MonoBehaviour
             case abilityState.ready:
                 if (Input.GetKeyDown(key))
                 {
-                    _ability.Casting();
+                    ability.Casting();
                     state = abilityState.casting;
-                    _castTime = _ability.castTime;
+                    _castTime = ability.castTime;
                 }
                 break;
             case abilityState.casting:
@@ -50,9 +50,9 @@ public class AbilityHolder : MonoBehaviour
                 break;
             case abilityState.cast:
 
-                _ability.Activate();
+                ability.Activate();
                 state = abilityState.active;
-                _activeTime = _ability.activeTime;
+                _activeTime = ability.activeTime;
                 break;
             case abilityState.active:
                 if (_activeTime > 0)
@@ -62,7 +62,7 @@ public class AbilityHolder : MonoBehaviour
                 else
                 {
                     state = abilityState.cooldown;
-                    _cooldown = _ability.cooldownTime;
+                    _cooldown = ability.cooldownTime;
                 }
                 break;
             case abilityState.cooldown:

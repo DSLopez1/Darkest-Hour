@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("-----Menus-----")]
     [SerializeField] private GameObject _menuActive;
     [SerializeField] private GameObject _menuPause;
     [SerializeField] private GameObject _menuLose;
     [SerializeField] private GameObject _menuShop;
+    [SerializeField] private GameObject _menuAbility;
 
     [Header("-----player------")] 
 
@@ -20,11 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public PlayerController playerScript;
     [SerializeField] public CameraController PlayerCam;
 
-    [Header("-----AbilityUI------")]
-    [SerializeField] public Image ability1Image;
-    [SerializeField] public Image ability2Image;
-    [SerializeField] public Image ability3Image;
-    public Image ability4Image;
+    [Header("-----AbilityInterface------")]
 
     public List<Ability> abilities = new List<Ability>();
     public List<Image> abilityImages = new List<Image>();
@@ -53,8 +51,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && _menuActive == null)
         {
             StatePaused();
-            _menuActive = _menuShop;
-            _menuShop.SetActive(true);
+            _menuActive = _menuAbility;
+            _menuAbility.SetActive(true);
         }
     }
 

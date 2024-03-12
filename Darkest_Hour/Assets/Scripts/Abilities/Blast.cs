@@ -14,7 +14,6 @@ public class Blast : Ability
 
     public override void Activate()
     {
-        cooldownImage = GameManager.instance.ability3Image;
 
         GameObject instantiateObj = Instantiate(blastObj, GameManager.instance.player.transform);
         blastScript = instantiateObj.GetComponent<BlastObjScript>();

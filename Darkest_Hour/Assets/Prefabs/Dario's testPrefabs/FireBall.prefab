@@ -100,8 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPos: {x: 0, y: 0, z: 0}
+  damage: 0
   _grav: -18
   _heightDisplacement: 3
+  impactVFX: {fileID: 0}
 --- !u!135 &8579741076533106817
 SphereCollider:
   m_ObjectHideFlags: 0

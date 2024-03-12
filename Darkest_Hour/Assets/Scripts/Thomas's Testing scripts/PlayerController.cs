@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private int _hpMax;
     private int _HP;
 
+    [Header("-----Abilities-----")] 
+    public List<AbilityHolder> abilities = new List<AbilityHolder>();
+    
+
     [Header("-----Abilities-----")]
     public List<AbilityHolder> abilities = new List<AbilityHolder>();
 
@@ -43,6 +47,14 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         animator = GetComponent<Animator>();
         _controller = GetComponent<CharacterController>();
         _HP = _hpMax;
+
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject abilityHolderObject = new GameObject("AbilityHolderObject");
+            AbilityHolder abilityHolder = abilityHolderObject.AddComponent<AbilityHolder>();
+            abilities.Add(abilityHolder);
+        }
+
     }
 
     private void Update()
