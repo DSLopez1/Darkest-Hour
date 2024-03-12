@@ -1,14 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour
 {
-
+    
     private KeyCode[] keyCodes =
     {
         KeyCode.Alpha1,
@@ -16,18 +13,15 @@ public class ButtonFunctions : MonoBehaviour
         KeyCode.Alpha3,
         KeyCode.Alpha4
     };
-
     public void Resume()
     {
         GameManager.instance.StateUnpaused();
     }
-
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameManager.instance.StateUnpaused();
     }
-
     public void Quit()
     {
         Application.Quit();
@@ -62,12 +56,12 @@ public class ButtonFunctions : MonoBehaviour
     {
         Ability tempAbility = null;
 
-
+        
         foreach (var t in GameManager.instance.abilities)
         {
             Debug.Log(t.name);
 
-            if (t.name == name)
+            if (t.name == "Meteor")
             {
                 tempAbility = t;
                 break;
@@ -84,17 +78,36 @@ public class ButtonFunctions : MonoBehaviour
         {
             if (GameManager.instance.playerScript.abilities[i].ability == null)
             {
-
                 GameManager.instance.playerScript.abilities[i].ability = tempAbility;
                 GameManager.instance.playerScript.abilities[i].key = keyCodes[i];
-                GameManager.instance.abilityImages[i].GetComponent<Image>().sprite =
-                    GameManager.instance.playerScript.abilities[i].ability.sprite;
-                GameManager.instance.playerScript.abilities[i].ability.cooldownImage =
-                    GameManager.instance.coolDownImages[i];
-                GameManager.instance.UpdateAbilityUI();
                 break;
+                //GameManager.instance.abilityImages[i].sprite = GameManager.instance.playerScript.abilities[i].ability.cooldownImage;
+                //GameManager.instance.UpdateAbilityUI();
             }
+        }
+    }
 
+    public void BuyFireBall()
+    {
+        Ability tempAbility = null;
+
+        for (int i = 0; i < GameManager.instance.abilities.Count; i++)
+        {
+            if (GameManager.instance.abilities[i].name == "FireBall")
+            {
+                tempAbility = GameManager.instance.abilities[i];
+            }
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (GameManager.instance.playerScript.abilities[i].ability == null)
+            {
+                GameManager.instance.playerScript.abilities[i].ability = tempAbility;
+                GameManager.instance.playerScript.abilities[i].key = keyCodes[i];
+                break;
+                //GameManager.instance.abilityImages[i].sprite = GameManager.instance.playerScript.abilities[i].ability.cooldownImage;
+            }
         }
     }
 }
