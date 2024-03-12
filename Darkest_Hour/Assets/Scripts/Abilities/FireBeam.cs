@@ -15,6 +15,7 @@ public class FireBeam : Ability
 
     public override void Activate()
     {
+        cooldownImage = GameManager.instance.ability2Image;
         Debug.Log("Activating");
         GameObject instantiatedBeam = Instantiate(beam, GameManager.instance.playerScript.firePos);
         beamScript = instantiatedBeam.GetComponent<FirebeamObj>();

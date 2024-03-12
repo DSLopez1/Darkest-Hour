@@ -13,6 +13,7 @@ public class Dash : Ability
 
     public override void Activate()
     {
+        cooldownImage = GameManager.instance.ability1Image;
         Debug.Log("Dashing");
         IPhysics phys = GameManager.instance.player.GetComponent<IPhysics>();
         _velocityVector = GameManager.instance.playerScript.getMoveVec().normalized;

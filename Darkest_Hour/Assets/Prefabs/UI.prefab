@@ -965,7 +965,10 @@ MonoBehaviour:
   player: {fileID: 0}
   playerScript: {fileID: 0}
   PlayerCam: {fileID: 0}
-  abilities: []
+  ability1Image: {fileID: 8940946280076225719}
+  ability2Image: {fileID: 6574649847535037610}
+  ability3Image: {fileID: 1337521478283373299}
+  ability4Image: {fileID: 1445606592221360400}
 --- !u!1 &4023589515594322742
 GameObject:
   m_ObjectHideFlags: 0
