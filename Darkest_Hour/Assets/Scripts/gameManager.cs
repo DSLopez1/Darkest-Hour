@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _menuLose;
     [SerializeField] private GameObject _menuShop;
 
+
     [Header("-----player------")] 
 
     [SerializeField] public GameObject player;
@@ -25,6 +26,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Image ability2Image;
     [SerializeField] public Image ability3Image;
     public Image ability4Image;
+
+    public List<Ability> abilities = new List<Ability>();
+    public List<GameObject> abilityImages = new List<GameObject>();
+    public List<Image> coolDownImages = new List<Image>();
 
     private bool _isPaused;
 
@@ -81,5 +86,22 @@ public class GameManager : MonoBehaviour
 
         _menuActive = _menuLose;
         _menuActive.SetActive(true);
+    }
+
+    public void UpdateAbilityUI()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Sprite sprite = abilityImages[i].GetComponent<Image>().sprite;
+
+            if (sprite != null)
+            {
+                abilityImages[i].SetActive(true);
+            }
+            else
+            {
+                Debug.Log("sprite is null");
+            }
+        }
     }
 }

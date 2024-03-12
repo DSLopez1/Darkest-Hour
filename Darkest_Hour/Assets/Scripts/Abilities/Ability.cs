@@ -11,6 +11,7 @@ public class Ability : ScriptableObject
     public float activeTime;
     public float castTime;
     public Image cooldownImage;
+    public Sprite sprite;
 
     public bool _onCooldown;
 
