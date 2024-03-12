@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("-----Menus-----")]
     [SerializeField] private GameObject _menuActive;
     [SerializeField] private GameObject _menuPause;
     [SerializeField] private GameObject _menuLose;
     [SerializeField] private GameObject _menuShop;
+    [SerializeField] private GameObject _menuAbility;
 
     [Header("-----player------")] 
 
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     [Header("-----AbilityInterface------")]
 
     public List<Ability> abilities = new List<Ability>();
+    public List<Image> abilityImages = new List<Image>();
 
     private bool _isPaused;
 
@@ -48,8 +51,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && _menuActive == null)
         {
             StatePaused();
-            _menuActive = _menuShop;
-            _menuShop.SetActive(true);
+            _menuActive = _menuAbility;
+            _menuAbility.SetActive(true);
         }
     }
 
@@ -79,5 +82,17 @@ public class GameManager : MonoBehaviour
 
         _menuActive = _menuLose;
         _menuActive.SetActive(true);
+    }
+
+    public void UpdateAbilityUI()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (abilityImages[i].sprite != null)
+            {
+                abilities[i].GameObject().SetActive(true);
+            }
+            
+        }
     }
 }

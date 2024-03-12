@@ -43934,7 +43934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  acceleration: 0.1
+  acceleration: 0.5
   impactVFX: {fileID: 2468516658876439351}
 --- !u!54 &3444423752872351013
 Rigidbody:

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d20e4235f556742ac12ba653884114, type: 3}
   m_Name: MeteorAbility
   m_EditorClassIdentifier: 
-  name: 
+  name: Meteor
   cooldownTime: 0
   activeTime: 0
   castTime: 0
-  cooldownImage: {fileID: 0}
+  cooldownImage: {fileID: 21300000, guid: e21b3cd2ea092dc418579768a4deaa30, type: 3}
   _onCooldown: 0
-  _damage: 0
-  _acceleration: 0
-  _meteor: {fileID: 0}
-  _spawnHeight: 0
+  _damage: 100
+  _acceleration: 0.5
+  _meteor: {fileID: 3960343477298803224, guid: 69a8e17aec0c3ab4b9dcb4d0cb66d101, type: 3}
+  _spawnHeight: 75
