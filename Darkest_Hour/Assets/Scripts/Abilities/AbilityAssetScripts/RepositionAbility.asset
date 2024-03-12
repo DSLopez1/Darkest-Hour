@@ -17,7 +17,6 @@ MonoBehaviour:
   activeTime: 1
   castTime: 1.25
   cooldownImage: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 1aa4017c27d631841b5830bf13f8000e, type: 3}
   _onCooldown: 0
   force: 100
   _moveSpeed: 200
