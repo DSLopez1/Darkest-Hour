@@ -33,11 +33,6 @@ public class ButtonFunctions : MonoBehaviour
         Application.Quit();
     }
 
-    public void BuyDash()
-    {
-        BuyAbility("Meteor");
-    }
-
     public void BuyFireBall()
     {
         BuyAbility("FireBall");

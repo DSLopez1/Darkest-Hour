@@ -19,7 +19,10 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     [SerializeField] public float gravity;
     [SerializeField] private int _hpMax;
     private int _HP;
-    
+
+    [Header("-----Abilities-----")]
+    public List<AbilityHolder> abilities = new List<AbilityHolder>();
+
 
     Quaternion targetRotation;
 
