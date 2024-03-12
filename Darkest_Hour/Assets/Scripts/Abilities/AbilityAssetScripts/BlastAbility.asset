@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df63ec0fcaea7dc40a99b9e3087fd097, type: 3}
   m_Name: BlastAbility
   m_EditorClassIdentifier: 
-  _name: Blast
-  _cooldownTime: 3
-  _activeTime: 1
+  name: Blast
+  cooldownTime: 0
+  activeTime: 0
+  castTime: 0
   cooldownImage: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 960b10317e54d6546811efdf8127a01c, type: 3}
   _onCooldown: 0
   _pushBack: 5
   _radius: 5
