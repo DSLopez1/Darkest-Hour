@@ -394,10 +394,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4555746326957912017}
-  - component: {fileID: 812832303379538687}
-  - component: {fileID: 2873083655117788529}
-  - component: {fileID: 297575502754039990}
-  - component: {fileID: 680221409302679750}
   - component: {fileID: 6693634222053226695}
   - component: {fileID: 4049925968349440389}
   - component: {fileID: 2497651228858688221}
@@ -427,62 +423,6 @@ Transform:
   - {fileID: 7280688749385999260}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &812832303379538687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026371295747471216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4b529fc6b86aa40988d231edfa92aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ability: {fileID: 11400000, guid: 922521910de29534f986df48d6759c76, type: 2}
-  key: 101
---- !u!114 &2873083655117788529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026371295747471216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4b529fc6b86aa40988d231edfa92aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ability: {fileID: 11400000, guid: 4d15521019671f74283874a239d7cdc1, type: 2}
-  key: 32
---- !u!114 &297575502754039990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026371295747471216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4b529fc6b86aa40988d231edfa92aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ability: {fileID: 11400000, guid: f7e4335efb8f9bc419b2fa37bc42e474, type: 2}
-  key: 102
---- !u!114 &680221409302679750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026371295747471216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4b529fc6b86aa40988d231edfa92aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ability: {fileID: 11400000, guid: f09d73b61ade08b42bb604050a7b7029, type: 2}
-  key: 114
 --- !u!114 &6693634222053226695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +444,7 @@ MonoBehaviour:
   physResolve: 3
   gravity: 18
   _hpMax: 25
+  abilities: []
   targetObjPosition: {x: 0, y: 0, z: 0}
   gravOn: 0
 --- !u!95 &4049925968349440389

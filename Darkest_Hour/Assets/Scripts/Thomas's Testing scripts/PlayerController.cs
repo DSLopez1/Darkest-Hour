@@ -44,14 +44,12 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         _controller = GetComponent<CharacterController>();
         _HP = _hpMax;
 
-        Debug.Log(abilities.Count);
-        for (int i = 0; i < abilities.Count; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject abilityHolderObject = new GameObject("AbilityHolderObject");
             AbilityHolder abilityHolder = abilityHolderObject.AddComponent<AbilityHolder>();
             abilities.Add(abilityHolder);
         }
-
 
     }
 
