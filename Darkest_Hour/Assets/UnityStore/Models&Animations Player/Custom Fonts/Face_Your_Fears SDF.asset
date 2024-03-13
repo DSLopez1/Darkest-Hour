@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Face_Your_Fears SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 806789922
   material: {fileID: 856608717837988252}
-  materialHashCode: 0
+  materialHashCode: 3718082
   m_Version: 1.1.0
   m_SourceFontFileGUID: bee182021445f5742b803e27b081d1ee
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: bee182021445f5742b803e27b081d1ee, type: 3}
@@ -2515,9 +2515,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
