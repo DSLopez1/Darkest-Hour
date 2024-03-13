@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Darkest_Hour/Assets/UnityStore/Fantasy Monster(wizard) Demo.meta
+guid: 31c209279c21bdd44baca72295c0a402
+folderAsset: yes
+DefaultImporter:
+========
 guid: 14699a77a79cf094c9e741520b81be87
 NativeFormatImporter:
+>>>>>>>> 2ec0209553e37e39736b9e8c6dcf6e6f824732e0:Darkest_Hour/Assets/UnityStore/Models&Animations Player/Animators(temp)/AnimControllers(Player)/MageController.controller.meta
   externalObjects: {}
   mainObjectFileID: 9100000
   userData: 
