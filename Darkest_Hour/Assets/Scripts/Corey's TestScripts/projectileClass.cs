@@ -13,7 +13,7 @@ public class projectileClass : MonoBehaviour
     void Start()
     {
         // Set speed
-        rb.velocity = (GameManager.instance.player.transform.position - transform.position).normalized * _speed;
+        rb.velocity = transform.forward * _speed;
         Destroy(gameObject, _destroyTime);
     }
 

@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
 {
     [Header("----- Componenets -----")]
     [SerializeField] private Animator _anim;
-    [SerializeField] private Renderer _model;
+    [SerializeField] private Renderer[] _models;
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Transform _headPos;
     [SerializeField] private Collider _meleeCollider; 
@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     private bool _targetInRange;
 
     private int _hpOrig;
+    private List<Color> _colors;
     private Color _color;
     private Vector3 _startingPos;
     private bool _destChosen;
@@ -53,8 +54,13 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         _startingPos = transform.position;
         _hpOrig = _hp;
         UpdateUI();
-        _color = _model.material.color;
         _stoppingDistanceOrig = _agent.stoppingDistance;
+        _colors = new List<Color>();
+        for (int i = 0; i < _models.Length; i++)
+        {
+            _color = _models[i].material.color;
+            _colors.Add(_color);
+        }
 
         // Pass variables for child
         _animC = _anim;
@@ -219,9 +225,17 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
 
     private IEnumerator FlashMat()
     {
-        _model.material.color = Color.red;
+        for (int i = 0; i < _models.Length; i++)
+        {
+            _models[i].material.color = Color.red;
+        }
+            
         yield return new WaitForSeconds(0.1f);
-        _model.material.color = _color;
+
+        for (int i = 0; i < _models.Length; i++)
+        {
+            _models[i].material.color = _colors[i];
+        }
     }
 
 

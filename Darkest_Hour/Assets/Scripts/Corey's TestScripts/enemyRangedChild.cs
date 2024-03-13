@@ -10,6 +10,7 @@ public class enemyRangedChild : EnemyAI
 
     override protected IEnumerator Attack()
     {
+        // Check if player is in shoot cone
         _isAttacking = true;
 
         // Trigger warning animation
@@ -20,17 +21,20 @@ public class enemyRangedChild : EnemyAI
         yield return new WaitForSeconds(_attackDelayC);
 
         // Trigger shoot animation
-        _animC.SetTrigger("Shoot");
+        _animC.SetTrigger("Attack");
 
         // Audio for shoot animation
-
-        // Instiate projectile at shoot position
-        Instantiate(_projectile, _shootPos.position, transform.rotation);
 
         // Delay before next attack can trigger
         yield return new WaitForSeconds(_timeBetweenAttacksC);
 
 
         _isAttacking = false;
+    }
+
+    public void InstantiateProjectile()
+    {
+        // Instiate projectile at shoot position timed w/ animation
+        Instantiate(_projectile, _shootPos.position, transform.rotation);
     }
 }
