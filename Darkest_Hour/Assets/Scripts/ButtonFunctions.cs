@@ -67,7 +67,7 @@ public class ButtonFunctions : MonoBehaviour
         {
             Debug.Log(t.name);
 
-            if (t.name == "name")
+            if (t.name == name)
             {
                 tempAbility = t;
                 break;

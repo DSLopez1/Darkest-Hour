@@ -69,11 +69,11 @@ public class AbilityHolder : MonoBehaviour
                 if (_cooldown > 0)
                 {
                     _cooldown -= Time.deltaTime;
-                    //ability.cooldownImage.fillAmount = _cooldown / ability.cooldownTime;
+                    ability.cooldownImage.fillAmount = _cooldown / ability.cooldownTime;
                 }
                 else
                 {
-                    //ability.cooldownImage.fillAmount = 0;
+                    ability.cooldownImage.fillAmount = 0;
                     state = abilityState.ready;
                 }
                 break;
