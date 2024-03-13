@@ -43886,7 +43886,6 @@ GameObject:
   - component: {fileID: 7503157574230279137}
   - component: {fileID: 3444423752872351013}
   - component: {fileID: 685536135817085345}
-  - component: {fileID: 536430495796052871}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -43984,41 +43983,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &536430495796052871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3960343477298803224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e272d634f40434b85fbf756732714d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  size: 100
-  speed: 1
-  duration: 1
-  loop: 1
-  prewarm: 1
-  lights: 1
-  trails: 1
-  changeColor: 1
-  newMaxColor: {r: 0.44482762, g: 1, b: 0.125, a: 1}
-  newMinColor: {r: 1, g: 0.6365112, b: 0.17647058, a: 1}
-  ParticleSystems:
-  - {fileID: 689494071053173998}
-  - {fileID: 2820503050059530166}
-  - {fileID: 1744945856683226700}
-  - {fileID: 5990431862478800374}
-  - {fileID: 8527917354150710757}
-  - {fileID: 3754649325063560661}
-  - {fileID: 7349432305251242577}
-  - {fileID: 7746124423211262349}
-  - {fileID: 8721545508579205429}
-  - {fileID: 785188133868794685}
-  - {fileID: 7419257574098635534}
-  ActiveParticleSystems: 0101010101010101010101
 --- !u!1 &4206010315869943064
 GameObject:
   m_ObjectHideFlags: 0
