@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private int _roamPauseTime;
     [SerializeField] private int _roamDis;
     [SerializeField] private int _physicsResolve;
-    [SerializeField] private int _attackDelay;
+    [SerializeField] private float _attackDelay;
     [SerializeField] private int _timeBetweenAttacks;
 
     [Header("----- UI-----")]
@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     // Children passes
     protected Animator _animC;
     protected NavMeshAgent _agentC;
-    protected int _attackDelayC;
+    protected float _attackDelayC;
     protected int _timeBetweenAttacksC;
 
 
