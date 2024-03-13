@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
             _menuActive = _menuAbility;
             _menuAbility.SetActive(true);
         }
+
     }
 
     public void StatePaused()
