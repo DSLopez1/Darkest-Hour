@@ -24,7 +24,7 @@ public class projectileClass : MonoBehaviour
 
         // Deal designated damage amount
         IDamage dmg = other.GetComponent<IDamage>();
-        if (dmg != null)
+        if (dmg != null && other.CompareTag("Player"))
         {
             dmg.TakeDamage(_damageAmount);
         }
