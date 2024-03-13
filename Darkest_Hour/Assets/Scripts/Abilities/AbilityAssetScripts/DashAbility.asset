@@ -17,5 +17,6 @@ MonoBehaviour:
   activeTime: 0.1
   castTime: 0
   cooldownImage: {fileID: 0}
+  sprite: {fileID: 21300000, guid: ef30d715f2ca98c4c86b32e85cd798f5, type: 3}
   _onCooldown: 0
   dashVelocity: 100

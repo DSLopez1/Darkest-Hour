@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: MeteorAbility
   m_EditorClassIdentifier: 
   name: Meteor
-  cooldownTime: 0
+  cooldownTime: 5
   activeTime: 0
   castTime: 0
   cooldownImage: {fileID: 21300000, guid: e21b3cd2ea092dc418579768a4deaa30, type: 3}
+  sprite: {fileID: 21300000, guid: e21b3cd2ea092dc418579768a4deaa30, type: 3}
   _onCooldown: 0
   _damage: 100
   _acceleration: 0.5
