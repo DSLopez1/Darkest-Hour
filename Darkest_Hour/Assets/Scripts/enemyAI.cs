@@ -21,7 +21,6 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private int _animSpeedTrans;
     [SerializeField] private int _roamPauseTime;
     [SerializeField] private int _roamDis;
-    [SerializeField] private int _pointsGiven;
     [SerializeField] private int _physicsResolve;
     [SerializeField] private int _attackDelay;
     [SerializeField] private int _timeBetweenAttacks;
@@ -39,7 +38,13 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     private Vector3 _startingPos;
     private bool _destChosen;
     private float _stoppingDistanceOrig;
-    private bool _isAttacking;
+    protected bool _isAttacking;
+
+    // Children passes
+    protected Animator _animC;
+    protected NavMeshAgent _agentC;
+    protected int _attackDelayC;
+    protected int _timeBetweenAttacksC;
 
 
     private void Start()
@@ -50,6 +55,12 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         UpdateUI();
         _color = _model.material.color;
         _stoppingDistanceOrig = _agent.stoppingDistance;
+
+        // Pass variables for child
+        _animC = _anim;
+        _agentC = _agent;
+        _attackDelayC = _attackDelay;
+        _timeBetweenAttacksC = _timeBetweenAttacks;
     }
 
     private void Update()
