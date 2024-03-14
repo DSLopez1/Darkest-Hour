@@ -1,8 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class PlayerMovement : MonoBehaviour
+using UnityEngine.InputSystem.XR;
+using UnityEngine.UIElements;
+
+public class PlayerMovement : MonoBehaviour, IDamage
 {
+    [Header("----Components----")]
+    [SerializeField] CharacterController controller;
+
+    [Header("-----Player Stats")]
+    [SerializeField] int _HP;
+    [SerializeField] int _lives;
+    
+    [Header("-----Abilities-----")]
+    public List<AbilityHolder> abilities = new List<AbilityHolder>();
+
     public float speed = 5f;
     private Animator animator;
     public float rotationSpeed = 100f;
@@ -10,12 +23,27 @@ public class PlayerMovement : MonoBehaviour
     public float backwardThreshold = -0.5f;
     private bool isAttacking = false;
 
+    int _HPOrig;
+
     void Start()
     {
+        _HPOrig = 0;
+        _lives = 3;
         animator = GetComponent<Animator>();
+        respawn();
     }
 
     void Update()
+    {
+        playerAnimations();
+    }
+
+    bool IsInAttackAnimation()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+    }
+
+    public void playerAnimations()
     {
 
         bool isInAttackAnimation = IsInAttackAnimation();
@@ -71,8 +99,39 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    bool IsInAttackAnimation()
+    public void TakeDamage(int amount)
     {
-        return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+        _HP -= amount;
+        updatePlayerUI();
+        StartCoroutine(flashDamage());
+
+        if(_lives <= 0)
+        {
+            GameManager.instance.youLose();
+        }
+    }
+
+    IEnumerator flashDamage()
+    {
+        GameManager.instance.playerDamageFlash.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        GameManager.instance.playerDamageFlash.SetActive(false);
+    }
+
+    void updatePlayerUI()
+    {
+        GameManager.instance.playerHPBar.fillAmount = (float)_HP / _HPOrig;
+
+    }
+
+    public void respawn()
+    {
+        _HP = _HPOrig;
+        _lives--;
+        updatePlayerUI();
+
+        controller.enabled = false;
+        transform.position = GameManager.instance.playerSpawnPos.transform.position;
+        controller.enabled = true;
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,8 +16,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _menuActive;
     [SerializeField] private GameObject _menuPause;
     [SerializeField] private GameObject _menuLose;
+    [SerializeField] private GameObject _menuWin;
     [SerializeField] private GameObject _menuShop;
     [SerializeField] private GameObject _menuAbility;
+    [SerializeField] TMP_Text enemyCountText;
 
 
     [Header("-----player------")]
@@ -23,6 +27,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] public PlayerController playerScript;
     [SerializeField] public CameraController PlayerCam;
+    [SerializeField] private GameObject spawnPortal;
+    public Image playerHPBar;
+    public GameObject playerSpawnPos;
+    public GameObject playerDamageFlash;
+    
+
 
     [Header("-----AbilityInterface------")]
 
@@ -31,6 +41,8 @@ public class GameManager : MonoBehaviour
     public List<Image> coolDownImages = new List<Image>();
 
     private bool _isPaused;
+    int enemyCount;
+    int bossCount;
 
     // Start is called before the first frame update
     private void Awake()
@@ -40,6 +52,8 @@ public class GameManager : MonoBehaviour
         playerScript = player.GetComponent<PlayerController>();
         PlayerCam = Camera.main.GetComponent<CameraController>();
     }
+
+  
 
     // Update is called once per frame
     private void Update()
@@ -78,6 +92,30 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         _menuActive.SetActive(false);
         _menuActive = null;
+    }
+
+    public void CompleteLevel(int amount)
+    {
+        enemyCount += amount;
+        enemyCountText.text = enemyCount.ToString("F0");
+
+        if (enemyCount <= 0)
+        {
+            Instantiate(spawnPortal, Vector3.zero, Quaternion.identity);
+        }
+    }
+    
+    public void updateGameGoal(int amount)
+    {
+        bossCount += amount;
+        
+        if(bossCount <= 0)
+        {
+            //you win
+            _menuActive = _menuWin;
+            _menuActive.SetActive(true);
+            StatePaused();
+        }
     }
 
     public void youLose()

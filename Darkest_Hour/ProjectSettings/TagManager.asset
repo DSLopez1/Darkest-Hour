@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - Melee
+  - HealthBar
+  - LivesCounter
   layers:
   - Default
   - TransparentFX

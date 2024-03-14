@@ -1199,6 +1199,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f1ca7d2e6e724f9006155eabe044e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 7569723243154866055}
+  _HP: 0
+  _lives: 0
+  abilities: []
   speed: 5
   rotationSpeed: 100
   backwardThreshold: -0.5
