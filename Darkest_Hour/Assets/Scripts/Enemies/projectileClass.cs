@@ -8,6 +8,7 @@ public class projectileClass : MonoBehaviour
     [SerializeField] int _damageAmount;
     [SerializeField] int _speed;
     [SerializeField] int _destroyTime;
+    [SerializeField] GameObject _hitEffect;
     public bool statusEffect;
 
     void Start()
@@ -30,6 +31,10 @@ public class projectileClass : MonoBehaviour
         }
 
         // Destory object on collision
+        if (_hitEffect != null)
+        {
+            Instantiate(_hitEffect, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
 }

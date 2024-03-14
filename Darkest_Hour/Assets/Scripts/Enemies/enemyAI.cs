@@ -98,7 +98,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         if (_agent.remainingDistance <= _agent.stoppingDistance)
         {
             // Warn player attack is coming **ADD WARNING**
-
+            
 
             // Delay attack
             yield return new WaitForSeconds(_attackDelay);
@@ -117,6 +117,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     {
         // Animation turns on
         _meleeCollider.enabled = true;
+        Debug.Log("Maybe work");
     }
 
     public void MeleeColliderOff()
@@ -125,7 +126,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         {
             // Animation turns off
             _meleeCollider.enabled = false;
-        } 
+        }
+        Debug.Log("This worked too");
     }
 
     public void PhysicsDir(Vector3 dir)
