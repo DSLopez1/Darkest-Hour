@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemMeleeAttack : MonoBehaviour
 {
     [SerializeField] int _damageAmount;
-    [SerializeField] CapsuleCollider _col;
+    [SerializeField] Collider _col;
 
     private void OnTriggerEnter(Collider other)
     {
