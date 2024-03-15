@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class EnemyBoss_Necro : enemyRangedChild
 {
-    [Header("----- Ability Cooldowns -----")]
+    [Header("----- Ability Information -----")]
     [SerializeField] int _summonCD;
     [SerializeField] int _scytheCD;
     [SerializeField] int _spellCD;
