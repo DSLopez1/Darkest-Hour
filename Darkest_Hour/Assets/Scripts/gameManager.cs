@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -28,11 +27,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] public PlayerRbScript playerScript;
     [SerializeField] public CineCam PlayerCam;
+    [SerializeField] private GameObject spawnPortal;
     public Image playerHPBar;
     public GameObject playerSpawnPos;
     public GameObject playerDamageFlash;
     
-    [SerializeField] private GameObject spawnPortal;
 
 
     [Header("-----AbilityInterface------")]
