@@ -6,6 +6,8 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerRbScript : MonoBehaviour, IPhysics
 {
+    [Header("Stats")]
+
 
     [Header("Movement")] 
     public float moveSpeed;

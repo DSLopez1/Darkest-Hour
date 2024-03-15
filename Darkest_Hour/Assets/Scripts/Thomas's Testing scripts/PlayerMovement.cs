@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [Header("----Components----")]
     [SerializeField] CharacterController controller;
 
+    public Transform firePos;
+    public Transform shootPos;
+    public Vector3 targetPos;
+
     [Header("-----Player Stats")]
     [SerializeField] int _HP;
     [SerializeField] int _lives;
@@ -27,7 +31,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     void Start()
     {
-        _HPOrig = 0;
+        _HPOrig = 10;
         _lives = 3;
         animator = GetComponent<Animator>();
         respawn();
