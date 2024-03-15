@@ -1440,18 +1440,23 @@ MonoBehaviour:
   _menuActive: {fileID: 0}
   _menuPause: {fileID: 4452053142483032164}
   _menuLose: {fileID: 7348504999462234986}
+  _menuWin: {fileID: 0}
   _menuShop: {fileID: 551051468204583165}
   _menuAbility: {fileID: 1795555986808480745}
+  enemyCountText: {fileID: 0}
   player: {fileID: 0}
   playerScript: {fileID: 0}
   PlayerCam: {fileID: 0}
+  playerHPBar: {fileID: 0}
+  playerSpawnPos: {fileID: 0}
+  playerDamageFlash: {fileID: 0}
+  spawnPortal: {fileID: 0}
   abilities:
   - {fileID: 11400000, guid: f09d73b61ade08b42bb604050a7b7029, type: 2}
-  - {fileID: 11400000, guid: 4d15521019671f74283874a239d7cdc1, type: 2}
+  - {fileID: 11400000, guid: f7e4335efb8f9bc419b2fa37bc42e474, type: 2}
   - {fileID: 11400000, guid: 922521910de29534f986df48d6759c76, type: 2}
   - {fileID: 11400000, guid: a98f02d1944382c40853af2e47c58331, type: 2}
   - {fileID: 11400000, guid: ac560ce87ea6d4c40b0c95009aa59392, type: 2}
-  - {fileID: 11400000, guid: f7e4335efb8f9bc419b2fa37bc42e474, type: 2}
   abilityImages:
   - {fileID: 6466414659013096730}
   - {fileID: 6173159012816654935}
