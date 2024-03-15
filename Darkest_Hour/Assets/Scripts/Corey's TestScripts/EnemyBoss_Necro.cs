@@ -149,6 +149,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         {
             // Disable boss bar
             _bossHPBar.SetActive(false);
+            GameManager.instance.CompleteLevel(-1);
             Destroy(gameObject);
         }
 
