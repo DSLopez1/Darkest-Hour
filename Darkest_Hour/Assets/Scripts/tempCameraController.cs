@@ -20,6 +20,7 @@ public class TempCameraController : MonoBehaviour
 
     private void Update()
     {
+        transform.position = GameManager.instance.player.transform.position;
         // Get input
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * _sensitivity;
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * _sensitivity;

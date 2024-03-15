@@ -20,10 +20,10 @@ public class FireBallObj : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.instance.playerScript.targetObjPosition != Vector3.zero)
+        if (GameManager.instance.playerScript.targetPos != Vector3.zero)
         {
             _rb = GetComponent<Rigidbody>();
-            endPos = GameManager.instance.playerScript.targetObjPosition;
+            endPos = GameManager.instance.playerScript.targetPos;
             if (GameManager.instance.player.transform.position.y > endPos.y)
             {
                 _height = GameManager.instance.player.transform.position.y + _heightDisplacement;

@@ -33,7 +33,7 @@ public class TargeterProjectile : MonoBehaviour
 
         if (other.isTrigger || other.CompareTag("Player"))
             return;
-        GameManager.instance.playerScript.targetObjPosition = transform.position;
+        GameManager.instance.playerScript.targetPos = transform.position;
         speed = 0;
     }
 }
