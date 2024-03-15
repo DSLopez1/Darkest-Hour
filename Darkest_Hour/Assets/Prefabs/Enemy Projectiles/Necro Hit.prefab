@@ -19145,6 +19145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8285221177376526188}
+  - component: {fileID: 8683410788732004748}
   m_Layer: 0
   m_Name: Necro Hit
   m_TagString: Untagged
@@ -19171,3 +19172,16 @@ Transform:
   - {fileID: 7956165433438062776}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8683410788732004748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925026857431698610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b18043f2e627cf40a572de316a2b347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyTime: 1
