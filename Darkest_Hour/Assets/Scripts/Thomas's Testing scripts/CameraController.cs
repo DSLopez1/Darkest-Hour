@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         cameraRotation();
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * GameManager.instance.playerScript.shootDistance, Color.blue);
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 100, Color.blue);
 
         if (Input.GetButtonDown("Fire2") && !_isShooting)
         {
@@ -78,10 +78,10 @@ public class CameraController : MonoBehaviour
     {
         _isShooting = true;
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, GameManager.instance.playerScript.shootDistance))
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, 100))
         {
             Debug.Log("Shooting ray");
-            GameManager.instance.playerScript.targetObjPosition = hit.point;
+            GameManager.instance.playerScript.targetPos = hit.point;
         }
         yield return new WaitForSeconds(1);
 

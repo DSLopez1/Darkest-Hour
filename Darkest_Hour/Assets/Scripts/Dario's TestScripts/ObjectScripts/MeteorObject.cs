@@ -6,7 +6,7 @@ public class MeteorObject : MonoBehaviour
 {
     private Rigidbody _rb;
     private bool _collided;
-    private Vector2 _velocity;
+    private Vector3 _velocity;
 
     public int damage;
     public float acceleration;

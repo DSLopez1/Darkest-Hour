@@ -24,7 +24,7 @@ public class Meteor : Ability
         _meteorScript.damage =_damage;
         _meteorScript.acceleration =_acceleration;
 
-        _startPos = GameManager.instance.playerScript.targetObjPosition;
+        _startPos = GameManager.instance.playerScript.targetPos;
         _startPos.y += _spawnHeight;
 
         GameObject meteor = Instantiate(_meteor,_startPos, Quaternion.Euler(90, 0, 0));

@@ -8,16 +8,18 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 {
     [Header("----- Componenets -----")]
     [SerializeField] public Transform firePos;
-    [SerializeField] public Transform targetLocation;
     [SerializeField] public Transform shootPos;
+    [SerializeField] public Transform orientation;
+    [SerializeField] private GameObject _auto;
 
     [Header("----- Player Stats -----")]
     [SerializeField] public float playerSpeed = 5f;
     [SerializeField] public float shootDistance;
-    [SerializeField] private float _rotationSpeed = 500f;
-    [SerializeField] private float physResolve;
     [SerializeField] public float gravity;
+    [SerializeField] private float _rotationSpeed = 500f;
+    [SerializeField] private float _physResolve;
     [SerializeField] private int _hpMax;
+    public float attackSpeed;
     private int _HP;
 
     [Header("-----Abilities-----")] 
@@ -26,16 +28,17 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
     Quaternion targetRotation;
 
+
     CameraController cameraController;
     Animator animator;
     CharacterController _controller;
 
     private Vector3 _moveDir;
     private Vector3 _pushBack;
+    private Vector3 _playerVel;
     public Vector3 targetObjPosition;
 
     private bool _isShooting;
-    public bool gravOn;
 
     private void Awake()
     {
@@ -57,14 +60,19 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     {
 
         Movement();
-        
+        if (Input.GetButtonDown("Attack") && !_isShooting)
+        {
+            Debug.Log("Shooting");
+            StartCoroutine(shootProjectile(_auto));
+        }
     }
     IEnumerator shootProjectile(GameObject obj)
     {
         _isShooting = true;
-        GameObject instObj = Instantiate(obj, Camera.main.transform.position, Camera.main.transform.rotation);
-
-        yield return new WaitForSeconds(3);
+        Quaternion rotation = Camera.main.transform.rotation;
+        rotation.y = 0;
+        Instantiate(_auto, shootPos.position, Camera.main.transform.rotation);
+        yield return new WaitForSeconds(attackSpeed);
         _isShooting = false;
     }
 
@@ -95,41 +103,27 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         _pushBack += dir;
     }
 
-    void Movement()
+    private void Movement()
     {
-        _pushBack = Vector3.Lerp(_pushBack, Vector3.zero, physResolve * Time.deltaTime);
+        _pushBack = Vector3.Lerp(_pushBack, Vector3.zero, _physResolve);
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float hInput = Input.GetAxisRaw("Horizontal");
+        float vInput = Input.GetAxisRaw("Vertical");
 
-        float moveAmount = Mathf.Clamp01(Mathf.Abs(h) + Mathf.Abs(v));
-
-        var moveInput = (new Vector3(h, 0, v)).normalized;
-
-        _moveDir = (cameraController.PlanarRotation * moveInput) * playerSpeed;
-
-        //gravity
-        if (!_controller.isGrounded)
+        if (_controller.isGrounded)
         {
-            _pushBack.y -= gravity * Time.deltaTime;
-        }
-        else
-        {
-            _pushBack.y = 0;
+            _playerVel = Vector3.zero;
         }
 
-        if (moveAmount > 0)
-        {
-            _controller.Move((_moveDir + _pushBack) * Time.deltaTime);
+        _playerVel.y += gravity;
 
-            targetRotation = Quaternion.LookRotation(_moveDir);
-        }
+        _moveDir = orientation.forward * vInput + orientation.right * hInput;
 
+        _controller.Move(_moveDir.normalized * playerSpeed * Time.deltaTime);
+        _controller.Move((_playerVel + _pushBack) * Time.deltaTime);
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
-
-        animator.SetFloat("moveAmount", moveAmount, 0.2f, Time.deltaTime);
     }
+
     public void callMove(Vector3 startPos, Vector3 endPos, float moveSpeed)
     {
         StartCoroutine(moveToPos(startPos, endPos, moveSpeed));
@@ -152,7 +146,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         {
             _controller.enabled = true;
             targetObjPosition = Vector3.zero;
-            gravOn = true;
         }
     }
 }

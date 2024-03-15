@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,13 +26,13 @@ public class GameManager : MonoBehaviour
     [Header("-----player------")]
 
     [SerializeField] public GameObject player;
-    [SerializeField] public PlayerController playerScript;
-    [SerializeField] public CameraController PlayerCam;
-    [SerializeField] private GameObject spawnPortal;
+    [SerializeField] public PlayerRbScript playerScript;
+    [SerializeField] public CineCam PlayerCam;
     public Image playerHPBar;
     public GameObject playerSpawnPos;
     public GameObject playerDamageFlash;
     
+    [SerializeField] private GameObject spawnPortal;
 
 
     [Header("-----AbilityInterface------")]
@@ -49,8 +50,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<PlayerController>();
-        PlayerCam = Camera.main.GetComponent<CameraController>();
+        playerScript = player.GetComponent<PlayerRbScript>();
+        PlayerCam = Camera.main.GetComponent<CineCam>();
     }
 
   

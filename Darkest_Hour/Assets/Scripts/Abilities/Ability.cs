@@ -22,4 +22,8 @@ public class Ability : ScriptableObject
     public virtual void Casting()
     {
     }
+
+    public virtual void PostCast()
+    {
+    }
 }

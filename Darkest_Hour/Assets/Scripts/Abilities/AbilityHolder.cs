@@ -68,6 +68,7 @@ public class AbilityHolder : MonoBehaviour
             case abilityState.cooldown:
                 if (_cooldown > 0)
                 {
+                    ability.PostCast();
                     _cooldown -= Time.deltaTime;
                     ability.cooldownImage.fillAmount = _cooldown / ability.cooldownTime;
                 }
