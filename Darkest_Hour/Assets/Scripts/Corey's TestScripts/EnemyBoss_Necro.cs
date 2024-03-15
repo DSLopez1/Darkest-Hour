@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class EnemyBoss_Necro : enemyRangedChild
 {
-    [Header("----- Ability Cooldowns -----")]
+    [Header("----- Ability Information -----")]
     [SerializeField] int _summonCD;
     [SerializeField] int _scytheCD;
     [SerializeField] int _spellCD;
@@ -149,6 +149,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         {
             // Disable boss bar
             _bossHPBar.SetActive(false);
+            GameManager.instance.CompleteLevel(-1);
             Destroy(gameObject);
         }
 

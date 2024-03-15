@@ -18,10 +18,8 @@ public class enemMeleeAttack : MonoBehaviour
             // Turn off collider to prevent instances of double damage
             _col.enabled = false;
 
-            // Create damage
+            // Get IDamage from other
             IDamage dmg = other.GetComponent<IDamage>();
-
-            
             if (dmg != null)
             {
                 // Deal damage

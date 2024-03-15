@@ -66,6 +66,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         
         // Sets up child variables
         InitializeChildVariables();
+
+        // Add to enemy count
+        GameManager.instance.CompleteLevel(1);
     }
 
     private void Update()
@@ -231,6 +234,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         StartCoroutine(FlashMat());
         if (_hp <= 0)
         {
+            GameManager.instance.CompleteLevel(-1);
             Destroy(gameObject);
         }
         // Lower HP on HP bar
