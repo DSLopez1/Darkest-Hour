@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private Collider _meleeCollider; 
 
     [Header("----- Enemy Stats -----")]
-    [SerializeField] private int _hp;
+    [SerializeField] private int _hpMax;
     [SerializeField] private int _viewCone;
     [SerializeField] private int _targetFaceSpeed;
     [SerializeField] private int _animSpeedTrans;
@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private int _physicsResolve;
     [SerializeField] private float _attackDelay;
     [SerializeField] private int _timeBetweenAttacks;
+    protected int _hp;
 
     [Header("----- UI-----")]
     [SerializeField] Image _HPBar;
@@ -33,10 +34,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     private Vector3 _playerDir;
     private bool _targetInRange;
 
-    private int _hpOrig;
     private List<Color> _colors;
     private Color _color;
-    private Vector3 _startingPos;
+    protected Vector3 _startingPos;
     private bool _destChosen;
     private float _stoppingDistanceOrig;
     protected bool _isAttacking;
@@ -46,13 +46,15 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     protected NavMeshAgent _agentC;
     protected float _attackDelayC;
     protected int _timeBetweenAttacksC;
+    protected int _hpMaxC;
+    protected Collider _meleeColliderC;
 
 
-    private void Start()
+    protected void Start()
     {
         // Initialize 
         _startingPos = transform.position;
-        _hpOrig = _hp;
+        _hp = _hpMax;
         UpdateUI();
         _stoppingDistanceOrig = _agent.stoppingDistance;
         _colors = new List<Color>();
@@ -61,12 +63,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
             _color = _models[i].material.color;
             _colors.Add(_color);
         }
-
-        // Pass variables for child
-        _animC = _anim;
-        _agentC = _agent;
-        _attackDelayC = _attackDelay;
-        _timeBetweenAttacksC = _timeBetweenAttacks;
+        
+        // Sets up child variables
+        InitializeChildVariables();
     }
 
     private void Update()
@@ -90,6 +89,17 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         }
     }
 
+    private void InitializeChildVariables()
+    {
+        // Pass variables for child
+        _animC = _anim;
+        _agentC = _agent;
+        _attackDelayC = _attackDelay;
+        _timeBetweenAttacksC = _timeBetweenAttacks;
+        _hpMaxC = _hpMax;
+        _meleeColliderC = _meleeCollider;
+    }
+
     virtual protected IEnumerator Attack()
     {
         _isAttacking = true;
@@ -104,8 +114,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
             yield return new WaitForSeconds(_attackDelay);
 
             // Attack
-            // Start animation
-            _anim.SetTrigger("Attack");
+            MeleeAttack();
         }
 
         // Space out attacks
@@ -113,11 +122,16 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         _isAttacking = false;
     }
 
+    protected void MeleeAttack()
+    {
+        // Start animation
+        _anim.SetTrigger("Attack");
+    }
+
     public void MeleeColliderOn()
     {
         // Animation turns on
         _meleeCollider.enabled = true;
-        Debug.Log("Maybe work");
     }
 
     public void MeleeColliderOff()
@@ -127,7 +141,6 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
             // Animation turns off
             _meleeCollider.enabled = false;
         }
-        Debug.Log("This worked too");
     }
 
     public void PhysicsDir(Vector3 dir)
@@ -206,11 +219,10 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         }
     }
 
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
-        Debug.Log("Taking Damage");
         // Play damage animation
-        _anim.SetTrigger("Damage");
+        //_anim.SetTrigger("Damage");
 
         // Take damage
         _hp -= amount;
@@ -225,7 +237,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
        UpdateUI();
     }
 
-    private IEnumerator FlashMat()
+    protected IEnumerator FlashMat()
     {
         for (int i = 0; i < _models.Length; i++)
         {
@@ -241,9 +253,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     }
 
 
-    void UpdateUI()
+    protected void UpdateUI()
     {
         // Updates HP bar
-        _HPBar.fillAmount = (float)_hp / _hpOrig;
+        _HPBar.fillAmount = (float)_hp / _hpMax;
     }
 }

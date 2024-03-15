@@ -2110,7 +2110,7 @@ MonoBehaviour:
   _agent: {fileID: 6934054947983961608}
   _headPos: {fileID: 5076571451095833276}
   _meleeCollider: {fileID: 5910812784902442079}
-  _hp: 5000
+  _hpMax: 15
   _viewCone: 45
   _targetFaceSpeed: 25
   _animSpeedTrans: 5

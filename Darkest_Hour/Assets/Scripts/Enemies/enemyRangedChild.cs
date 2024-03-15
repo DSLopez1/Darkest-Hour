@@ -11,12 +11,8 @@ public class enemyRangedChild : EnemyAI
 
     override protected IEnumerator Attack()
     {
-        // Check if player is in shoot cone
+        // Ensure more only one attack at a time
         _isAttacking = true;
-
-        // Trigger warning animation
-
-        // Audio for warning animation
 
         // Trigger shoot animation
         _animC.SetTrigger("Attack");
