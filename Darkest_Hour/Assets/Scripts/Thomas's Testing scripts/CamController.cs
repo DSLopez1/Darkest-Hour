@@ -9,6 +9,8 @@ public class CamController : MonoBehaviour
     public float rLerp = 1.0f;
     public Vector2 turn;
     public float sensitivity;
+
+    private bool _isShooting;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -21,5 +23,19 @@ public class CamController : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, cameraTarget.position, pLerp);
         transform.rotation = Quaternion.Lerp(transform.rotation, cameraTarget.rotation, rLerp);
+    }
+
+    public IEnumerator shootRay()
+    {
+        _isShooting = true;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, 100))
+        {
+            Debug.Log("Shooting ray");
+            GameManager.instance.playerScript.targetPos = hit.point;
+        }
+        yield return new WaitForSeconds(1);
+
+        _isShooting = false;
     }
 }
