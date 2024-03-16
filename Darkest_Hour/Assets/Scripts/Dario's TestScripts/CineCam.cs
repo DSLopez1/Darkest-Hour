@@ -8,12 +8,12 @@ public class CineCam : MonoBehaviour
 {
 
     [Header("Refs")]
+    public Transform orientation;
 
     [Header("groundCheck")]
 
     public Transform player;
     public Transform playerObj;
-    public Transform orientation;
 
     public float rotationSpeed;
 

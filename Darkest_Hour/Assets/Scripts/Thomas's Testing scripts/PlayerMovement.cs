@@ -35,12 +35,6 @@ public class PlayerMovement : MonoBehaviour, IDamage
         _lives = 3;
         animator = GetComponent<Animator>();
         respawn();
-        for (int i = 0; i < 4; i++)
-        {
-            GameObject abilityHolderObject = new GameObject("AbilityHolderObject");
-            AbilityHolder abilityHolder = abilityHolderObject.AddComponent<AbilityHolder>();
-            abilities.Add(abilityHolder);
-        }
     }
 
     void Update()

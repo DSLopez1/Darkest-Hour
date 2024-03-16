@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
     Quaternion targetRotation;
 
-    public Vector3 targetPos;
 
     CameraController cameraController;
     Animator animator;
@@ -108,8 +107,8 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     {
         _pushBack = Vector3.Lerp(_pushBack, Vector3.zero, _physResolve);
 
-        _moveDir = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
-        _controller.Move(_moveDir * playerSpeed * Time.deltaTime);
+        float hInput = Input.GetAxisRaw("Horizontal");
+        float vInput = Input.GetAxisRaw("Vertical");
 
         if (_controller.isGrounded)
         {
@@ -117,34 +116,12 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         }
 
         _playerVel.y += gravity;
+
+        _moveDir = orientation.forward * vInput + orientation.right * hInput;
+
+        _controller.Move(_moveDir.normalized * playerSpeed * Time.deltaTime);
         _controller.Move((_playerVel + _pushBack) * Time.deltaTime);
 
-
-
     }
-
-    public void callMove(Vector3 startPos, Vector3 endPos, float moveSpeed)
-    {
-        StartCoroutine(moveToPos(startPos, endPos, moveSpeed));
-    }
-
-    IEnumerator moveToPos(Vector3 startPos, Vector3 endPos, float moveSpeed)
-    {
-        float time = 0;
-        Vector3 safeEndPos = endPos + (startPos - endPos).normalized * 3f;
-
-        while (Vector3.Distance(transform.position, safeEndPos) > 0.01f) 
-        {
-            transform.position = Vector3.MoveTowards(transform.position, safeEndPos, moveSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        transform.position = safeEndPos;
-
-        if (_controller != null)
-        {
-            _controller.enabled = true;
-            targetObjPosition = Vector3.zero;
-        }
-    }
+   
 }
