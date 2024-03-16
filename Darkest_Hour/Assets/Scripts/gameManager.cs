@@ -114,18 +114,13 @@ public class GameManager : MonoBehaviour
         if(bossCount <= 0)
         {
             //you win
-            _menuActive = _menuWin;
-            _menuActive.SetActive(true);
-            StatePaused();
+            SceneManager.LoadScene("YouWin");
         }
     }
 
     public void youLose()
     {
-        StatePaused();
-
-        _menuActive = _menuLose;
-        _menuActive.SetActive(true);
+            SceneManager.LoadScene("GameOver!");
     }
 
     public void UpdateAbilityUI()
