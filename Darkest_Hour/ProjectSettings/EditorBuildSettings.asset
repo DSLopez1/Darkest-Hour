@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main menu.unity
     guid: a0072768783ade2499a27a6bf09b185f
   - enabled: 1
-    path: Assets/Scenes/Mage testing Scene.unity
-    guid: 19d127f88eeecd240a9a400d8ab5fc60
-  - enabled: 1
     path: Assets/Scenes/Tutorial level.unity
     guid: fec7e3a182f4a57409419f4532752cd8
+  - enabled: 1
+    path: Assets/Scenes/levelOne.unity
+    guid: 7e74d8b31b81a4a439775dbc783f3364
+  - enabled: 1
+    path: Assets/Scenes/GameOver!.unity
+    guid: de9e7c0ddc855f84ebc864f585328ae6
   m_configObjects: {}
