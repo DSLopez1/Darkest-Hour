@@ -111,15 +111,9 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void updateGameGoal(int amount)
+    public void YouWin()
     {
-        bossCount += amount;
-        
-        if(bossCount <= 0)
-        {
-            //you win
-            SceneManager.LoadScene("YouWin");
-        }
+        SceneManager.LoadScene("YouWin");
     }
 
     public void YouDied()

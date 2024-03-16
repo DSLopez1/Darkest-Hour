@@ -23,8 +23,6 @@ public class EnemyBoss_Necro : enemyRangedChild
     [SerializeField] GameObject _spawnAnim;
     NavMeshHit hit;
 
-    public bool Testing;
-
     private bool phaseTwo = false;
     private bool canSummon = true;
     private bool canAbility = true;
@@ -53,7 +51,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         {
             StartCoroutine(ScytheAbility());
         }
-        else if (phaseTwo && canAbility || Testing)
+        else if (phaseTwo && canAbility)
         {
             StartCoroutine(SpellAttack());
         }
@@ -117,7 +115,6 @@ public class EnemyBoss_Necro : enemyRangedChild
 
         // Start cooldown
         yield return new WaitForSeconds(_scytheCD);
-
         // Allow ability again
         canAbility = true;
     }
@@ -170,5 +167,4 @@ public class EnemyBoss_Necro : enemyRangedChild
             _abilityCol.enabled = false;
         }
     }
-
 }

@@ -40,6 +40,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     private bool _destChosen;
     private float _stoppingDistanceOrig;
     protected bool _isAttacking;
+    protected float _enemySpeed;
 
     // Children passes
     protected Animator _animC;
@@ -57,13 +58,13 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         _hp = _hpMax;
         UpdateUI();
         _stoppingDistanceOrig = _agent.stoppingDistance;
+        _enemySpeed = _agent.speed;
         _colors = new List<Color>();
         for (int i = 0; i < _models.Length; i++)
         {
             _color = _models[i].material.color;
             _colors.Add(_color);
         }
-        
         // Sets up child variables
         InitializeChildVariables();
 
@@ -256,7 +257,16 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         }
     }
 
-
+    public void StopMoving()
+    {
+        // For when an animation should stop walking
+        _agentC.speed = 0;
+    }
+    public void StartMoving()
+    {
+        // Call when an animation is done
+        _agentC.speed = _enemySpeed;
+    }
     protected void UpdateUI()
     {
         // Updates HP bar
