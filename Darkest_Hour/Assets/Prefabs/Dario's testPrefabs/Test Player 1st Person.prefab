@@ -116,7 +116,7 @@ MonoBehaviour:
   _controller: {fileID: 5496495550032394081}
   _targeterObject: {fileID: 5854220575173733984, guid: ef6de111929506f4e9d415941d26ca5a, type: 3}
   shootPos: {fileID: 8210240984364779264}
-  playerCam: {fileID: 0}
+  playerCam: {fileID: 2193732369222017625}
   _HP: 10
   playerSpeed: 15
   jumpMax: 2
@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 8281798486114395099}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -280,6 +280,7 @@ MonoBehaviour:
   _lockVertMin: -90
   _lockVertMax: 90
   _invertY: 0
+  _yOffset: 1
 --- !u!20 &8627350434766551666
 Camera:
   m_ObjectHideFlags: 0
