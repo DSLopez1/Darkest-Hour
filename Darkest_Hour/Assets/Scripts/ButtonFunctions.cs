@@ -23,6 +23,11 @@ public class ButtonFunctions : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameManager.instance.StateUnpaused();
     }
+    public void Respawn()
+    {
+        GameManager.instance.player.GetComponent<Player>().respawn();
+        GameManager.instance.StateUnpaused();
+    }
     public void Quit()
     {
         Application.Quit();

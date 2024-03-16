@@ -18,14 +18,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _menuLose;
     [SerializeField] private GameObject _menuWin;
     [SerializeField] private GameObject _menuShop;
+    [SerializeField] private GameObject _menuDied;
     [SerializeField] private GameObject _menuAbility;
     [SerializeField] TMP_Text enemyCountText;
+    [SerializeField] TMP_Text _livesCountText;
 
 
     [Header("-----player------")]
 
     [SerializeField] public GameObject player;
     [SerializeField] public Player playerScript;
+    [SerializeField] private int _lives;
     public TempCameraController PlayerCam;
     public Image playerHPBar;
     public GameObject playerSpawnPos;
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
         playerScript = player.GetComponent<Player>();
         PlayerCam = Camera.main.GetComponent<TempCameraController>();
         playerSpawnPos = GameObject.FindWithTag("playerSpawnPos");
+        _livesCountText.text = _lives.ToString("F0");
 
     }
 
@@ -116,6 +120,23 @@ public class GameManager : MonoBehaviour
             //you win
             SceneManager.LoadScene("YouWin");
         }
+    }
+
+    public void YouDied()
+    {
+        _lives -= 1;
+        _livesCountText.text = _lives.ToString("F0");
+        if (_lives > 0)
+        {
+            StatePaused();
+            _menuActive = _menuDied;
+            _menuActive.SetActive(true);
+        }
+        else
+        {
+            youLose();
+        }
+
     }
 
     public void youLose()

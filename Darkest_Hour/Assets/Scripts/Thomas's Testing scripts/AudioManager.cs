@@ -54,6 +54,19 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void RestartGameFromLevel1()
+    {
+        mainMenuMusic.Stop();
+
+        // Play level 1 music
+        if (levelMusicClips.ContainsKey("Level1"))
+        {
+            levelMusic.clip = levelMusicClips["Level1"];
+            levelMusic.loop = true;
+            levelMusic.Play();
+        }
+    }
+
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;

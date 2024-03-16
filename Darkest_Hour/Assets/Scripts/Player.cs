@@ -39,7 +39,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     private bool _isShooting;
     public bool gravOn = true;
     int _HPOrig;
-    int _Lives = 3;
+    
 
     public Vector3 targetObjPosition;
 
@@ -140,9 +140,9 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         updatePlayerUI();
         StartCoroutine(flashDamage());
 
-        if (_Lives <= 0)
+        if (_HP <= 0)
         {
-            GameManager.instance.youLose();
+            GameManager.instance.YouDied();
         }
 
     }
