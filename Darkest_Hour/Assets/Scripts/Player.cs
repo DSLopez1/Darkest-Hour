@@ -46,7 +46,6 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     private void Start()
     {
         _HPOrig = _HP;
-        _Lives = 3;
         _controller = GetComponent<CharacterController>();
         respawn();
 
