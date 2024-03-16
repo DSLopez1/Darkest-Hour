@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Player : MonoBehaviour, IDamage, IPhysics
 {
@@ -12,6 +15,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     [SerializeField] private CharacterController _controller;
     [SerializeField] private GameObject _targeterObject;
     [SerializeField] public Transform shootPos;
+    public TempCameraController playerCam;
 
     [Header("----- Player Stats -----")] 
     [SerializeField] public int _HP;
@@ -26,6 +30,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     [Header("-----AbilityPos-----")] 
     [SerializeField] public Transform firePos;
     public List<AbilityHolder> abilities = new List<AbilityHolder>();
+    public Vector3 targetPos;
 
     private Vector3 _move;
     private Vector3 _playerVelocity;
@@ -146,8 +151,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     {
         _pushBack += dir;
     }
-
-  
+    
 
     IEnumerator flashDamage()
     {
