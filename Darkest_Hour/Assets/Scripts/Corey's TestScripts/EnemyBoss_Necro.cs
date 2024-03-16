@@ -92,7 +92,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         // Randomizes spawn points
         Vector3 randomPos = Random.insideUnitSphere * _spawnDis;
         // Connects back to starting pos
-        randomPos += _startingPos;
+        randomPos += transform.position;
 
         // Spawns enemies to random position on the layer selected (1 for this case)
         // Makes sure the point hits inside the NavMesh
