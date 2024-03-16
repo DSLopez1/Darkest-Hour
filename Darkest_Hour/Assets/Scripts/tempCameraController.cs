@@ -10,6 +10,7 @@ public class TempCameraController : MonoBehaviour
     [SerializeField] private bool _invertY;
 
     private float _rotX;
+    private bool _isShooting;
 
     private void Start()
     {
@@ -39,6 +40,19 @@ public class TempCameraController : MonoBehaviour
 
         // Rotate the player on the y-axis
         transform.parent.Rotate(Vector3.up * mouseX);
+    }
 
+    public IEnumerator shootRay()
+    {
+        _isShooting = true;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, 100))
+        {
+            Debug.Log("Shooting ray");
+            GameManager.instance.playerScript.targetPos = hit.point;
+        }
+        yield return new WaitForSeconds(1);
+
+        _isShooting = false;
     }
 }
