@@ -36,11 +36,6 @@ public class CameraController : MonoBehaviour
     {
         cameraRotation();
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 100, Color.blue);
-
-        if (Input.GetButtonDown("Fire2") && !_isShooting)
-        {
-            StartCoroutine(shootRay());
-        }
     }
 
     void cameraRotation()
@@ -74,19 +69,7 @@ public class CameraController : MonoBehaviour
         transform.rotation = targetRotation;
     }
 
-    public IEnumerator shootRay()
-    {
-        _isShooting = true;
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, 100))
-        {
-            Debug.Log("Shooting ray");
-            GameManager.instance.playerScript.targetPos = hit.point;
-        }
-        yield return new WaitForSeconds(1);
-
-        _isShooting = false;
-    }
+   
 
     public Quaternion PlanarRotation => Quaternion.Euler(0, rotationY, 0);
 }

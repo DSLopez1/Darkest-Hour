@@ -25,17 +25,5 @@ public class CamController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, cameraTarget.rotation, rLerp);
     }
 
-    public IEnumerator shootRay()
-    {
-        _isShooting = true;
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, 100))
-        {
-            Debug.Log("Shooting ray");
-            GameManager.instance.playerScript.targetPos = hit.point;
-        }
-        yield return new WaitForSeconds(1);
-
-        _isShooting = false;
-    }
+   
 }

@@ -123,29 +123,5 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         _controller.Move((_playerVel + _pushBack) * Time.deltaTime);
 
     }
-
-    public void callMove(Vector3 startPos, Vector3 endPos, float moveSpeed)
-    {
-        StartCoroutine(moveToPos(startPos, endPos, moveSpeed));
-    }
-
-    IEnumerator moveToPos(Vector3 startPos, Vector3 endPos, float moveSpeed)
-    {
-        float time = 0;
-        Vector3 safeEndPos = endPos + (startPos - endPos).normalized * 3f;
-
-        while (Vector3.Distance(transform.position, safeEndPos) > 0.01f) 
-        {
-            transform.position = Vector3.MoveTowards(transform.position, safeEndPos, moveSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        transform.position = safeEndPos;
-
-        if (_controller != null)
-        {
-            _controller.enabled = true;
-            targetObjPosition = Vector3.zero;
-        }
-    }
+   
 }
