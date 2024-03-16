@@ -23,6 +23,7 @@ public class PlayerTeleportPortal : MonoBehaviour
             {
                 DontDestroyOnLoad(livesCounter);
             }
+
             
 
             LoadNextScene();
