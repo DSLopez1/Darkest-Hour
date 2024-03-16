@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     [Header("-----player------")]
 
     [SerializeField] public GameObject player;
-    [SerializeField] public PlayerMovement playerScript;
+    [SerializeField] public PlayerController playerScript;
     [SerializeField] public CamController PlayerCam;
     public Image playerHPBar;
     public GameObject playerSpawnPos;
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<PlayerMovement>();
+        playerScript = player.GetComponent<PlayerController>();
         PlayerCam = Camera.main.GetComponent<CamController>();
     }
 

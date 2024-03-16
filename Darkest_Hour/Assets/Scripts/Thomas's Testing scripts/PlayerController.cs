@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
     Quaternion targetRotation;
 
+    public Vector3 targetPos;
 
     CameraController cameraController;
     Animator animator;
@@ -107,8 +108,8 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     {
         _pushBack = Vector3.Lerp(_pushBack, Vector3.zero, _physResolve);
 
-        float hInput = Input.GetAxisRaw("Horizontal");
-        float vInput = Input.GetAxisRaw("Vertical");
+        _moveDir = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
+        _controller.Move(_moveDir * playerSpeed * Time.deltaTime);
 
         if (_controller.isGrounded)
         {
@@ -116,11 +117,9 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         }
 
         _playerVel.y += gravity;
-
-        _moveDir = orientation.forward * vInput + orientation.right * hInput;
-
-        _controller.Move(_moveDir.normalized * playerSpeed * Time.deltaTime);
         _controller.Move((_playerVel + _pushBack) * Time.deltaTime);
+
+
 
     }
 

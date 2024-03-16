@@ -9,6 +9,7 @@ public class CamController : MonoBehaviour
     public float rLerp = 1.0f;
     public Vector2 turn;
     public float sensitivity;
+    public Transform targetPos;
 
     private bool _isShooting;
     void Start()
