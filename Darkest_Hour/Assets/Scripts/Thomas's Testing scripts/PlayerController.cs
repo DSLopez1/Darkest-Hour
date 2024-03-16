@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     [SerializeField] public float playerSpeed = 5f;
     [SerializeField] public float shootDistance;
     [SerializeField] public float gravity;
-    [SerializeField] private float _rotationSpeed = 500f;
     [SerializeField] private float _physResolve;
     [SerializeField] private int _hpMax;
     public float attackSpeed;
@@ -29,7 +28,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     Quaternion targetRotation;
 
 
-    CameraController cameraController;
+    CamController cameraController;
     Animator animator;
     CharacterController _controller;
 
@@ -42,7 +41,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
     private void Awake()
     {
-        cameraController = Camera.main.GetComponent<CameraController>();
+        cameraController = Camera.main.GetComponent<CamController>();
         animator = GetComponent<Animator>();
         _controller = GetComponent<CharacterController>();
         _HP = _hpMax;
