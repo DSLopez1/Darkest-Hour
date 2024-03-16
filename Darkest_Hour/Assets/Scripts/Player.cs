@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
 
-public class TempPlayer : MonoBehaviour, IDamage, IPhysics
+public class Player : MonoBehaviour, IDamage, IPhysics
 {
     [Header("----- Componenets -----")]
     [SerializeField] private CharacterController _controller;
@@ -13,7 +14,7 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     [SerializeField] public Transform shootPos;
 
     [Header("----- Player Stats -----")] 
-    [SerializeField] public int hp;
+    [SerializeField] public int _HP;
     [SerializeField] public float playerSpeed;
     [SerializeField] public int jumpMax;
     [SerializeField] private float _jumpForce;
@@ -24,6 +25,7 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
 
     [Header("-----AbilityPos-----")] 
     [SerializeField] public Transform firePos;
+    public List<AbilityHolder> abilities = new List<AbilityHolder>();
 
     private Vector3 _move;
     private Vector3 _playerVelocity;
@@ -31,12 +33,24 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
     private int _jumpCount;
     private bool _isShooting;
     public bool gravOn = true;
+    int _HPOrig;
+    int _Lives = 3;
 
     public Vector3 targetObjPosition;
 
     private void Start()
     {
+        _HPOrig = _HP;
+        _Lives = 3;
         _controller = GetComponent<CharacterController>();
+        respawn();
+
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject abilityHolderObject = new GameObject("AbilityHolderObject");
+            AbilityHolder abilityHolder = abilityHolderObject.AddComponent<AbilityHolder>();
+            abilities.Add(abilityHolder);
+        }
     }
 
     private void Update()
@@ -98,9 +112,34 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
         _isShooting = false;
     }
 
+    void updatePlayerUI()
+    {
+        GameManager.instance.playerHPBar.fillAmount = (float)_HP / _HPOrig;
+    }
+
+    public void respawn()
+    {
+        _pushBack = Vector3.zero;
+        _HP = _HPOrig;
+        updatePlayerUI();
+
+        _controller.enabled = false;
+        transform.position = GameManager.instance.playerSpawnPos.transform.position;
+        _controller.enabled = true;
+    }
+
+
     public void TakeDamage(int amount)
     {
-        hp -= amount;
+        _HP -= amount;
+        updatePlayerUI();
+        StartCoroutine(flashDamage());
+
+        if (_Lives <= 0)
+        {
+            GameManager.instance.youLose();
+        }
+
     }
 
     public void PhysicsDir(Vector3 dir)
@@ -108,32 +147,16 @@ public class TempPlayer : MonoBehaviour, IDamage, IPhysics
         _pushBack += dir;
     }
 
-    public void callMove(Vector3 startPos, Vector3 endPos, float moveSpeed)
+  
+
+    IEnumerator flashDamage()
     {
-        StartCoroutine(moveToPos(startPos, endPos, moveSpeed));
+        GameManager.instance.playerDamageFlash.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        GameManager.instance.playerDamageFlash.SetActive(false);
     }
-
-    IEnumerator moveToPos(Vector3 startPos, Vector3 endPos, float moveSpeed)
-    {
-        float time = 0;
-        Vector3 safeEndPos = endPos + (startPos - endPos).normalized * 3f;
-
-        while (Vector3.Distance(transform.position, safeEndPos) > 0.01f) // 0.01f is a small threshold to avoid floating point imprecision
-        {
-            transform.position = Vector3.MoveTowards(transform.position, safeEndPos, moveSpeed * Time.deltaTime);
-            yield return null; 
-        }
-
-        transform.position = safeEndPos;
-
-        if (_controller != null)
-        {
-            _controller.enabled = true;
-            targetObjPosition = Vector3.zero;
-            gravOn = true;
-        }
-    }
-    public Vector3 getMoveVec() { return _move; }
+     public Vector3 getMoveVec() { return _move; }
     
+
 
 }
