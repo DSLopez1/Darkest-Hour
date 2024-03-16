@@ -116,7 +116,7 @@ MonoBehaviour:
   _controller: {fileID: 5496495550032394081}
   _targeterObject: {fileID: 5854220575173733984, guid: ef6de111929506f4e9d415941d26ca5a, type: 3}
   shootPos: {fileID: 8210240984364779264}
-  playerCam: {fileID: 0}
+  playerCam: {fileID: 2193732369222017625}
   _HP: 10
   playerSpeed: 15
   jumpMax: 2
@@ -280,6 +280,7 @@ MonoBehaviour:
   _lockVertMin: -90
   _lockVertMax: 90
   _invertY: 0
+  _yOffset: 1
 --- !u!20 &8627350434766551666
 Camera:
   m_ObjectHideFlags: 0
