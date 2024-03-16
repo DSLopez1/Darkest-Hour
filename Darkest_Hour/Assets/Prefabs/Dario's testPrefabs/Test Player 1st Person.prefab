@@ -118,7 +118,7 @@ MonoBehaviour:
   shootPos: {fileID: 8210240984364779264}
   playerCam: {fileID: 2193732369222017625}
   _HP: 10
-  playerSpeed: 15
+  playerSpeed: 8
   jumpMax: 2
   _jumpForce: 5
   _shootDistance: 0

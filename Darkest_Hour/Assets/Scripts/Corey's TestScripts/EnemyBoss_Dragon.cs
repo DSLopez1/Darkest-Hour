@@ -36,6 +36,10 @@ public class EnemyBoss_Dragon : EnemyAI
     [SerializeField] GameObject _warning;
     [SerializeField] GameObject _rofMuzzleEffect;
 
+    [Header("----- Wing Gust -----")]
+    [SerializeField] ParticleSystem _gustPart;
+    [SerializeField] Collider _gustCol;
+
     // Bools for turning CDs on and off
     private bool phaseTwo = false;
     private bool canBreathAttack = true;
@@ -48,11 +52,12 @@ public class EnemyBoss_Dragon : EnemyAI
     new void Start()
     {
         base.Start();
-        // Turn on boss bar and set name
+        // Turn on boss bar, set name, and turn off particle systems
         _bossHPBar.SetActive(true);
         _UI.text = _name;
         isGrounded = true;
         _breathAttack.Stop();
+        _gustPart.Stop();
     }
     override protected IEnumerator Attack()
     {
@@ -70,16 +75,15 @@ public class EnemyBoss_Dragon : EnemyAI
                 // Do Wing Melee attack
                 StartCoroutine(WingAttack());
             }
-            else if (canScreamAttack && isGrounded) //add Phase 2
+            else if (canScreamAttack && isGrounded && phaseTwo) //add Phase 2
             {
                 // Do Pillars (Scream)
                 StartCoroutine(Scream());
             }
-            else if (canGustAttack && isGrounded && phaseTwo) //add Phase 2
+            else if (canGustAttack && isGrounded) //add Phase 2
             {
                 // Do Gust
-                _animC.SetTrigger("Gust");
-                canGustAttack = false;
+                StartCoroutine(Gust());
             }
             else if (canBreathAttack && isGrounded)
             {
@@ -92,14 +96,41 @@ public class EnemyBoss_Dragon : EnemyAI
                 MeleeAttack();
             }
         }
-        
-
+      
         // Space out attacks
         yield return new WaitForSeconds(_timeBetweenAttacksC);
 
         _isAttacking = false;
     }
 
+    #region Wing Gust
+    private IEnumerator Gust()
+    {
+        // Disallow attack
+        canGustAttack = false;
+        // Start
+        _animC.SetTrigger("Gust");
+        // Cooldown
+        yield return new WaitForSeconds(_gustCD);
+
+        // Allow attack
+        canGustAttack = true;
+    }
+    public void GustOn()
+    {
+        // Animation turns on particle system and collider
+        _gustCol.enabled = true;
+        _gustPart.Play();
+    }
+    public void GustOff()
+    {
+        // Animation tuns off particle system and collider
+        _gustCol.enabled = false;
+        _gustPart.Stop();
+    }
+    #endregion
+
+    #region Rain of Fire
     private IEnumerator Scream()
     {
         // Disallow attack
@@ -139,6 +170,7 @@ public class EnemyBoss_Dragon : EnemyAI
             Instantiate(_fireBall, rof, _rofHeightRot.transform.rotation);
         }
     }
+    #endregion
 
     #region Breath Attack
     private IEnumerator BreathAttack()
