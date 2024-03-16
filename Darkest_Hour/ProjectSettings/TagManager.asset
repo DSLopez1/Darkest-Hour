@@ -8,6 +8,8 @@ TagManager:
   - Melee
   - HealthBar
   - LivesCounter
+  - Bullet
+  - playerSpawnPos
   layers:
   - Default
   - TransparentFX
