@@ -2450,7 +2450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4108439735413868528
 Transform:
   m_ObjectHideFlags: 0
@@ -2561,7 +2561,7 @@ MonoBehaviour:
   _agent: {fileID: 620754076085908516}
   _headPos: {fileID: 4318911831724660793}
   _meleeCollider: {fileID: 8475450763834514836}
-  _hpMax: 25
+  _hpMax: 75
   _viewCone: 45
   _targetFaceSpeed: 25
   _animSpeedTrans: 5

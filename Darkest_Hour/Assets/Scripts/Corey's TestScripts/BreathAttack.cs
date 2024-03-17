@@ -6,6 +6,9 @@ public class BreathAttack : MonoBehaviour
 {
     [SerializeField] int _damageAmount;
     [SerializeField] Collider _col;
+    [SerializeField] float _tickRate;
+    private bool canDamage = true;
+    IDamage dmg;
 
     private void OnTriggerStay(Collider other)
     {
@@ -15,16 +18,31 @@ public class BreathAttack : MonoBehaviour
         // Check if it hit player
         if (other.CompareTag("Player"))
         {
-            // Turn off collider to prevent instances of double damage
-            _col.enabled = false;
-
             // Get IDamage from other
-            IDamage dmg = other.GetComponent<IDamage>();
-            if (dmg != null)
+            dmg = other.GetComponent<IDamage>();
+            // If can damage deal damage
+            if (canDamage)
             {
-                // Deal damage
-                dmg.TakeDamage(_damageAmount);
+                StartCoroutine(TickDamage());
             }
         }
     }
+
+    private IEnumerator TickDamage()
+    {
+        // Turn off damage
+        canDamage = false;
+        // Deal damage
+        if (dmg != null)
+        {
+            // Deal damage
+            dmg.TakeDamage(_damageAmount);
+        }
+        // Wait
+        yield return new WaitForSeconds(_tickRate);
+        // Turn on damage
+        canDamage = true;
+    }
 }
+
+

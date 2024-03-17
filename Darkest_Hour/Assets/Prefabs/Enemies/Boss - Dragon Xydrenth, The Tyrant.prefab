@@ -181,7 +181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4534453925883758005
 Transform:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   _agent: {fileID: 6998149798726694922}
   _headPos: {fileID: 5792682189858426708}
   _meleeCollider: {fileID: 5760385356663153598}
-  _hpMax: 200
+  _hpMax: 1000
   _viewCone: 45
   _targetFaceSpeed: 55
   _animSpeedTrans: 5
@@ -7799,6 +7799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _col: {fileID: 44378417030964668}
+  _tickRate: 0.5
 --- !u!199 &3725081776675853428
 ParticleSystemRenderer:
   serializedVersion: 6

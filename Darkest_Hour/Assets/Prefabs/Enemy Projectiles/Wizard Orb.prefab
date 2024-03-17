@@ -4923,7 +4923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7479144491937504217}
-  _damageAmount: 1
+  _damageAmount: 3
   _speed: 15
   _destroyTime: 3
   _hitEffect: {fileID: 2693224493866878933, guid: d6dff7aad73edd343bf6d2e3883a20e0, type: 3}
