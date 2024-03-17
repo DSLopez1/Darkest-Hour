@@ -20,5 +20,6 @@ public class Blast : Ability
         blastScript.activeTime = activeTime;
         blastScript.damage = _damage;
         blastScript.radius = _radius;
+        blastScript.pushBack = _pushBack;
     }
 }

@@ -23,6 +23,8 @@ public class Player : MonoBehaviour, IDamage, IPhysics
 
     [Header("-----AbilityPos-----")] 
     [SerializeField] public Transform firePos;
+
+    public float dashCooldown;
     public List<AbilityHolder> abilities = new List<AbilityHolder>();
     public Vector3 targetPos;
 
