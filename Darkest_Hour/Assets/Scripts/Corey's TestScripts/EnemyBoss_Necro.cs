@@ -15,7 +15,7 @@ public class EnemyBoss_Necro : enemyRangedChild
     [Header("----- Extra Components -----")]
     [SerializeField] string _name;
     [SerializeField] TMP_Text _UI;
-    [SerializeField] GameObject _bossHPBar;
+    [SerializeField] GameObject _bossUI;
     [SerializeField] Collider _abilityCol;
     [SerializeField] int _spawnDis;
     [SerializeField] GameObject[] _enemies;
@@ -31,7 +31,7 @@ public class EnemyBoss_Necro : enemyRangedChild
     {
         base.Start();
         // Turn on boss bar and set name
-        _bossHPBar.SetActive(true);
+        _bossUI.SetActive(true);
         _UI.text = _name;
     }
     override protected IEnumerator Attack()
@@ -41,26 +41,27 @@ public class EnemyBoss_Necro : enemyRangedChild
 
         yield return new WaitForSeconds(_attackDelayC);
 
-        // Create system of if statements that will call functions to do mechanics
-        // All of which will be checked by a bool system to see if they can run or not
         if (canSummon)
         {
             StartCoroutine(SummonAbility());
-        }
-        else if (!phaseTwo && canAbility)
-        {
-            StartCoroutine(ScytheAbility());
         }
         else if (phaseTwo && canAbility)
         {
             StartCoroutine(SpellAttack());
         }
-        else
+        else if(_agentC.remainingDistance <= _agentC.stoppingDistance)
         {
-            if (_agentC.remainingDistance <= _agentC.stoppingDistance)
+            // Create system of if statements that will call functions to do mechanics
+            // All of which will be checked by a bool system to see if they can run or not
+            if (!phaseTwo && canAbility)
+            {
+                StartCoroutine(ScytheAbility());
+            }          
+            else
+            {
                 MeleeAttack();
+            }
         }
-
         // Space out attacks
         yield return new WaitForSeconds(_timeBetweenAttacksC);
 
@@ -74,18 +75,21 @@ public class EnemyBoss_Necro : enemyRangedChild
 
         // Trigger animation
         _animC.SetTrigger("Spawn");
-
-        for (int i = 0; i < _numToSpawn; i++)
-        {
-            // Spawn enemy
-            Spawn();
-        }
         
         // Start cooldown
         yield return new WaitForSeconds(_summonCD);
 
         // Allow ability again
         canSummon = true;
+    }
+    private void StartSpawn()
+    {
+        // Animation triggers
+        for (int i = 0; i < _numToSpawn; i++)
+        {
+            // Spawn enemy
+            Spawn();
+        }
     }
     private void Spawn()
     {
@@ -145,7 +149,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         if (_hp <= 0)
         {
             // Disable boss bar
-            _bossHPBar.SetActive(false);
+            _bossUI.SetActive(false);
             GameManager.instance.CompleteLevel(-1);
             Destroy(gameObject);
         }

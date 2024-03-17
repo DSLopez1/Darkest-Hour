@@ -80,7 +80,7 @@ public class EnemyBoss_Dragon : EnemyAI
                 // Do Pillars (Scream)
                 StartCoroutine(Scream());
             }
-            else if (canGustAttack && isGrounded) //add Phase 2
+            else if (canGustAttack && isGrounded && phaseTwo) //add Phase 2
             {
                 // Do Gust
                 StartCoroutine(Gust());

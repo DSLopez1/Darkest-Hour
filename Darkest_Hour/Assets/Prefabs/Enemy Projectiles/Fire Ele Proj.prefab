@@ -14737,7 +14737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 394623898868698930}
-  _damageAmount: 1
+  _damageAmount: 3
   _speed: 15
   _destroyTime: 3
   _hitEffect: {fileID: 9109469870361299154, guid: c43962b2966b4e54584a9f014dfcca78, type: 3}
