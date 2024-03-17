@@ -23,10 +23,12 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
-            mainMenuMusic = gameObject.AddComponent<AudioSource>();
-            mainMenuMusic.clip = mainMenuMusicClip;
-
+            if(mainMenuMusic == null)
+            {
+                mainMenuMusic = gameObject.AddComponent<AudioSource>();
+                mainMenuMusic.clip = mainMenuMusicClip;
+            }
+            
             levelMusic = gameObject.AddComponent<AudioSource>();
 
             soundEffectSource = gameObject.AddComponent<AudioSource>();
@@ -39,9 +41,12 @@ public class AudioManager : MonoBehaviour
             //GameOver!
             //YouWin(Credits)
 
-            levelMusicClips.Add("Level1", Resources.Load<AudioClip>("Level1_Music_Clip"));
+            levelMusicClips.Add("Tutorial Level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
+            levelMusicClips.Add("Level1", Resources.Load<AudioClip>("Level1_Clip"));
             levelMusicClips.Add("Level2", Resources.Load<AudioClip>("Level2_Music_Clip"));
             levelMusicClips.Add("Level3", Resources.Load<AudioClip>("Level3_Music_Clip"));
+            levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
+            levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
 
             soundEffects.Add("Attack", Resources.Load<AudioClip>("Attack_Clip"));
             soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
@@ -83,13 +88,17 @@ public class AudioManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string sceneName = scene.name;
-
-        if (levelMusicClips.ContainsKey(sceneName))
+        if(sceneName != "MainMenu")
         {
             mainMenuMusic.Stop();
-            levelMusic.clip = levelMusicClips[sceneName];
-            levelMusic.Play();
+            if (levelMusicClips.ContainsKey(sceneName))
+            {
+                levelMusic.clip = levelMusicClips[sceneName];
+                levelMusic.Play();
+            }
         }
+
+     
     }
 
     public void PlaySoundEffect(string soundEffectKey)
