@@ -34,6 +34,8 @@ public class MeteorObject : MonoBehaviour
             GameObject impact = Instantiate(impactVFX, co.contacts[0].point, Quaternion.identity);
             Explosion exScript = impact.GetComponent<Explosion>();
             exScript.damage = damage;
+            Debug.Log("metDamage");
+            Debug.Log(damage);
 
             Destroy(impact, 1);
             Destroy(gameObject);
