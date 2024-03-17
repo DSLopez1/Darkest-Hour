@@ -4142,7 +4142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -177.5, y: -44.7}
+  m_AnchoredPosition: {x: -177.5, y: -44.69995}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8879784133225784881
@@ -5085,9 +5085,9 @@ MonoBehaviour:
   playerSpawnPos: {fileID: 0}
   spawnPortal: {fileID: 0}
   playerDamageFlash: {fileID: 5043887702388832392}
+  armAnim: {fileID: 0}
   abilities:
   - {fileID: 11400000, guid: f09d73b61ade08b42bb604050a7b7029, type: 2}
-  - {fileID: 11400000, guid: 4d15521019671f74283874a239d7cdc1, type: 2}
   - {fileID: 11400000, guid: 922521910de29534f986df48d6759c76, type: 2}
   - {fileID: 11400000, guid: a98f02d1944382c40853af2e47c58331, type: 2}
   - {fileID: 11400000, guid: ac560ce87ea6d4c40b0c95009aa59392, type: 2}

@@ -13,6 +13,7 @@ public class FireBall : Ability
 
     public override void Casting()
     {
+        GameManager.instance.armAnim.SetTrigger("fireBall");
     }
 
     public override void Activate()

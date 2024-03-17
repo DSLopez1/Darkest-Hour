@@ -19,9 +19,10 @@ public class AutoObj : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-    
         _rb.useGravity = false;
-        _rb.velocity = Vector3.forward * speed;
+        Vector3 directionVel = _rb.transform.TransformDirection(Vector3.forward) * speed;
+
+        _rb.velocity = directionVel;
         
     }
 

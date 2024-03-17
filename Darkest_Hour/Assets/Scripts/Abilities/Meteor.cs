@@ -16,6 +16,11 @@ public class Meteor : Ability
     private Vector3 _startPos;
     private MeteorObject _meteorScript;
 
+    public override void Casting()
+    {
+        GameManager.instance.armAnim.SetTrigger("meteor");
+    }
+
     public override void Activate()
     {
         _meteorScript = _meteor.GetComponent<MeteorObject>();

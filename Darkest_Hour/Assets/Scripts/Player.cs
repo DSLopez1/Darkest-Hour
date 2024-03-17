@@ -1,26 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.Rendering.Universal;
-using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 public class Player : MonoBehaviour, IDamage, IPhysics
 {
-    [Header("----- Componenets -----")]
+    [Header("----- Components -----")]
     [SerializeField] private CharacterController _controller;
-    [SerializeField] private GameObject _targeterObject;
     [SerializeField] public Transform shootPos;
     public TempCameraController playerCam;
+    [SerializeField] public GameObject arm;
+
 
     [Header("----- Player Stats -----")] 
     [SerializeField] public int _HP;
     [SerializeField] public float playerSpeed;
-    [SerializeField] public int jumpMax;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _shootDistance;
     [SerializeField] public float gravity;
@@ -35,8 +29,6 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     private Vector3 _move;
     private Vector3 _playerVelocity;
     private Vector3 _pushBack;
-    private int _jumpCount;
-    private bool _isShooting;
     public bool gravOn = true;
     int _HPOrig;
     
@@ -48,6 +40,8 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         _HPOrig = _HP;
         _controller = GetComponent<CharacterController>();
         respawn();
+
+
 
         for (int i = 0; i < 4; i++)
         {
@@ -61,11 +55,6 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     {
         Movement();
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * _shootDistance, Color.blue);
-
-        if (Input.GetButtonDown("Fire2") && !_isShooting)
-        {
-            StartCoroutine(shootRay());
-        }
     }
 
     private void Movement()
@@ -75,7 +64,6 @@ public class Player : MonoBehaviour, IDamage, IPhysics
 
         if (_controller.isGrounded)
         {
-            _jumpCount = 0;
             _playerVelocity = Vector3.zero;
         }
         _move = Input.GetAxis("Horizontal") * transform.right
@@ -89,31 +77,6 @@ public class Player : MonoBehaviour, IDamage, IPhysics
             _playerVelocity.y -= gravity * Time.deltaTime;
         }
         _controller.Move((_playerVelocity + _pushBack) * Time.deltaTime);
-    }
-
-
-    IEnumerator shootProjectile(GameObject obj)
-    {
-        _isShooting = true;
-
-        GameObject instObj = Instantiate(obj, shootPos.position, Camera.main.transform.rotation);
-
-        yield return new WaitForSeconds(1);
-        _isShooting = false;
-    }
-
-    IEnumerator shootRay()
-    {
-        _isShooting = true;
-
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, _shootDistance))
-        {
-            targetObjPosition = hit.point;
-        }
-        yield return new WaitForSeconds(1);
-
-        _isShooting = false;
     }
 
     void updatePlayerUI()
@@ -159,7 +122,4 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         GameManager.instance.playerDamageFlash.SetActive(false);
     }
      public Vector3 getMoveVec() { return _move; }
-    
-
-
 }

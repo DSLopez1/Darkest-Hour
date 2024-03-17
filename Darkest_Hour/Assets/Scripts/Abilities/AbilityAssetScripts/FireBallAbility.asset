@@ -15,7 +15,7 @@ MonoBehaviour:
   name: FireBall
   cooldownTime: 3
   activeTime: 0
-  castTime: 0
+  castTime: 0.5
   cooldownImage: {fileID: 0}
   sprite: {fileID: 21300000, guid: c28d0cd2ac2958b408ec18297b3abb7e, type: 3}
   _onCooldown: 0

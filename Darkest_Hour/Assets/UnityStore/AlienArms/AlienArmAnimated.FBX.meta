@@ -1,0 +1,1252 @@
+fileFormatVersion: 2
+guid: 9783dcf73f46e65499a02fd17b438697
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: AlienArm
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: Bone005
+  - first:
+      1: 100006
+    second: Bone006
+  - first:
+      1: 100008
+    second: Bone007
+  - first:
+      1: 100010
+    second: Bone008
+  - first:
+      1: 100012
+    second: Bone_ArmUp
+  - first:
+      1: 100014
+    second: Bone_foreArm
+  - first:
+      1: 100016
+    second: Bone_index_00
+  - first:
+      1: 100018
+    second: Bone_index_01
+  - first:
+      1: 100020
+    second: Bone_index_02
+  - first:
+      1: 100022
+    second: Bone_index_03
+  - first:
+      1: 100024
+    second: Bone_middle_00
+  - first:
+      1: 100026
+    second: Bone_middle_01
+  - first:
+      1: 100028
+    second: Bone_middle_02
+  - first:
+      1: 100030
+    second: Bone_middle_03
+  - first:
+      1: 100032
+    second: Bone_pinky_00
+  - first:
+      1: 100034
+    second: Bone_pinky_01
+  - first:
+      1: 100036
+    second: Bone_pinky_02
+  - first:
+      1: 100038
+    second: Bone_pinky_03
+  - first:
+      1: 100040
+    second: Bone_roll
+  - first:
+      1: 100042
+    second: Bone_wrist_index
+  - first:
+      1: 100044
+    second: Bone_wrist_middle
+  - first:
+      1: 100046
+    second: Bone_wrist_pinky
+  - first:
+      1: 100048
+    second: BoneWrist
+  - first:
+      4: 400000
+    second: AlienArm
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: Bone005
+  - first:
+      4: 400006
+    second: Bone006
+  - first:
+      4: 400008
+    second: Bone007
+  - first:
+      4: 400010
+    second: Bone008
+  - first:
+      4: 400012
+    second: Bone_ArmUp
+  - first:
+      4: 400014
+    second: Bone_foreArm
+  - first:
+      4: 400016
+    second: Bone_index_00
+  - first:
+      4: 400018
+    second: Bone_index_01
+  - first:
+      4: 400020
+    second: Bone_index_02
+  - first:
+      4: 400022
+    second: Bone_index_03
+  - first:
+      4: 400024
+    second: Bone_middle_00
+  - first:
+      4: 400026
+    second: Bone_middle_01
+  - first:
+      4: 400028
+    second: Bone_middle_02
+  - first:
+      4: 400030
+    second: Bone_middle_03
+  - first:
+      4: 400032
+    second: Bone_pinky_00
+  - first:
+      4: 400034
+    second: Bone_pinky_01
+  - first:
+      4: 400036
+    second: Bone_pinky_02
+  - first:
+      4: 400038
+    second: Bone_pinky_03
+  - first:
+      4: 400040
+    second: Bone_roll
+  - first:
+      4: 400042
+    second: Bone_wrist_index
+  - first:
+      4: 400044
+    second: Bone_wrist_middle
+  - first:
+      4: 400046
+    second: Bone_wrist_pinky
+  - first:
+      4: 400048
+    second: BoneWrist
+  - first:
+      43: 4300000
+    second: AlienArm
+  - first:
+      74: 7400000
+    second: Alien_Arm_AllAnimations
+  - first:
+      74: 7400002
+    second: AA_bendArm
+  - first:
+      74: 7400004
+    second: AA_pointTypeA
+  - first:
+      74: 7400006
+    second: AA_SpreadHandTypeA
+  - first:
+      74: 7400008
+    second: AA_TakeHoldLever
+  - first:
+      74: 7400010
+    second: AA_PushLever
+  - first:
+      74: 7400012
+    second: AA_LeverFireButton
+  - first:
+      74: 7400014
+    second: AA_HandPlaceOnPanel
+  - first:
+      74: 7400016
+    second: AA_HandOnPanel
+  - first:
+      74: 7400018
+    second: AA_pointGun
+  - first:
+      74: 7400020
+    second: AA_FireGun
+  - first:
+      74: 7400022
+    second: AA_UseHud
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: AlienArm
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 1
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Alien_Arm_AllAnimations
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 325
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_bendArm
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_pointTypeA
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 45
+      lastFrame: 56
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_SpreadHandTypeA
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 83
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_TakeHoldLever
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 100
+      lastFrame: 131
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_PushLever
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 132
+      lastFrame: 141
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_LeverFireButton
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 160
+      lastFrame: 171
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_HandPlaceOnPanel
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 180
+      lastFrame: 201
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_HandOnPanel
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 202
+      lastFrame: 204
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_pointGun
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 220
+      lastFrame: 230
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_FireGun
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 230
+      lastFrame: 254
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AA_UseHud
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 260
+      lastFrame: 325
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienArm
+        weight: 1
+      - path: Bone_ArmUp
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone005/Bone006/Bone007/Bone008
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_index/Bone_index_00/Bone_index_01/Bone_index_02/Bone_index_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_middle/Bone_middle_00/Bone_middle_01/Bone_middle_02/Bone_middle_03
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02
+        weight: 1
+      - path: Bone_ArmUp/Bone_foreArm/Bone_roll/BoneWrist/Bone_wrist_pinky/Bone_pinky_00/Bone_pinky_01/Bone_pinky_02/Bone_pinky_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: AlienArm
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
