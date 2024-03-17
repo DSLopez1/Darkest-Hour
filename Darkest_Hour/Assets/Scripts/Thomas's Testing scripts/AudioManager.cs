@@ -31,6 +31,14 @@ public class AudioManager : MonoBehaviour
 
             soundEffectSource = gameObject.AddComponent<AudioSource>();
 
+            //Tutorial level needs Audio
+            //Level2
+            //Level3
+            //Throne Room
+            //Dragon Cave
+            //GameOver!
+            //YouWin(Credits)
+
             levelMusicClips.Add("Level1", Resources.Load<AudioClip>("Level1_Music_Clip"));
             levelMusicClips.Add("Level2", Resources.Load<AudioClip>("Level2_Music_Clip"));
             levelMusicClips.Add("Level3", Resources.Load<AudioClip>("Level3_Music_Clip"));
