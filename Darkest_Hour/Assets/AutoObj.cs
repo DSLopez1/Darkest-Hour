@@ -23,6 +23,7 @@ public class AutoObj : MonoBehaviour
         Vector3 directionVel = _rb.transform.TransformDirection(Vector3.forward) * speed;
 
         _rb.velocity = directionVel;
+
         
     }
 

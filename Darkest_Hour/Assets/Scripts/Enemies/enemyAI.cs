@@ -235,8 +235,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         StartCoroutine(FlashMat());
         if (_hp <= 0)
         {
-            GameManager.instance.CompleteLevel(-1);
             Destroy(gameObject);
+            GameManager.instance.CompleteLevel(-1);
         }
         // Lower HP on HP bar
        UpdateUI();

@@ -15,7 +15,7 @@ public class EnemyBoss_Necro : enemyRangedChild
     [Header("----- Extra Components -----")]
     [SerializeField] string _name;
     [SerializeField] TMP_Text _UI;
-    [SerializeField] GameObject _bossHPBar;
+    [SerializeField] GameObject _bossUI;
     [SerializeField] Collider _abilityCol;
     [SerializeField] int _spawnDis;
     [SerializeField] GameObject[] _enemies;
@@ -31,7 +31,7 @@ public class EnemyBoss_Necro : enemyRangedChild
     {
         base.Start();
         // Turn on boss bar and set name
-        _bossHPBar.SetActive(true);
+        _bossUI.SetActive(true);
         _UI.text = _name;
     }
     override protected IEnumerator Attack()
@@ -145,7 +145,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         if (_hp <= 0)
         {
             // Disable boss bar
-            _bossHPBar.SetActive(false);
+            _bossUI.SetActive(false);
             GameManager.instance.CompleteLevel(-1);
             Destroy(gameObject);
         }
