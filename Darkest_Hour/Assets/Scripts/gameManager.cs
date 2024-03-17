@@ -29,10 +29,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] public Player playerScript;
     [SerializeField] private int _lives;
+    [SerializeField] private GameObject spawnPortal;
     public TempCameraController PlayerCam;
     public Image playerHPBar;
     public GameObject playerSpawnPos;
-    public GameObject spawnPortal;
+    
     public GameObject playerDamageFlash;
     public Animator armAnim;
     
@@ -46,7 +47,6 @@ public class GameManager : MonoBehaviour
 
     private bool _isPaused;
     int enemyCount;
-    int bossCount;
 
     // Start is called before the first frame update
     private void Awake()
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
 
         if (enemyCount <= 0)
         {
-            Instantiate(spawnPortal, Vector3.zero, Quaternion.identity);
+            spawnPortal.SetActive(true);
         }
     }
     

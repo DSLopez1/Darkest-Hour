@@ -16,10 +16,13 @@ public class FireBallObj : MonoBehaviour
     [SerializeField] private float _heightDisplacement;
 
     public GameObject impactVFX;
+    private Explosion exScript;
     private bool _collided;
 
     void Start()
     {
+        exScript = impactVFX.GetComponent<Explosion>();
+        exScript.damage = damage;
         if (GameManager.instance.playerScript.targetPos != Vector3.zero)
         {
             _rb = GetComponent<Rigidbody>();
@@ -61,10 +64,10 @@ public class FireBallObj : MonoBehaviour
         if (co.gameObject.tag != "Player" && !_collided)
         {
             _collided = true;
-
+            impactVFX.SetActive(true);
             GameObject impact = Instantiate(impactVFX, co.contacts[0].point, Quaternion.identity);
-            Explosion exScript = impact.GetComponent<Explosion>();
-            exScript.damage = damage;
+            Debug.Log("fireobj");
+            Debug.Log(damage);
 
             Destroy(impact, 1);
             Destroy(gameObject);

@@ -245,8 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1166513376676526122}
-  _damageAmount: 1
-  _speed: 15
+  _damageAmount: 5
+  _speed: 35
   _destroyTime: 3
   _hitEffect: {fileID: 8925026857431698610, guid: 024f03c27758a9c47910bbe333b3d9cd, type: 3}
   statusEffect: 0

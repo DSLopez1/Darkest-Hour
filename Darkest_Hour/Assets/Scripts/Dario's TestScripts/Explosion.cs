@@ -5,7 +5,6 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public int damage;
-
     void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger)
@@ -15,6 +14,8 @@ public class Explosion : MonoBehaviour
 
         if (dmg != null && !other.CompareTag("Player"))
         {
+            Debug.Log("Damage triggered");
+            Debug.Log(damage);
             dmg.TakeDamage(damage);
         }
     }

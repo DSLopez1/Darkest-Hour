@@ -2829,7 +2829,7 @@ MonoBehaviour:
   _agent: {fileID: 8771063882783758533}
   _headPos: {fileID: 9005488684154815988}
   _meleeCollider: {fileID: 6653291426918930673}
-  _hpMax: 25
+  _hpMax: 75
   _viewCone: 45
   _targetFaceSpeed: 25
   _animSpeedTrans: 5
@@ -2906,7 +2906,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 55
+  m_Radius: 75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3690633553831277816
 GameObject:
