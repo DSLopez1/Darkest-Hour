@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeteorAbility
   m_EditorClassIdentifier: 
   name: Meteor
-  cooldownTime: 1
+  cooldownTime: 15
   activeTime: 0
   castTime: 0.5
   cooldownImage: {fileID: 0}

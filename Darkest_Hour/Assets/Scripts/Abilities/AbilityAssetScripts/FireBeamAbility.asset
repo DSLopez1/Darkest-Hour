@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireBeamAbility
   m_EditorClassIdentifier: 
   name: FireBeam
-  cooldownTime: 5
+  cooldownTime: 10
   activeTime: 5
   castTime: 0
   cooldownImage: {fileID: 0}
