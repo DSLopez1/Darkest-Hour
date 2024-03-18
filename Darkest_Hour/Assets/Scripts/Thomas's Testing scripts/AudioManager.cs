@@ -53,7 +53,7 @@ public class AudioManager : MonoBehaviour
             soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
             soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             soundEffects.Add("Dodge", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
-            soundEffects.Add("TeleportClip", Resources.Load<AudioClip>("Teleport_Clip"));
+            soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
             soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
