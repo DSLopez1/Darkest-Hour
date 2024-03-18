@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2069603274821976588}
   - component: {fileID: 3521405997739599640}
   - component: {fileID: 6699935185657324988}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BeamBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4875,7 +4875,7 @@ GameObject:
   - component: {fileID: 5782285645893676790}
   - component: {fileID: 4590908460225038358}
   - component: {fileID: 7414422184180310277}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrostLocal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9717,7 +9717,7 @@ GameObject:
   - component: {fileID: 6187046495284831655}
   - component: {fileID: 552019150195391423}
   - component: {fileID: 4540913666887246001}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14559,7 +14559,7 @@ GameObject:
   - component: {fileID: 7359197201853379513}
   - component: {fileID: 188157046107564097}
   - component: {fileID: 5297162855357179455}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmokeLocal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19413,7 +19413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4636947662254186515}
   - component: {fileID: 626638096736063912}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrailFrost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19558,7 +19558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2676362258193241022}
   - component: {fileID: 6128763326842749221}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrailFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19704,7 +19704,7 @@ GameObject:
   - component: {fileID: 6107012971148559836}
   - component: {fileID: 3614942324894947548}
   - component: {fileID: 1246327248279847511}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24568,7 +24568,7 @@ GameObject:
   - component: {fileID: 6919301341287226697}
   - component: {fileID: 2176661488885932505}
   - component: {fileID: 3124086440379156839}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29424,7 +29424,7 @@ GameObject:
   - component: {fileID: 6507495642993052919}
   - component: {fileID: 7711189347368533202}
   - component: {fileID: 6290940244502808427}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PurpleFireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29533,7 +29533,7 @@ GameObject:
   - component: {fileID: 5915001563597977134}
   - component: {fileID: 3045601637577569145}
   - component: {fileID: 8622746145692974962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireLocal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34375,7 +34375,7 @@ GameObject:
   - component: {fileID: 7688149775201517715}
   - component: {fileID: 8772414974765290292}
   - component: {fileID: 2142883588270956601}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39217,7 +39217,7 @@ GameObject:
   - component: {fileID: 1212745491398430031}
   - component: {fileID: 7179323286274488381}
   - component: {fileID: 772497249314618058}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Frost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
