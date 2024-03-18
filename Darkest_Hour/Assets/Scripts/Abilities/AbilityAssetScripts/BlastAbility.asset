@@ -20,7 +20,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 960b10317e54d6546811efdf8127a01c, type: 3}
   _onCooldown: 0
   _pushBack: 20
-  _radius: 5
+  _radius: 10
   _damage: 20
   blastObj: {fileID: 5929287929839878, guid: 97eb66ea73c52294b9c5d2e378d8f827, type: 3}
   blastScript: {fileID: 0}
