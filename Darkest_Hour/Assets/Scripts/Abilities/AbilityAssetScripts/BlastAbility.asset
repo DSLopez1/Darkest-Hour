@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: BlastAbility
   m_EditorClassIdentifier: 
   name: Blast
-  cooldownTime: 0
+  cooldownTime: 1
   activeTime: 0
   castTime: 0
   cooldownImage: {fileID: 0}
   sprite: {fileID: 21300000, guid: 960b10317e54d6546811efdf8127a01c, type: 3}
   _onCooldown: 0
-  _pushBack: 5
+  _pushBack: 20
   _radius: 5
-  _damage: 3
+  _damage: 20
   blastObj: {fileID: 5929287929839878, guid: 97eb66ea73c52294b9c5d2e378d8f827, type: 3}
   blastScript: {fileID: 0}
