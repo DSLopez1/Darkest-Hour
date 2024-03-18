@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlastAbility
   m_EditorClassIdentifier: 
   name: Blast
-  cooldownTime: 1
+  cooldownTime: 5
   activeTime: 0
   castTime: 0
   cooldownImage: {fileID: 0}

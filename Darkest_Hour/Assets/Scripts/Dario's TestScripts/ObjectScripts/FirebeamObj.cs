@@ -43,7 +43,7 @@ public class FirebeamObj : MonoBehaviour
             return;
        IDamage dmg = other.GetComponent<IDamage>();
 
-       if (dmg != null)
+       if (dmg != null && !other.CompareTag("Player"))
        {
            if (!isTicking)
            {
