@@ -48,12 +48,12 @@ public class AudioManager : MonoBehaviour
             levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
             levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
 
-            soundEffects.Add("Attack", Resources.Load<AudioClip>("Fireball_clip"));
+            
             soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
-            soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
-            soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
-            soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
-            soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
+            //soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
+            //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
+            //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
+            //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {

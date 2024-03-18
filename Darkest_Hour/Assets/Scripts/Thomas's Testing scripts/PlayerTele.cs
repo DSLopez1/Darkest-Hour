@@ -24,8 +24,6 @@ public class PlayerTeleportPortal : MonoBehaviour
                 DontDestroyOnLoad(livesCounter);
             }
 
-            AudioManager.Instance.PlaySoundEffect("spawnPortal");
-
             LoadNextScene();
         }
     }
