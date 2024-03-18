@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
             //YouWin(Credits)
 
             levelMusicClips.Add("Tutorial Level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
-            levelMusicClips.Add("Level1", Resources.Load<AudioClip>("Level1_Clip"));
+            levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             levelMusicClips.Add("Level2", Resources.Load<AudioClip>("Level2_Music_Clip"));
             levelMusicClips.Add("Level3", Resources.Load<AudioClip>("Level3_Music_Clip"));
             levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
