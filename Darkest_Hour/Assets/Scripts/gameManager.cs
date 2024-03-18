@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _menuShop;
     [SerializeField] private GameObject _menuDied;
     [SerializeField] private GameObject _menuAbility;
+    [SerializeField] private GameObject _itemMenu;
     [SerializeField] TMP_Text enemyCountText;
     [SerializeField] TMP_Text _livesCountText;
 
@@ -44,6 +45,10 @@ public class GameManager : MonoBehaviour
     public List<Ability> abilities = new List<Ability>();
     public List<GameObject> abilityImages = new List<GameObject>();
     public List<Image> coolDownImages = new List<Image>();
+
+    [Header("ItemFrame")]
+    public List<GameObject> itemsUI = new List<GameObject>();
+    public List<Item> allItems = new List<Item>();
 
     private bool _isPaused;
     int enemyCount;
@@ -80,6 +85,12 @@ public class GameManager : MonoBehaviour
             _menuAbility.SetActive(true);
         }
 
+        if (Input.GetKeyDown(KeyCode.I) && _menuActive == null)
+        {
+            StatePaused();
+            _menuActive = _itemMenu;
+            _itemMenu.SetActive(true);
+        }
     }
 
     public void StatePaused()
@@ -153,6 +164,23 @@ public class GameManager : MonoBehaviour
             else
             {
                 Debug.Log("sprite is null");
+            }
+        }
+    }
+
+    public void UpdateItemUI()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Sprite sprite = itemsUI[i].GetComponent<Image>().sprite;
+
+            if (sprite != null)
+            {
+                itemsUI[i].SetActive(true);
+            }
+            else
+            {
+                Debug.Log("sprite is null item");
             }
         }
     }

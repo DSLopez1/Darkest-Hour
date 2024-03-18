@@ -101,4 +101,46 @@ public class ButtonFunctions : MonoBehaviour
             }
         }
     }
+
+    public void BuyVeil()
+    {
+        BuyItem("BansheesVeil");
+    }
+
+    public void BuyItem(string name)
+    {
+        Item tempItem = null;
+
+
+        foreach (var i in GameManager.instance.allItems)
+        {
+            Debug.Log(i.name);
+
+            if (i.name == name)
+            {
+                tempItem = i;
+                break;
+            }
+        }
+
+        if (tempItem == null)
+        {
+            Debug.Log("No item found");
+            return;
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (GameManager.instance.playerScript.items[i] == null)
+            {
+                Debug.Log(i);
+                GameManager.instance.playerScript.items[i] = tempItem;
+                GameManager.instance.itemsUI[i].GetComponent<Image>().sprite =
+                    GameManager.instance.playerScript.items[i].image;
+                GameManager.instance.UpdateItemUI();
+                GameManager.instance.playerScript.applyItemStats(i);
+                break;
+            }
+        }
+    }
 }

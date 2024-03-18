@@ -403,7 +403,7 @@ MonoBehaviour:
   _shootPos: {fileID: 8210240984364779264}
   _fireBall: {fileID: 5991858241521416307, guid: eca31d4147b6e5846b86743bb933fecf, type: 3}
   _auto: {fileID: 7699532505143427401, guid: f4913b7d6919e2747a07af553580a917, type: 3}
-  _fireRate: 0.01
+  _fireRate: 0.5
   _anim: {fileID: 8648062440651011263}
 --- !u!95 &8648062440651011263
 Animator:
@@ -636,6 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684358704950257978}
   - component: {fileID: 1864419072304506693}
+  - component: {fileID: 4954154384398096757}
   - component: {fileID: 5496495550032394081}
   - component: {fileID: 2711613448358369575}
   - component: {fileID: 6234130603760074578}
@@ -680,18 +681,40 @@ MonoBehaviour:
   shootPos: {fileID: 8210240984364779264}
   playerCam: {fileID: 2193732369222017625}
   arm: {fileID: 5402815753476274506}
-  _HP: 25
+  HP: 10
   playerSpeed: 5
   _jumpForce: 5
-  _shootDistance: 0
+  _shootDistance: 100
   gravity: 25
   _sprintMod: 2
   _pushBackResolution: 3
+  damageMitigation: 0
   firePos: {fileID: 3226053039017356858}
+  dashCooldown: 1
   abilities: []
   targetPos: {x: 0, y: 0, z: 0}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gravOn: 1
   targetObjPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &4954154384398096757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904205716621026478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af3da783039fc14c90b944515fef64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 50
+  _key: 32
 --- !u!143 &5496495550032394081
 CharacterController:
   m_ObjectHideFlags: 0

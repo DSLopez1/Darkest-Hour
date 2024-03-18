@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -13,13 +14,14 @@ public class Player : MonoBehaviour, IDamage, IPhysics
 
 
     [Header("----- Player Stats -----")] 
-    [SerializeField] public int _HP;
+    [SerializeField] public int HP;
     [SerializeField] public float playerSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _shootDistance;
     [SerializeField] public float gravity;
     [SerializeField] private float _sprintMod;
     [SerializeField] private float _pushBackResolution;
+    public float damageMitigation;
 
     [Header("-----AbilityPos-----")] 
     [SerializeField] public Transform firePos;
@@ -27,6 +29,9 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     public float dashCooldown;
     public List<AbilityHolder> abilities = new List<AbilityHolder>();
     public Vector3 targetPos;
+
+    [Header("Items")]
+    public List<Item> items = new List<Item>();
 
     private Vector3 _move;
     private Vector3 _playerVelocity;
@@ -39,11 +44,9 @@ public class Player : MonoBehaviour, IDamage, IPhysics
 
     private void Start()
     {
-        _HPOrig = _HP;
+        _HPOrig = HP;
         _controller = GetComponent<CharacterController>();
         respawn();
-
-
 
         for (int i = 0; i < 4; i++)
         {
@@ -83,13 +86,13 @@ public class Player : MonoBehaviour, IDamage, IPhysics
 
     void updatePlayerUI()
     {
-        GameManager.instance.playerHPBar.fillAmount = (float)_HP / _HPOrig;
+        GameManager.instance.playerHPBar.fillAmount = (float)HP / _HPOrig;
     }
 
     public void respawn()
     {
         _pushBack = Vector3.zero;
-        _HP = _HPOrig;
+        HP = _HPOrig;
         updatePlayerUI();
 
         _controller.enabled = false;
@@ -97,14 +100,15 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         _controller.enabled = true;
     }
 
-
     public void TakeDamage(int amount)
     {
-        _HP -= amount;
+        float reduction = (float)amount * damageMitigation;
+        Debug.Log("Damage reduced - " + reduction);
+        HP -= amount - (int)reduction;
         updatePlayerUI();
         StartCoroutine(flashDamage());
 
-        if (_HP <= 0)
+        if (HP <= 0)
         {
             GameManager.instance.YouDied();
         }
@@ -124,4 +128,10 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         GameManager.instance.playerDamageFlash.SetActive(false);
     }
      public Vector3 getMoveVec() { return _move; }
+
+     public void applyItemStats(int index)
+     {
+        items[index].Initialize();
+        items[index].addStats();
+     }
 }
