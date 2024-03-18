@@ -30,8 +30,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [SerializeField] Image _HPBar;
 
     // Player dest info
-    private float _angleToPlayer;
-    private Vector3 _playerDir;
+    protected float _angleToPlayer;
+    protected Vector3 _playerDir;
     private bool _targetInRange;
 
     private List<Color> _colors;
@@ -49,6 +49,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     protected int _timeBetweenAttacksC;
     protected int _hpMaxC;
     protected Collider _meleeColliderC;
+    protected int _viewConeC;
+    protected Transform _headPosC;
 
 
     protected void Start()
@@ -102,6 +104,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         _timeBetweenAttacksC = _timeBetweenAttacks;
         _hpMaxC = _hpMax;
         _meleeColliderC = _meleeCollider;
+        _viewConeC = _viewCone;
+        _headPosC = _headPos;
     }
 
     virtual protected IEnumerator Attack()

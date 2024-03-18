@@ -260,11 +260,9 @@ public class EnemyBoss_Dragon : EnemyAI
         {
             // Disable boss bar
             _bossHPBar.SetActive(false);
-            GameManager.instance.CompleteLevel(-1);
-            Destroy(gameObject);
-
             // Win the game!
             GameManager.instance.YouWin();
+            Destroy(gameObject);
         }
 
         // Lower HP on HP bar

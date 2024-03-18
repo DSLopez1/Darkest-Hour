@@ -11,19 +11,28 @@ public class enemyRangedChild : EnemyAI
 
     override protected IEnumerator Attack()
     {
-        // Ensure more only one attack at a time
-        _isAttacking = true;
+        // Check if Raycast hits player or something else
+        RaycastHit hit;
+        if (Physics.Raycast(_headPosC.position, _playerDir, out hit))
+        {
+            // Did we hit both the player & the player is in the cone
+            if (hit.collider.CompareTag("Player") && _angleToPlayer <= _viewConeC)
+            {
+                // Ensure more only one attack at a time
+                _isAttacking = true;
 
-        // Trigger shoot animation
-        _animC.SetTrigger("Attack");
+                // Trigger shoot animation
+                _animC.SetTrigger("Attack");
 
-        // Audio for shoot animation
+                // Audio for shoot animation
 
-        // Delay before next attack can trigger
-        yield return new WaitForSeconds(_timeBetweenAttacksC);
+                // Delay before next attack can trigger
+                yield return new WaitForSeconds(_timeBetweenAttacksC);
 
 
-        _isAttacking = false;
+                _isAttacking = false;
+            }
+        }
     }
 
     public IEnumerator InstantiateProjectile()

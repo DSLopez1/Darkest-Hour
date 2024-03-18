@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
     
     public void YouWin()
     {
-        SceneManager.LoadScene("YouWin");
+        SceneManager.LoadScene("YouWin_Credits");
     }
 
     public void YouDied()
