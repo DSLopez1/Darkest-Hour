@@ -4147,7 +4147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7083069505802998090
 Transform:
   m_ObjectHideFlags: 0
@@ -4362,7 +4362,7 @@ MonoBehaviour:
   _enemies:
   - {fileID: 274891744603885841, guid: be2f34e12d14b7a459a988c1ed5374f8, type: 3}
   - {fileID: 6728715456706324193, guid: f03fa0d4f1ddd774590f81edf13cfe21, type: 3}
-  _numToSpawn: 6
+  _numToSpawn: 4
   _spawnAnim: {fileID: 6857454635344909483, guid: 64ddb8dc46d488f43bc7b3158aa33173, type: 3}
 --- !u!195 &7533032392389139272
 NavMeshAgent:
