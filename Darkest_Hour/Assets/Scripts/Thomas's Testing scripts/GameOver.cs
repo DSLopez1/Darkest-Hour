@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public string level1SceneName = "Level1";
+    public string level1SceneName = "Outside City (Lvl 1)";
 
 
     public void RestartGameFromLevel1ButtonClicked()
@@ -19,7 +19,7 @@ public class GameOver : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Outside City (Lvl 1)");
     }
 
     public void QuitGame()
