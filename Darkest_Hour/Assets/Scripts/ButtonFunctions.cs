@@ -63,6 +63,11 @@ public class ButtonFunctions : MonoBehaviour
         BuyAbility("Blast");
     }
 
+    public void BuySeeker()
+    {
+        BuyAbility("Seeker");
+    }
+
     public void BuyAbility(string name)
     {
         Ability tempAbility = null;
