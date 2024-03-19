@@ -15,8 +15,8 @@ public class LoadingScene : MonoBehaviour
     private Image loading_Bar_Progress;
 
     private float progress_Value = 1.1f;
-    private float progress_Multiplier_1 = 0.5f;
-    private float progress_Multiplier_2 = 0.07f;
+    public float progress_Multiplier_1 = 0.5f;
+    public float progress_Multiplier_2 = 0.07f;
 
     public float load_Level_Time = 2f;
     private void Awake()
@@ -78,7 +78,35 @@ public class LoadingScene : MonoBehaviour
     {
         yield return new WaitForSeconds(load_Level_Time);
 
-        LoadLevel("Tutorial level"); 
+        //LoadLevel("Tutorial level"); 
+        LoadLevelAsync("Tutorial level");
+    }
+
+    public void LoadLevelAsync(string levelName)
+    {
+        StartCoroutine(LoadAsynchronously(levelName));
+    }
+
+    IEnumerator LoadAsynchronously(string levelName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelName);
+
+        loading_Bar_Holder.SetActive(true);
+
+        //while the operation is Not Done
+        while (!operation.isDone)
+        {
+            float progress = operation.progress / 0.9f;
+
+            loading_Bar_Progress.fillAmount = progress;
+
+            if(progress >= 1f)
+            {
+                loading_Bar_Holder.SetActive(false);
+            }
+        }
+
+        yield return null;
     }
 
 }
