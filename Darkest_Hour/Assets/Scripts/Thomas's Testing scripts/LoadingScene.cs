@@ -18,6 +18,7 @@ public class LoadingScene : MonoBehaviour
     private float progress_Multiplier_1 = 0.5f;
     private float progress_Multiplier_2 = 0.07f;
 
+    public float load_Level_Time = 2f;
     private void Awake()
     {
         MakeSingleton();
@@ -25,7 +26,7 @@ public class LoadingScene : MonoBehaviour
 
     private void Start()
     {
-        
+        StartCoroutine(LoadingSomeLevel());
     }
 
     void MakeSingleton()
@@ -44,6 +45,40 @@ public class LoadingScene : MonoBehaviour
     public void LoadLevel(string levelName)
     {
         loading_Bar_Holder.SetActive(true);
+
+        progress_Value = 0f;
+
+        //Time.timescale = 0f;
+
+        SceneManager.LoadScene(levelName);
+    }
+
+    void ShowLoadingScene()
+    {
+        if(progress_Value > 1f)
+        {
+            progress_Value += progress_Multiplier_1 * progress_Multiplier_2;
+            loading_Bar_Progress.fillAmount = progress_Value;
+
+            if(progress_Value >= 1f)
+            {
+                progress_Value = 1.1f;
+
+                loading_Bar_Progress.fillAmount = 0f;
+
+                loading_Bar_Holder.SetActive(false);
+
+                //Time.timeScale = 1f;
+            }
+        } // if progress value <1
+
+    }
+
+    IEnumerator LoadingSomeLevel()
+    {
+        yield return new WaitForSeconds(load_Level_Time);
+
+        LoadLevel("Tutorial level"); 
     }
 
 }
