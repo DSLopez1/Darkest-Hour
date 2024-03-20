@@ -43,10 +43,10 @@ public class AudioManager : MonoBehaviour
 
             levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
             levelMusicClips.Add("Tutorial Level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
-            levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
-            levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
-            levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
-            levelMusicClips.Add("Dragon Cave", Resources.Load<AudioClip>("BossFight"));
+            //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
+            //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
+            //levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
+            //levelMusicClips.Add("Dragon Cave", Resources.Load<AudioClip>("BossFight"));
             levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
             levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
 
