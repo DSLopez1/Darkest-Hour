@@ -41,6 +41,7 @@ public class AudioManager : MonoBehaviour
             //GameOver!
             //YouWin(Credits)
 
+            levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
             levelMusicClips.Add("Tutorial Level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
             levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));

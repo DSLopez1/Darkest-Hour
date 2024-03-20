@@ -11,7 +11,13 @@ public class MainMenu : MonoBehaviour
     public void OnPlayButtonClicked()
     {
         PlayButtonClickSound();
-        StartCoroutine(LoadSceneWithDelay(1, 1.0f));
+        SceneManager.LoadScene("Outside City (Lvl 1)");
+    }
+
+    public void OnTutorialButtonClicked()
+    {
+        PlayButtonClickSound();
+        LoadSceneWithDelay(1, 1.0f);
     }
 
     public void OnOptionsButtonClicked()
