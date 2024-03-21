@@ -44,7 +44,7 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_C1728026: 3.68
-    - Vector1_D1034171: 0.06
+    - Vector1_D1034171: 0
     - _QueueControl: 0
     - _SrcBlend: 5
     m_Colors:
