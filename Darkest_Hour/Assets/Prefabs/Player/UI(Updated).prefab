@@ -6620,6 +6620,9 @@ MonoBehaviour:
   - {fileID: 2923565058968786307}
   allItems:
   - {fileID: 11400000, guid: d16939143e0e2b04d9253f3e8c90e2bb, type: 2}
+  - {fileID: 11400000, guid: 237d45f10eb9e3840b7b9bd746f8bfb4, type: 2}
+  - {fileID: 11400000, guid: 43eafc7796d730b4d81e19fe88f3c867, type: 2}
+  itemCopy: []
 --- !u!1 &8668868980230755655
 GameObject:
   m_ObjectHideFlags: 0

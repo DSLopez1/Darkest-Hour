@@ -56,6 +56,7 @@ public class AudioManager : MonoBehaviour
             //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
             //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
+            soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "BansheesVeil", menuName = "Items")]
+[CreateAssetMenu(fileName = "NewItem", menuName = "Items/BansheesVeil")]
 public class BansheesVeil : Item
 {
     [Header("Stats to add")] 

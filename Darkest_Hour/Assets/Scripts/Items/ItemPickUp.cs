@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,24 +8,35 @@ public class ItemPickUp : MonoBehaviour
 {
     public Item item;
     public Sprite sprite;
-    public AudioClip clip;
 
     private Image image;
     private AudioSource src;
-    
+    private Rigidbody _rb;
     void Start()
     {
-        image = GetComponentInChildren<Image>();
-        src = GetComponent<AudioSource>();
-        src.clip = clip;
-        sprite = item.image;
-        image.sprite = sprite;
+        if (GameManager.instance.itemCopy.Count > 0)
+        {
+            int randomNum = Random.Range(0, GameManager.instance.itemCopy.Count);
+            item = GameManager.instance.itemCopy[randomNum];
+            GameManager.instance.itemCopy.RemoveAt(randomNum);
+            _rb = GetComponent<Rigidbody>();
+            image = GetComponentInChildren<Image>();
+            src = GetComponent<AudioSource>();
+            sprite = item.image;
+            image.sprite = sprite;
+        }
+        else 
+            Destroy(gameObject);
 
     }
 
     void Update()
     {
         transform.LookAt(GameManager.instance.player.transform);
+        if (transform.position.y <= 1)
+        {
+            _rb.isKinematic = true;
+        }
     }
 
 
@@ -38,7 +50,6 @@ public class ItemPickUp : MonoBehaviour
             ButtonFunctions button = new ButtonFunctions();
 
             button.BuyItem(item.name);
-            src.Play();
             Destroy(gameObject);
         }
     }

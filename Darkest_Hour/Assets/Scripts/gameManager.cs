@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     [Header("ItemFrame")]
     public List<GameObject> itemsUI = new List<GameObject>();
     public List<Item> allItems = new List<Item>();
+    public List<Item> itemCopy = new List<Item>();
 
     private bool _isPaused;
     int enemyCount;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
         armAnim = GameManager.instance.playerScript.arm.GetComponent<Animator>();
         playerSpawnPos = GameObject.FindWithTag("playerSpawnPos");
         _livesCountText.text = _lives.ToString("F0");
+        itemCopy = allItems.ToList();
 
     }
 

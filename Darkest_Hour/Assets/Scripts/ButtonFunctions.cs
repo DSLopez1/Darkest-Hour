@@ -112,6 +112,11 @@ public class ButtonFunctions : MonoBehaviour
         BuyItem("BansheesVeil");
     }
 
+    public void BuyOBow()
+    {
+        BuyItem("OBow");
+    }
+
     public void BuyItem(string name)
     {
         Item tempItem = null;
