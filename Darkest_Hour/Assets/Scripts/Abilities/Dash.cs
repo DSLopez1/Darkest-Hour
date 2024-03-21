@@ -39,11 +39,13 @@ public class Dash : MonoBehaviour
         _velocity = _script.getMoveVec().normalized * force;
         if (_velocity != Vector3.zero)
         {
+            _velocity.y += 1;
             phys.PhysicsDir(_velocity);
         }
         else
         {
             _velocity = GameManager.instance.PlayerCam.transform.forward.normalized * force;
+            _velocity.y += 1;
             phys.PhysicsDir(_velocity);
         }
 

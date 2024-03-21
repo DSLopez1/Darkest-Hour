@@ -682,7 +682,7 @@ MonoBehaviour:
   playerCam: {fileID: 2193732369222017625}
   arm: {fileID: 5402815753476274506}
   HP: 30
-  playerSpeed: 5
+  playerSpeed: 10
   _jumpForce: 5
   _shootDistance: 100
   gravity: 25

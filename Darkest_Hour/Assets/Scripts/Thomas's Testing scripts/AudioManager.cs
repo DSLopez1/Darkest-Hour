@@ -89,7 +89,7 @@ public class AudioManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string sceneName = scene.name;
-        if(sceneName != "MainMenu")
+        if(sceneName != "MainMenu" && mainMenuMusic != null)
         {
             mainMenuMusic.Stop();
             if (levelMusicClips.ContainsKey(sceneName))
