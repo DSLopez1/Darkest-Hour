@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioClip mainMenuMusicClip;
+   
+
     private AudioSource mainMenuMusic;
     private AudioSource levelMusic;
     private AudioSource soundEffectSource;
@@ -23,25 +25,18 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            if(mainMenuMusic == null)
-            {
-                mainMenuMusic = gameObject.AddComponent<AudioSource>();
-                mainMenuMusic.clip = mainMenuMusicClip;
-            }
+
+
+            mainMenuMusic = gameObject.AddComponent<AudioSource>();
+            mainMenuMusic.clip = mainMenuMusicClip;
             
             levelMusic = gameObject.AddComponent<AudioSource>();
 
             soundEffectSource = gameObject.AddComponent<AudioSource>();
 
-            //Tutorial level needs Audio
-            //Level2
-            //Level3
-            //Throne Room
-            //Dragon Cave
-            //GameOver!
-            //YouWin(Credits)
 
-            levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
+            
+            //levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
             levelMusicClips.Add("Tutorial Level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
             //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
@@ -60,6 +55,7 @@ public class AudioManager : MonoBehaviour
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
+
                 mainMenuMusic.Play();
             }
         }
@@ -69,38 +65,31 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void RestartGameFromLevel1()
-    {
-        mainMenuMusic.Stop();
 
-        // Play level 1 music
-        if (levelMusicClips.ContainsKey("Level1"))
-        {
-            levelMusic.clip = levelMusicClips["Level1"];
-            levelMusic.loop = true;
-            levelMusic.Play();
-        }
-    }
 
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+ 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string sceneName = scene.name;
-        if(sceneName != "MainMenu" && mainMenuMusic != null)
+
+        if (levelMusic.isPlaying)
         {
-            mainMenuMusic.Stop();
-            if (levelMusicClips.ContainsKey(sceneName))
-            {
-                levelMusic.clip = levelMusicClips[sceneName];
-                levelMusic.Play();
-            }
+            levelMusic.Stop();
         }
 
-     
+       if (levelMusicClips.ContainsKey(sceneName))
+       {
+            mainMenuMusic.Stop();
+            levelMusic.clip = levelMusicClips[sceneName];
+            levelMusic.Play();
+            levelMusic.loop = true;
+       }
+
     }
 
     public void PlaySoundEffect(string soundEffectKey)
@@ -138,6 +127,20 @@ public class AudioManager : MonoBehaviour
         mainMenuMusic.volume = volume;
         levelMusic.volume = volume;
         soundEffectSource.volume = volume;
+    }
+
+
+    public void RestartGameFromLevel1()
+    {
+        mainMenuMusic.Stop();
+
+        // Play level 1 music
+        if (levelMusicClips.ContainsKey("Level1"))
+        {
+            levelMusic.clip = levelMusicClips["Level1"];
+            levelMusic.loop = true;
+            levelMusic.Play();
+        }
     }
 
 }

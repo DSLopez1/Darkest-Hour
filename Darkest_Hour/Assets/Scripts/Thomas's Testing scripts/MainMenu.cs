@@ -17,7 +17,8 @@ public class MainMenu : MonoBehaviour
     public void OnTutorialButtonClicked()
     {
         PlayButtonClickSound();
-        LoadSceneWithDelay(1, 1.0f);
+        Tutorial();
+        
     }
 
     public void OnOptionsButtonClicked()
@@ -36,9 +37,14 @@ public class MainMenu : MonoBehaviour
             buttonClickSound.Play();
     }
 
-    private IEnumerator LoadSceneWithDelay(int sceneIndex, float delay)
+    public void Tutorial()
+    {
+        StartCoroutine(LoadTutorialWithDelay(2f));
+    }
+
+    private IEnumerator LoadTutorialWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene("Tutorial level");
     }
 }
