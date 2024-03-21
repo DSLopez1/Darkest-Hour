@@ -6601,6 +6601,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a98f02d1944382c40853af2e47c58331, type: 2}
   - {fileID: 11400000, guid: ac560ce87ea6d4c40b0c95009aa59392, type: 2}
   - {fileID: 11400000, guid: f7e4335efb8f9bc419b2fa37bc42e474, type: 2}
+  - {fileID: 11400000, guid: 747b208d63634b146ad1aca2b6b28034, type: 2}
   abilityImages:
   - {fileID: 3453160511119912977}
   - {fileID: 5424382329741728786}

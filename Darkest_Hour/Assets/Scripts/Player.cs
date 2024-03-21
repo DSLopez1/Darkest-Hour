@@ -107,7 +107,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         HP -= amount - (int)reduction;
         updatePlayerUI();
         StartCoroutine(flashDamage());
-
+        
         if (HP <= 0)
         {
             GameManager.instance.YouDied();
