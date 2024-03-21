@@ -7,11 +7,17 @@ public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource buttonClickSound;
-
+    
     public void OnPlayButtonClicked()
     {
         PlayButtonClickSound();
-        StartCoroutine(LoadSceneWithDelay(1, 1.0f));
+        SceneManager.LoadScene("Outside City (Lvl 1)");
+    }
+
+    public void OnTutorialButtonClicked()
+    {
+        PlayButtonClickSound();
+        LoadSceneWithDelay(1, 1.0f);
     }
 
     public void OnOptionsButtonClicked()

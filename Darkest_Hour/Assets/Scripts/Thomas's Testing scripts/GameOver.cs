@@ -14,9 +14,9 @@ public class GameOver : MonoBehaviour
         // Call the RestartGameFromLevel1 method of the AudioManager to reset the audio
         AudioManager.Instance.RestartGameFromLevel1();
 
-        // restart the game from level1
+        
     }
-
+    // restart the game from level1
     public void RestartGame()
     {
         SceneManager.LoadScene("Outside City (Lvl 1)");
