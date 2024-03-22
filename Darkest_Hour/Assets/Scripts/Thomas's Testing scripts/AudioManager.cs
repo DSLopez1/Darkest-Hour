@@ -5,10 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+
+    /* Audio Mamager - in the main menu scene create a (empty 3D object) and attach the audio manager script to the object, make sure your Audio is in a file called Resources Or 
+     * if its in a file called Audio change from Resources.Load<AudioClip> to Audio.Load<AudioClip> 
+     * just make sure the folder where all the audio is stored you use the EXACT name in the ____.Load<AudioClip>, also for example if my attack animations was called "Slash_Clip" 
+     * when i add the sound to my library in the Audio Manager it would look like soundEffects.Add("Attack", Resources.Load<AudioClip>("Slash_Clip"));
+     * make sure Exactly how you have the audio clip labeled its the same Exact way in here..including caps bc its case sensitive. here's a lil breakdown.
+ soundEffects.Add("Attack", Resources.Load<AudioClip>("Attack_Clip"));
+                   ^          ^                            ^
+       trigger/function     Exact folder               Exact name that
+      that triggers the     name audio is           the audio clip is named            > CASE SENSITIVE!
+              audio           stored                  in the folder u keep the 
+							  audio
+    also if your working in a scene and it gives you a null refernce error or the portal doesnt work just make a empty game object and put the audio manager script on it and ur good to go, 
+    just remember to delete it before playing through the game */
+
+
     public static AudioManager Instance;
     public AudioClip mainMenuMusicClip;
-   
 
+    [Header("----AudioSources----")]
     private AudioSource mainMenuMusic;
     private AudioSource levelMusic;
     private AudioSource soundEffectSource;
@@ -21,22 +37,20 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance == null) //update awake method
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-
             mainMenuMusic = gameObject.AddComponent<AudioSource>();
             mainMenuMusic.clip = mainMenuMusicClip;
-            
-            levelMusic = gameObject.AddComponent<AudioSource>();
 
+            levelMusic = gameObject.AddComponent<AudioSource>();
             soundEffectSource = gameObject.AddComponent<AudioSource>();
 
 
-            
             //levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
+            levelMusicClips.Add("MainMenu", Resources.Load<AudioClip>("MainMenu"));
             levelMusicClips.Add("Tutorial Level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
             //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
@@ -45,7 +59,7 @@ public class AudioManager : MonoBehaviour
             levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
             levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
 
-            
+
             soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
             //soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
             //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
@@ -55,24 +69,22 @@ public class AudioManager : MonoBehaviour
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
-
+               
                 mainMenuMusic.Play();
             }
-        }
-        else
-        {
-            Destroy(gameObject);
+            else
+            {
+                Destroy(gameObject);
+            }
+
         }
     }
-
-
 
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
- 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string sceneName = scene.name;
@@ -82,14 +94,13 @@ public class AudioManager : MonoBehaviour
             levelMusic.Stop();
         }
 
-       if (levelMusicClips.ContainsKey(sceneName))
-       {
+        if (levelMusicClips.ContainsKey(sceneName))
+        {
             mainMenuMusic.Stop();
             levelMusic.clip = levelMusicClips[sceneName];
             levelMusic.Play();
             levelMusic.loop = true;
-       }
-
+        }
     }
 
     public void PlaySoundEffect(string soundEffectKey)
@@ -135,9 +146,9 @@ public class AudioManager : MonoBehaviour
         mainMenuMusic.Stop();
 
         // Play level 1 music
-        if (levelMusicClips.ContainsKey("Level1"))
+        if (levelMusicClips.ContainsKey("Level1_Clip"))
         {
-            levelMusic.clip = levelMusicClips["Level1"];
+            levelMusic.clip = levelMusicClips["Level1_Clip"];
             levelMusic.loop = true;
             levelMusic.Play();
         }
