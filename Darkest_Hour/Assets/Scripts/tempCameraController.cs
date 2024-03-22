@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TempCameraController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class TempCameraController : MonoBehaviour
     private float _rotX;
     private bool _isShooting;
     private Vector3 _camPosition;
+
+
 
     private void Start()
     {
@@ -29,6 +32,10 @@ public class TempCameraController : MonoBehaviour
         // Get input
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * _sensitivity;
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * _sensitivity;
+
+       
+
+       
 
         // Invert look
         if (_invertY)
