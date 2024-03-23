@@ -16,10 +16,8 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     [Header("----- Player Stats -----")] 
     [SerializeField] public int HP;
     [SerializeField] public float playerSpeed;
-    [SerializeField] private float _jumpForce;
     [SerializeField] private float _shootDistance;
     [SerializeField] public float gravity;
-    [SerializeField] private float _sprintMod;
     [SerializeField] private float _pushBackResolution;
     public float damageMitigation;
 

@@ -7,7 +7,7 @@ public class armCall : MonoBehaviour
 {
     [SerializeField] private Transform _shootPos;
     [SerializeField] private GameObject _fireBall;
-    [SerializeField] private GameObject _auto;
+    [SerializeField] public GameObject auto;
     [SerializeField] public float fireRate;
     public Animator _anim;
 
@@ -37,7 +37,7 @@ public class armCall : MonoBehaviour
         _isShooting = true;
         GameManager.instance.PlayerCam.StartCoroutine(GameManager.instance.PlayerCam.shootRay());
 
-        GameObject instObj = Instantiate(_auto, _shootPos.position, Camera.main.transform.rotation);
+        GameObject instObj = Instantiate(auto, _shootPos.position, Camera.main.transform.rotation);
 
         yield return new WaitForSeconds(fireRate);
         _isShooting = false;

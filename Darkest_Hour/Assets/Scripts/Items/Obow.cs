@@ -9,6 +9,7 @@ public class Obow : Item
 {
     private armCall armScript;
 
+
     public override void Initialize()
     {
         base.Initialize();
