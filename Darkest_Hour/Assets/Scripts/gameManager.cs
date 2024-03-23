@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.Rendering;
 
@@ -35,11 +36,9 @@ public class GameManager : MonoBehaviour
     public TempCameraController PlayerCam;
     public Image playerHPBar;
     public GameObject playerSpawnPos;
-    
+
     public GameObject playerDamageFlash;
     public Animator armAnim;
-    
-
 
     [Header("-----AbilityInterface------")]
 
@@ -52,13 +51,23 @@ public class GameManager : MonoBehaviour
     public List<Item> allItems = new List<Item>();
     public List<Item> itemCopy = new List<Item>();
 
+    [Header("-----Inputs------")]
+    [SerializeField] PlayerInput playerInput;
+    [SerializeField] GameObject _pauseMenuFirst;
+    [SerializeField] GameObject _deathMenuFirst;
+    private bool MenuOpenCloseInput;
+    private InputAction _menuOpenCloseAction;
+
     private bool _isPaused;
     int enemyCount;
 
     // Start is called before the first frame update
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
         PlayerCam = Camera.main.GetComponent<TempCameraController>();
@@ -67,18 +76,29 @@ public class GameManager : MonoBehaviour
         _livesCountText.text = _lives.ToString("F0");
         itemCopy = allItems.ToList();
 
+        // Input Initialized
+        _menuOpenCloseAction = playerInput.actions["MenuOpenClose"];
+
     }
 
-  
+
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel") && _menuActive == null)
+        MenuOpenCloseInput = _menuOpenCloseAction.WasPressedThisFrame();
+        if (MenuOpenCloseInput && _menuActive == null)  //(Input.GetButtonDown("Cancel") && _menuActive == null)
         {
+
             StatePaused();
             _menuActive = _menuPause;
             _menuActive.SetActive(_isPaused);
+            EventSystem.current.SetSelectedGameObject(_pauseMenuFirst);
+            //EventSystem.current.firstSelectedGameObject = _pauseMenuFirst;
+        }
+        else if (MenuOpenCloseInput && _menuActive != null)
+        {
+            StateUnpaused();
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && _menuActive == null)
@@ -99,7 +119,6 @@ public class GameManager : MonoBehaviour
     public void StatePaused()
     {
         _isPaused = !_isPaused;
-        Debug.Log("paused");
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -113,6 +132,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         _menuActive.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
         _menuActive = null;
     }
 
@@ -126,7 +146,7 @@ public class GameManager : MonoBehaviour
             spawnPortal.SetActive(true);
         }
     }
-    
+
     public void YouWin()
     {
         SceneManager.LoadScene("YouWin_Credits");
@@ -141,6 +161,7 @@ public class GameManager : MonoBehaviour
             StatePaused();
             _menuActive = _menuDied;
             _menuActive.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(_deathMenuFirst);
         }
         else
         {
@@ -151,7 +172,7 @@ public class GameManager : MonoBehaviour
 
     public void youLose()
     {
-            SceneManager.LoadScene("GameOver!");
+        SceneManager.LoadScene("GameOver!");
     }
 
     public void UpdateAbilityUI()
