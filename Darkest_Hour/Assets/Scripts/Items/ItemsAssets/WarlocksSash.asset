@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9faa1b2f55abd43bdf05d63eeeb3ab, type: 3}
+  m_Name: WarlocksSash
+  m_EditorClassIdentifier: 
+  name: WarlocksSash
+  image: {fileID: 21300000, guid: 9e94108b57faf7948bc362ea5265ae6a, type: 3}
+  player: {fileID: 0}
+  script: {fileID: 0}
+  bullet: {fileID: 1358794707596542435, guid: c195d404ff0a6b742bfd2b127e0d25c0, type: 3}
+  playerArm: {fileID: 0}
