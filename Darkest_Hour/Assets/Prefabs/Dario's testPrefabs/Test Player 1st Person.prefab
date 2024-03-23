@@ -402,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootPos: {fileID: 8210240984364779264}
   _fireBall: {fileID: 5991858241521416307, guid: eca31d4147b6e5846b86743bb933fecf, type: 3}
-  _auto: {fileID: 7699532505143427401, guid: f4913b7d6919e2747a07af553580a917, type: 3}
+  auto: {fileID: 7699532505143427401, guid: f4913b7d6919e2747a07af553580a917, type: 3}
   fireRate: 0.5
   _anim: {fileID: 8648062440651011263}
 --- !u!95 &8648062440651011263
@@ -683,12 +683,11 @@ MonoBehaviour:
   arm: {fileID: 5402815753476274506}
   HP: 30
   playerSpeed: 10
-  _jumpForce: 5
   _shootDistance: 100
   gravity: 25
-  _sprintMod: 2
   _pushBackResolution: 3
   damageMitigation: 0
+  coolDownReduction: 1
   firePos: {fileID: 3226053039017356858}
   dashCooldown: 1
   abilities: []
