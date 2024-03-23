@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource soundEffectSource;
 
     private float overallVolume = 1f;
+    private float backgroundVolume = 1f;
     private float soundEffectsVolume = 1f;
 
     private Dictionary<string, AudioClip> levelMusicClips = new Dictionary<string, AudioClip>();
@@ -51,7 +52,7 @@ public class AudioManager : MonoBehaviour
 
             //levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
             levelMusicClips.Add("MainMenu", Resources.Load<AudioClip>("MainMenu"));
-            levelMusicClips.Add("Tutorial Level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
+            levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
             //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
@@ -117,27 +118,23 @@ public class AudioManager : MonoBehaviour
 
     public void SetBackgroundVolume(float volume)
     {
-        mainMenuMusic.volume = volume;
-        levelMusic.volume = volume;
+        backgroundVolume = volume;
+        mainMenuMusic.volume = overallVolume * backgroundVolume;
+        levelMusic.volume = overallVolume * backgroundVolume;
     }
 
     public void SetSoundEffectsVolume(float volume)
     {
-        if (overallVolume <= 0f)
-        {
-            soundEffectSource.volume = volume;
-        }
-        else
-        {
-            soundEffectSource.volume = overallVolume * volume;
-        }
+        soundEffectsVolume = volume;
+        soundEffectSource.volume = overallVolume * soundEffectsVolume;
     }
 
     public void SetOverallVolume(float volume)
     {
-        mainMenuMusic.volume = volume;
-        levelMusic.volume = volume;
-        soundEffectSource.volume = volume;
+        overallVolume = volume;
+        mainMenuMusic.volume = overallVolume * backgroundVolume;
+        levelMusic.volume = overallVolume * backgroundVolume;
+        soundEffectSource.volume = overallVolume * soundEffectsVolume;
     }
 
 
