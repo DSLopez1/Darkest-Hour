@@ -9,10 +9,11 @@ public class LevelLoader : MonoBehaviour
 
     public float transitionTime = 1f;
 
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.anyKeyDown)
         {
             LoadNextLevel();
         }
