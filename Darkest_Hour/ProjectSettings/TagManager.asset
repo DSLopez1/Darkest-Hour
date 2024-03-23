@@ -10,6 +10,7 @@ TagManager:
   - LivesCounter
   - Bullet
   - playerSpawnPos
+  - RainSys
   layers:
   - Default
   - TransparentFX

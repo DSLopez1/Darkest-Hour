@@ -11,6 +11,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     [SerializeField] public Transform shootPos;
     public TempCameraController playerCam;
     [SerializeField] public GameObject arm;
+    [SerializeField] public ParticleSystem rainSystem;
 
 
     [Header("----- Player Stats -----")] 
@@ -133,4 +134,14 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         items[index].Initialize();
         items[index].addStats();
      }
+
+    public void RainOn()
+    {
+        rainSystem.Play();
+    }
+
+    public void RainOff()
+    {
+        rainSystem.Stop();
+    }
 }
