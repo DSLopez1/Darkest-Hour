@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
     private bool isDashing = false;
-    private bool isAttacking = false;
     private int currentStep = 0;
     private int movementCount = 0;
     private int dashCount = 0;
     private int attackCount = 0;
+    private int abilityCount = 0;
+    private int abilityMenuCount = 0;
 
-    [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private GameObject[] tutorialPanels;
 
     void Start()
@@ -32,7 +33,23 @@ public class Tutorial : MonoBehaviour
             case 2:
                 HandleAttack();
                 break;
-        }
+            case 3: 
+                HandleAbilityMenu();
+                break;
+            case 4:
+                HandleAbility1();
+                break;
+            case 5:
+                HandleAbility2();
+                break;
+            case 6:
+                HandleAbility3();
+                break;
+            case 7:
+                HandleAbility4();
+                break;
+
+        }   
     }
 
     void ShowTutorialPanel(int step)
@@ -43,16 +60,16 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    void HandleMovement()
+    void HandleAttack()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            movementCount++;
-            if (movementCount >= 2)
+            attackCount++;
+            if (attackCount >= 2)
             {
                 currentStep++;
                 ShowTutorialPanel(currentStep);
-                movementCount = 0;
+                attackCount = 0;
             }
         }
     }
@@ -62,7 +79,7 @@ public class Tutorial : MonoBehaviour
         if (isDashing && Input.GetKeyDown(KeyCode.Space))
         {
             dashCount++;
-            if (dashCount >= 2)
+            if (dashCount >= 1)
             {
                 currentStep++;
                 ShowTutorialPanel(currentStep);
@@ -75,21 +92,89 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    void HandleAttack()
+    void HandleMovement()
     {
-        if (isAttacking && Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
-            attackCount++;
-            if (attackCount >= 2)
+            movementCount++;
+            if (movementCount >= 3)
             {
                 currentStep++;
                 ShowTutorialPanel(currentStep);
-                attackCount = 0;
+                movementCount = 0;
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            isAttacking = true;
+    }
+
+    void HandleAbilityMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {   
+            abilityMenuCount++;
+            if (abilityMenuCount >= 1)
+            {
+                currentStep++;
+                ShowTutorialPanel(currentStep);
+                abilityMenuCount = 0;
+            }
+            
         }
     }
+
+    void HandleAbility1()
+    {
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            abilityCount++;
+            if(abilityCount >= 1)
+            {
+                currentStep++;
+                ShowTutorialPanel(currentStep);
+                abilityCount = 0;
+            }
+        }
+    }
+
+    void HandleAbility2()
+    {
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            abilityCount++;
+            if (abilityCount >= 1)
+            {
+                currentStep++;
+                ShowTutorialPanel(currentStep);
+                abilityCount = 0;
+            }
+        }
+    }
+
+    void HandleAbility3()
+    {
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            abilityCount++;
+            if (abilityCount >= 1)
+            {
+                currentStep++;
+                ShowTutorialPanel(currentStep);
+                abilityCount = 0;
+            }
+        }
+    }
+
+    void HandleAbility4()
+    {
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            abilityCount++;
+            if (abilityCount >= 1)
+            {
+                currentStep++;
+                ShowTutorialPanel(currentStep);
+                abilityCount = 0;
+            }
+        }
+    }
+
 }
