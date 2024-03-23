@@ -10,7 +10,8 @@ public class DescriptionController : MonoBehaviour
     [SerializeField] public GameObject OBowDesc;
     [SerializeField] public GameObject ShadowBoots;
     [SerializeField] public GameObject BansheesVeil;
-
+    [SerializeField] public GameObject WarlocksSash;
+    [SerializeField] public GameObject ZurvanPendant;
     Dictionary<string, GameObject> UIElements = new Dictionary<string, GameObject>();
 
     void Awake()
@@ -23,6 +24,8 @@ public class DescriptionController : MonoBehaviour
         UIElements.Add("OBow", OBowDesc);
         UIElements.Add("ShadowBoots", ShadowBoots);
         UIElements.Add("BansheesVeil", BansheesVeil);
+        UIElements.Add("WarlocksSash", WarlocksSash);
+        UIElements.Add("ZurvanPendant", ZurvanPendant);
     }
 
     public IEnumerator callDesc(string itemName)
