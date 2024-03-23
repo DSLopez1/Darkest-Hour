@@ -51,7 +51,6 @@ public class AudioManager : MonoBehaviour
 
 
             //levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
-            levelMusicClips.Add("MainMenu", Resources.Load<AudioClip>("MainMenu"));
             levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
             //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
@@ -62,6 +61,7 @@ public class AudioManager : MonoBehaviour
 
 
             soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
+            soundEffects.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
             //soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
             //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
@@ -94,7 +94,6 @@ public class AudioManager : MonoBehaviour
         {
             levelMusic.Stop();
         }
-
         if (levelMusicClips.ContainsKey(sceneName))
         {
             mainMenuMusic.Stop();
