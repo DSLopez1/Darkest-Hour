@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     [SerializeField] public float gravity;
     [SerializeField] private float _pushBackResolution;
     public float damageMitigation;
+    public float coolDownReduction;
 
     [Header("-----AbilityPos-----")] 
     [SerializeField] public Transform firePos;

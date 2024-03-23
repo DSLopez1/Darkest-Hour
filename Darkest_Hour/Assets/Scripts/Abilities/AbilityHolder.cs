@@ -61,7 +61,7 @@ public class AbilityHolder : MonoBehaviour
                 else
                 {
                     state = abilityState.cooldown;
-                    _cooldown = ability.cooldownTime;
+                    _cooldown = ability.cooldownTime * GameManager.instance.playerScript.coolDownReduction;
                 }
                 break;
             case abilityState.cooldown:
@@ -69,7 +69,7 @@ public class AbilityHolder : MonoBehaviour
                 {
                     ability.PostCast();
                     _cooldown -= Time.deltaTime;
-                    ability.cooldownImage.fillAmount = _cooldown / ability.cooldownTime;
+                    ability.cooldownImage.fillAmount = _cooldown / (ability.cooldownTime * GameManager.instance.playerScript.coolDownReduction);
                 }
                 else
                 {

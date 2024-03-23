@@ -43,7 +43,7 @@ public class AutoObj : MonoBehaviour
     {
         IDamage dmg = co.gameObject.GetComponent<IDamage>();
 
-        if (co.gameObject.tag != "Player" && !_collided)
+        if (co.gameObject.tag != "Player" && !_collided && co.gameObject.tag != "Bullet")
         {
             _collided = true;
             if (dmg != null)
