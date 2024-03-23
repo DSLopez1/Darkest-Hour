@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour
 {
-    
+
     private KeyCode[] keyCodes =
     {
         KeyCode.Alpha1,
@@ -28,9 +28,14 @@ public class ButtonFunctions : MonoBehaviour
         GameManager.instance.player.GetComponent<Player>().respawn();
         GameManager.instance.StateUnpaused();
     }
-    public void Quit()
+    public void ExitGame()
     {
         Application.Quit();
+    }
+    public void Quit()
+    {
+        GameManager.instance.StateUnpaused();
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void BuyMeteor()
@@ -72,7 +77,7 @@ public class ButtonFunctions : MonoBehaviour
     {
         Ability tempAbility = null;
 
-        
+
         foreach (var t in GameManager.instance.abilities)
         {
             Debug.Log(t.name);
