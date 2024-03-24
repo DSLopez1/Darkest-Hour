@@ -5570,6 +5570,7 @@ MonoBehaviour:
   shootPos: {fileID: 8210240984364779264}
   playerCam: {fileID: 2193732369222017625}
   arm: {fileID: 5402815753476274506}
+  rainSystem: {fileID: 6422498782511514206}
   HP: 30
   playerSpeed: 10
   _shootDistance: 100
@@ -6142,5 +6143,10 @@ PrefabInstance:
 --- !u!4 &5992051470072084566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8896745164366874724, guid: e186015bd87ea064686047e99101e7cb, type: 3}
+  m_PrefabInstance: {fileID: 2909217090114416690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6422498782511514206 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8178203887165616748, guid: e186015bd87ea064686047e99101e7cb, type: 3}
   m_PrefabInstance: {fileID: 2909217090114416690}
   m_PrefabAsset: {fileID: 0}
