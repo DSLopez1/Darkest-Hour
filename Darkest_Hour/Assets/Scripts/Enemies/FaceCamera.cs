@@ -7,6 +7,9 @@ public class FaceCamera : MonoBehaviour
     // Makes objects face camera
     void Update()
     {
-        transform.rotation = Camera.main.transform.rotation;
+        if (Camera.main != null)
+        {
+            transform.rotation = Camera.main.transform.rotation;
+        }
     }
 }
