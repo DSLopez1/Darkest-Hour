@@ -21,6 +21,6 @@ public class LevelManager : MonoBehaviour
     public void EndOfLevel()
     {
         spawnPortal.SetActive(true);
-        chest.SetActive(true);
+        chest?.SetActive(true);
     }
 }
