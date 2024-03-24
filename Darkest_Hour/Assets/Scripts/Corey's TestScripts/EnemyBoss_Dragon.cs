@@ -54,6 +54,8 @@ public class EnemyBoss_Dragon : EnemyAI
     {
         base.Start();
         // Turn on boss bar, set name, and turn off particle systems
+        _bossHPBar = GameManager.instance.bossUI;
+        _UI = GameManager.instance.bossText;
         _bossHPBar.SetActive(true);
         _UI.text = _name;
         isGrounded = true;
