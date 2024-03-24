@@ -45,12 +45,13 @@ public class AudioManager : MonoBehaviour
 
             mainMenuMusic = gameObject.AddComponent<AudioSource>();
             mainMenuMusic.clip = mainMenuMusicClip;
+            mainMenuMusic.loop = true;
 
             levelMusic = gameObject.AddComponent<AudioSource>();
             soundEffectSource = gameObject.AddComponent<AudioSource>();
 
 
-            //levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
+            
             levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
             //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
@@ -72,6 +73,7 @@ public class AudioManager : MonoBehaviour
             {
                
                 mainMenuMusic.Play();
+                
             }
             else
             {
@@ -134,20 +136,6 @@ public class AudioManager : MonoBehaviour
         mainMenuMusic.volume = overallVolume * backgroundVolume;
         levelMusic.volume = overallVolume * backgroundVolume;
         soundEffectSource.volume = overallVolume * soundEffectsVolume;
-    }
-
-
-    public void RestartGameFromLevel1()
-    {
-        mainMenuMusic.Stop();
-
-        // Play level 1 music
-        if (levelMusicClips.ContainsKey("Level1_Clip"))
-        {
-            levelMusic.clip = levelMusicClips["Level1_Clip"];
-            levelMusic.loop = true;
-            levelMusic.Play();
-        }
     }
 
 }

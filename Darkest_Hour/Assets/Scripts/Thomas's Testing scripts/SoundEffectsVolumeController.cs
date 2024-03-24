@@ -18,5 +18,6 @@ public class SoundEffectsVolumeController : MonoBehaviour
     private void UpdateSoundEffectsVolume(float value)
     {
         audioManager.SetSoundEffectsVolume(value);
+        audioManager.PlaySoundEffect("ScytheSlash");
     }
 }
