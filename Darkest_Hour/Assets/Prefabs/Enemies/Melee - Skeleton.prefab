@@ -99,6 +99,9 @@ MonoBehaviour:
   _attackDelay: 2
   _timeBetweenAttacks: 0
   _HPBar: {fileID: 95781764656565684}
+  _hitColl: {fileID: 3935061850989977608}
+  _deathUI: {fileID: 5699233539978916570}
+  _deathTimer: 3
 --- !u!95 &1634856897661898274
 Animator:
   serializedVersion: 5
