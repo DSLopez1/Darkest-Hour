@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.InputSystem.Composites;
 using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _itemMenu;
     [SerializeField] TMP_Text enemyCountText;
     [SerializeField] TMP_Text _livesCountText;
+    public ButtonFunctions buttons;
 
 
     [Header("-----player------")]
@@ -64,6 +66,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        buttons = GetComponent<ButtonFunctions>();
         if (instance == null)
         {
             instance = this;
