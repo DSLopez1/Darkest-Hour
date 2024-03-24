@@ -3413,6 +3413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _col: {fileID: 660178216859099941}
+  _pushBack: 5
 --- !u!136 &660178216859099941
 CapsuleCollider:
   m_ObjectHideFlags: 0

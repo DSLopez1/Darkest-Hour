@@ -1686,6 +1686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _col: {fileID: 4290328764842023}
+  _pushBack: 3
 --- !u!1 &4165275112172942680
 GameObject:
   m_ObjectHideFlags: 0
@@ -6781,6 +6782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _col: {fileID: 1725815642139658351}
+  _pushBack: 3
 --- !u!1 &4528762119022667429
 GameObject:
   m_ObjectHideFlags: 0
@@ -7686,6 +7688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _col: {fileID: 5760385356663153598}
+  _pushBack: 5
 --- !u!1 &7637746983813592798
 GameObject:
   m_ObjectHideFlags: 0

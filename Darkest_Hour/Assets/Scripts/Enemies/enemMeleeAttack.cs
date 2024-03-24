@@ -6,6 +6,7 @@ public class enemMeleeAttack : MonoBehaviour
 {
     [SerializeField] int _damageAmount;
     [SerializeField] Collider _col;
+    [SerializeField] int _pushBack;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +25,11 @@ public class enemMeleeAttack : MonoBehaviour
             {
                 // Deal damage
                 dmg.TakeDamage(_damageAmount);
+            }
+            IPhysics physics = other.GetComponent<IPhysics>();
+            if (physics != null)
+            {
+                physics.PhysicsDir((other.transform.position - transform.position).normalized * _pushBack);
             }
         }
     }

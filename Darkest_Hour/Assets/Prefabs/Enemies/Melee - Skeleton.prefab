@@ -575,6 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 5
   _col: {fileID: 3885134711073131858}
+  _pushBack: 5
 --- !u!1 &2954314283153883569
 GameObject:
   m_ObjectHideFlags: 0

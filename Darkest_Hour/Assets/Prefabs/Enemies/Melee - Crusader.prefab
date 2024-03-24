@@ -1017,7 +1017,7 @@ MonoBehaviour:
   _roamPauseTime: 3
   _roamDis: 15
   _physicsResolve: 1
-  _attackDelay: 2
+  _attackDelay: 1
   _timeBetweenAttacks: 0
   _HPBar: {fileID: 6036498862975631704}
 --- !u!195 &5893271018867275473
@@ -5610,6 +5610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 10
   _col: {fileID: 3909251760345702557}
+  _pushBack: 8
 --- !u!65 &3909251760345702557
 BoxCollider:
   m_ObjectHideFlags: 0
