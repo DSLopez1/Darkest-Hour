@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text _livesCountText;
     public ButtonFunctions buttons;
 
+    [Header("-----Boss------")]
+    [SerializeField] public GameObject bossUI;
+    [SerializeField] public TMP_Text bossText;
+    [SerializeField] public Image bossHP;
 
     [Header("-----player------")]
 
