@@ -46,14 +46,21 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     {
         _HPOrig = HP;
         _controller = GetComponent<CharacterController>();
-        respawn();
+        respawn();        
+    }
 
+    public void MakeAbilityHolder()
+    {
+        if (abilities.Count > 0)
+        {
+            abilities.Clear();
+        }
         for (int i = 0; i < 4; i++)
         {
             GameObject abilityHolderObject = new GameObject("AbilityHolderObject");
             AbilityHolder abilityHolder = abilityHolderObject.AddComponent<AbilityHolder>();
             abilities.Add(abilityHolder);
-            
+
         }
     }
 

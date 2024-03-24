@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         playerSpawnPos = GameObject.FindWithTag("playerSpawnPos");
         _livesCountText.text = _lives.ToString("F0");
         itemCopy = allItems.ToList();
+        playerScript.MakeAbilityHolder();
 
         if (spawnPortal != null)
         {
