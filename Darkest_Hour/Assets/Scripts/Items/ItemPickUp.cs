@@ -47,9 +47,8 @@ public class ItemPickUp : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            ButtonFunctions button = new ButtonFunctions();
             DescriptionController.instance.StartCoroutine(DescriptionController.instance.callDesc(item.name));
-            button.BuyItem(item.name);
+            GameManager.instance.buttons.BuyItem(item.name);
             Destroy(gameObject);
         }
     }
