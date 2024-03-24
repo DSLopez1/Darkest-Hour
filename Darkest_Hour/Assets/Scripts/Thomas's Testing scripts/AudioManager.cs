@@ -47,8 +47,8 @@ public class AudioManager : MonoBehaviour
             mainMenuMusic.clip = mainMenuMusicClip;
             mainMenuMusic.loop = true;
 
-            levelMusic = gameObject.AddComponent<AudioSource>();
-            soundEffectSource = gameObject.AddComponent<AudioSource>();
+            levelMusic = gameObject.AddComponent<AudioSource>();      //Reciever for setting levelMusic
+            soundEffectSource = gameObject.AddComponent<AudioSource>(); //Reciever for settingSoundeffects
 
 
             
@@ -112,7 +112,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Sound effect with key " + soundEffectKey + " not found.");
+            Debug.LogWarning("Sound effect with key" + soundEffectKey + "not found.");
         }
     }
 
