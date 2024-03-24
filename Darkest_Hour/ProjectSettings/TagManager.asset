@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - playerSpawnPos
   - RainSys
+  - Portal
+  - UI
   layers:
   - Default
   - TransparentFX

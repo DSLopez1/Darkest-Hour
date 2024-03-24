@@ -45,33 +45,34 @@ public class AudioManager : MonoBehaviour
 
             mainMenuMusic = gameObject.AddComponent<AudioSource>();
             mainMenuMusic.clip = mainMenuMusicClip;
+            mainMenuMusic.loop = true;
 
-            levelMusic = gameObject.AddComponent<AudioSource>();
-            soundEffectSource = gameObject.AddComponent<AudioSource>();
+            levelMusic = gameObject.AddComponent<AudioSource>();      //Reciever for setting levelMusic
+            soundEffectSource = gameObject.AddComponent<AudioSource>(); //Reciever for settingSoundeffects
 
 
-            //levelMusicClips.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
-            levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
+            
+            //levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
             //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
             //levelMusicClips.Add("Dragon Cave", Resources.Load<AudioClip>("BossFight"));
-            levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
-            levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
+            //levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
+            //levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
 
 
             soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
-            soundEffects.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
             //soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
             //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
             //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
-            soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
+            //soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
                
                 mainMenuMusic.Play();
+                
             }
             else
             {
@@ -111,7 +112,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Sound effect with key " + soundEffectKey + " not found.");
+            Debug.LogWarning("Sound effect with key" + soundEffectKey + "not found.");
         }
     }
 
@@ -134,20 +135,6 @@ public class AudioManager : MonoBehaviour
         mainMenuMusic.volume = overallVolume * backgroundVolume;
         levelMusic.volume = overallVolume * backgroundVolume;
         soundEffectSource.volume = overallVolume * soundEffectsVolume;
-    }
-
-
-    public void RestartGameFromLevel1()
-    {
-        mainMenuMusic.Stop();
-
-        // Play level 1 music
-        if (levelMusicClips.ContainsKey("Level1_Clip"))
-        {
-            levelMusic.clip = levelMusicClips["Level1_Clip"];
-            levelMusic.loop = true;
-            levelMusic.Play();
-        }
     }
 
 }

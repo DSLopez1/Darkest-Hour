@@ -46,20 +46,28 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     {
         _HPOrig = HP;
         _controller = GetComponent<CharacterController>();
-        respawn();
+        respawn();        
+    }
 
+    public void MakeAbilityHolder()
+    {
+        if (abilities.Count > 0)
+        {
+            abilities.Clear();
+        }
         for (int i = 0; i < 4; i++)
         {
             GameObject abilityHolderObject = new GameObject("AbilityHolderObject");
             AbilityHolder abilityHolder = abilityHolderObject.AddComponent<AbilityHolder>();
             abilities.Add(abilityHolder);
+
         }
     }
 
     private void Update()
     {
+        
         Movement();
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * _shootDistance, Color.blue);
     }
 
     private void Movement()
@@ -84,7 +92,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         _controller.Move((_playerVelocity + _pushBack) * Time.deltaTime);
     }
 
-    void updatePlayerUI()
+    public void updatePlayerUI()
     {
         GameManager.instance.playerHPBar.fillAmount = (float)HP / _HPOrig;
     }
@@ -103,7 +111,6 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     public void TakeDamage(int amount)
     {
         float reduction = (float)amount * damageMitigation;
-        Debug.Log("Damage reduced - " + reduction);
         HP -= amount - (int)reduction;
         updatePlayerUI();
         StartCoroutine(flashDamage());

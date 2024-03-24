@@ -70,18 +70,24 @@ public class GameManager : MonoBehaviour
         }
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
+        playerScript.updatePlayerUI();
+        spawnPortal = GameObject.FindWithTag("Portal");
         PlayerCam = Camera.main.GetComponent<TempCameraController>();
         armAnim = GameManager.instance.playerScript.arm.GetComponent<Animator>();
         playerSpawnPos = GameObject.FindWithTag("playerSpawnPos");
         _livesCountText.text = _lives.ToString("F0");
         itemCopy = allItems.ToList();
+        playerScript.MakeAbilityHolder();
+
+        if (spawnPortal != null)
+        {
+           spawnPortal.SetActive(false);
+        }
 
         // Input Initialized
         _menuOpenCloseAction = playerInput.actions["MenuOpenClose"];
 
     }
-
-
 
     // Update is called once per frame
     private void Update()
@@ -187,7 +193,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("sprite is null");
             }
         }
     }
@@ -204,7 +209,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("sprite is null item");
             }
         }
     }
