@@ -80,7 +80,6 @@ public class ButtonFunctions : MonoBehaviour
 
         foreach (var t in GameManager.instance.abilities)
         {
-            Debug.Log(t.name);
 
             if (t.name == name)
             {
@@ -91,7 +90,6 @@ public class ButtonFunctions : MonoBehaviour
 
         if (tempAbility == null)
         {
-            Debug.Log("No ability found");
             return;
         }
 
@@ -129,8 +127,6 @@ public class ButtonFunctions : MonoBehaviour
 
         foreach (var i in GameManager.instance.allItems)
         {
-            Debug.Log(i.name);
-
             if (i.name == name)
             {
                 tempItem = i;
@@ -140,7 +136,6 @@ public class ButtonFunctions : MonoBehaviour
 
         if (tempItem == null)
         {
-            Debug.Log("No item found");
             return;
         }
 
@@ -148,7 +143,6 @@ public class ButtonFunctions : MonoBehaviour
         {
             if (GameManager.instance.playerScript.items[i] == null)
             {
-                Debug.Log(i);
                 GameManager.instance.playerScript.items[i] = tempItem;
                 GameManager.instance.itemsUI[i].GetComponent<Image>().sprite =
                     GameManager.instance.playerScript.items[i].image;
