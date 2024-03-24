@@ -5996,7 +5996,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -6059,6 +6059,10 @@ PrefabInstance:
     - target: {fileID: 35843020247955561, guid: e186015bd87ea064686047e99101e7cb, type: 3}
       propertyPath: m_Name
       value: RainPart System
+      objectReference: {fileID: 0}
+    - target: {fileID: 35843020247955561, guid: e186015bd87ea064686047e99101e7cb, type: 3}
+      propertyPath: m_TagString
+      value: RainSys
       objectReference: {fileID: 0}
     - target: {fileID: 8178203887165616748, guid: e186015bd87ea064686047e99101e7cb, type: 3}
       propertyPath: SubModule.enabled
