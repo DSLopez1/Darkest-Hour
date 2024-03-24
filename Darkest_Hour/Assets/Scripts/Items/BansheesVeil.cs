@@ -11,6 +11,7 @@ public class BansheesVeil : Item
     public override void addStats()
     {
         script.HP += 50;
+        script._HPOrig += 50;
         script.damageMitigation += .1f;
     }
 }

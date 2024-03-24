@@ -37,7 +37,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     private Vector3 _playerVelocity;
     private Vector3 _pushBack;
     public bool gravOn = true;
-    int _HPOrig;
+    public int _HPOrig;
     
 
     public Vector3 targetObjPosition;
