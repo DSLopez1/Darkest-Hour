@@ -16,7 +16,7 @@ public class LoadingScreen : MonoBehaviour
 
     IEnumerator UpdateProgressBar()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Outside City (Lvl 1)");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Tutorial level");
         asyncLoad.allowSceneActivation = false;
 
         while (!asyncLoad.isDone)
