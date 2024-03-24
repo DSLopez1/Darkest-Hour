@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         updatePlayerUI();
 
         controller.enabled = false;
-        transform.position = GameManager.instance.playerSpawnPos.transform.position;
+        transform.position = LevelManager.instance.playerSpawnPos.transform.position;
         controller.enabled = true;
     }
 }

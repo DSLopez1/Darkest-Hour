@@ -34,10 +34,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] public Player playerScript;
     [SerializeField] private int _lives;
-    [SerializeField] public GameObject spawnPortal;
+
     public TempCameraController PlayerCam;
     public Image playerHPBar;
-    public GameObject playerSpawnPos;
+
 
     public GameObject playerDamageFlash;
     public Animator armAnim;
@@ -71,8 +71,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        playerSpawnPos = GameObject.FindWithTag("playerSpawnPos");
-        spawnPortal = GameObject.FindWithTag("Portal");
+        
+
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
         playerScript.updatePlayerUI();
@@ -90,16 +90,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (spawnPortal == null)
-        {
-            spawnPortal = GameObject.FindWithTag("Portal");
-            spawnPortal.SetActive(false);
-        }
-
-        if (playerSpawnPos == null)
-        {
-            playerSpawnPos = GameObject.FindWithTag("playerSpawnPos");
-        }
         MenuOpenCloseInput = _menuOpenCloseAction.WasPressedThisFrame();
         if (MenuOpenCloseInput && _menuActive == null)  //(Input.GetButtonDown("Cancel") && _menuActive == null)
         {
@@ -157,7 +147,7 @@ public class GameManager : MonoBehaviour
 
         if (enemyCount <= 0)
         {
-            spawnPortal.SetActive(true);
+            LevelManager.instance.EndOfLevel();
         }
     }
 

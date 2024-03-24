@@ -108,7 +108,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         updatePlayerUI();
 
         _controller.enabled = false;
-        transform.position = GameManager.instance.playerSpawnPos.transform.position;
+        transform.position = LevelManager.instance.playerSpawnPos.transform.position;
         _controller.enabled = true;
     }
 

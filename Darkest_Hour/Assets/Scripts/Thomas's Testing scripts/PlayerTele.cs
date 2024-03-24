@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerTeleportPortal : MonoBehaviour
 {
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

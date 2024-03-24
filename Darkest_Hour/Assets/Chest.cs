@@ -21,6 +21,7 @@ public class Chest : MonoBehaviour
         anim = GetComponent<Animator>();
         vel = transform.right;
         vel.y += 1;
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)

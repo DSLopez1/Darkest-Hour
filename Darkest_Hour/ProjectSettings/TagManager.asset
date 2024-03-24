@@ -13,6 +13,7 @@ TagManager:
   - RainSys
   - Portal
   - UI
+  - Chest
   layers:
   - Default
   - TransparentFX
