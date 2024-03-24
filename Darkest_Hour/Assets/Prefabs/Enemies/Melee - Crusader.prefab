@@ -1020,6 +1020,9 @@ MonoBehaviour:
   _attackDelay: 1
   _timeBetweenAttacks: 0
   _HPBar: {fileID: 6036498862975631704}
+  _hitColl: {fileID: 3497554282193506405}
+  _deathUI: {fileID: 7298760881547643067}
+  _deathTimer: 3
 --- !u!195 &5893271018867275473
 NavMeshAgent:
   m_ObjectHideFlags: 0
