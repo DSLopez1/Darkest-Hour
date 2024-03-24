@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        playerSpawnPos = GameObject.FindWithTag("playerSpawnPos");
+        spawnPortal = GameObject.FindWithTag("Portal");
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
         playerScript.updatePlayerUI();
@@ -88,6 +90,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (spawnPortal == null)
+        {
+            spawnPortal = GameObject.FindWithTag("Portal");
+            spawnPortal.SetActive(false);
+        }
+
+        if (playerSpawnPos == null)
+        {
+            playerSpawnPos = GameObject.FindWithTag("playerSpawnPos");
+        }
         MenuOpenCloseInput = _menuOpenCloseAction.WasPressedThisFrame();
         if (MenuOpenCloseInput && _menuActive == null)  //(Input.GetButtonDown("Cancel") && _menuActive == null)
         {
