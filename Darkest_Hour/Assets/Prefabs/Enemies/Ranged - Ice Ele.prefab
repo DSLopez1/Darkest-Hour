@@ -2571,6 +2571,9 @@ MonoBehaviour:
   _attackDelay: 0.3
   _timeBetweenAttacks: 2
   _HPBar: {fileID: 2427301494640993763}
+  _hitColl: {fileID: 8475450763834514836}
+  _deathUI: {fileID: 411988423308515082}
+  _deathTimer: 4
   _projectile: {fileID: 5229577670918256555, guid: 372623ec8c99759419b9c2a609e5ec00, type: 3}
   _shootPos: {fileID: 7497405449078256791}
   _muzzleEffect: {fileID: 4448606527349889377, guid: 4bee414db19f3cc439b6b606c7ee548f, type: 3}

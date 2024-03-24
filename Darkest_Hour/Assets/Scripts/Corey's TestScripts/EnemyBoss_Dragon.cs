@@ -21,6 +21,7 @@ public class EnemyBoss_Dragon : EnemyAI
     [SerializeField] TMP_Text _UI;
     [SerializeField] GameObject _bossHPBar;
     [SerializeField] Collider[] _wingColliders;
+    [SerializeField] int _winTimer;
 
     [Header("----- Fire Breath -----")]
     [SerializeField] Transform _breathPos;
@@ -261,12 +262,18 @@ public class EnemyBoss_Dragon : EnemyAI
             // Disable boss bar
             _bossHPBar.SetActive(false);
             // Win the game!
-            GameManager.instance.YouWin();
-            Destroy(gameObject);
+            StartCoroutine(Win());
+            StartCoroutine(Death());
         }
 
         // Lower HP on HP bar
         UpdateUI();
+    }
+
+    private IEnumerator Win()
+    {
+        yield return new WaitForSeconds(_winTimer);
+        GameManager.instance.YouWin();
     }
 
 }

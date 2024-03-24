@@ -29,6 +29,12 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     [Header("----- UI-----")]
     [SerializeField] Image _HPBar;
 
+    [Header("----- Death -----")]
+    [SerializeField] Collider _hitColl;
+    [SerializeField] Canvas _deathUI;
+    [SerializeField] private int _deathTimer;
+    protected bool isDying;
+
     // Player dest info
     protected float _angleToPlayer;
     protected Vector3 _playerDir;
@@ -61,6 +67,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         UpdateUI();
         _stoppingDistanceOrig = _agent.stoppingDistance;
         _enemySpeed = _agent.speed;
+        isDying = false;
         _colors = new List<Color>();
         for (int i = 0; i < _models.Length; i++)
         {
@@ -83,7 +90,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         _anim.SetFloat("Speed", Mathf.Lerp(_anim.GetFloat("Speed"), animSpeed, Time.deltaTime * _animSpeedTrans));
 
         // Checks if player is in range
-        if (!_targetInRange)
+        if (!_targetInRange && !isDying)
         {
             // Roam because player isn't in range
             StartCoroutine(Roam());
@@ -183,23 +190,25 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
 
     void CanSeePlayer()
     {
-        // Finds where player is
-        _playerDir = GameManager.instance.player.transform.position - _headPos.position;
-        _angleToPlayer = Vector3.Angle(new Vector3(_playerDir.x, 0, _playerDir.z), transform.forward);
-
-        // Reset stopping distance to original number
-        _agent.stoppingDistance = _stoppingDistanceOrig;
-
-        // Moves to player
-        _agent.SetDestination(GameManager.instance.player.transform.position);
-        // Checks if player is in view cone
-        if (!_isAttacking && _angleToPlayer <= _viewCone)
+        if (!isDying)
         {
-            StartCoroutine(Attack());
-        }
-        // Turn to face player
-        if (_agent.remainingDistance < _agent.stoppingDistance) { FaceTarget(); }
+            // Finds where player is
+            _playerDir = GameManager.instance.player.transform.position - _headPos.position;
+            _angleToPlayer = Vector3.Angle(new Vector3(_playerDir.x, 0, _playerDir.z), transform.forward);
 
+            // Reset stopping distance to original number
+            _agent.stoppingDistance = _stoppingDistanceOrig;
+
+            // Moves to player
+            _agent.SetDestination(GameManager.instance.player.transform.position);
+            // Checks if player is in view cone
+            if (!_isAttacking && _angleToPlayer <= _viewCone)
+            {
+                StartCoroutine(Attack());
+            }
+            // Turn to face player
+            if (_agent.remainingDistance < _agent.stoppingDistance) { FaceTarget(); }
+        }
     }
 
     private void FaceTarget()
@@ -237,13 +246,34 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
 
         // Flash red
         StartCoroutine(FlashMat());
-        if (_hp <= 0)
+        if (_hp <= 0 && !isDying)
         {
-            Destroy(gameObject);
-            GameManager.instance.CompleteLevel(-1);
+            StartCoroutine(Death());            
         }
         // Lower HP on HP bar
        UpdateUI();
+    }
+
+    protected IEnumerator Death()
+    {
+        // Play animation
+        _anim.SetTrigger("Death");
+        // Tell code it's dying
+        isDying = true;
+        // Stop movement
+        _agent.speed = 0;
+        // Lose game point
+        GameManager.instance.CompleteLevel(-1);
+        // Turn off collider
+        _hitColl.enabled = false;
+        // Turn off UI
+        if (_deathUI != null)
+        {
+            _deathUI.enabled = false;
+        } 
+        yield return new WaitForSeconds(_deathTimer);
+        // Delete me
+        Destroy(gameObject);
     }
 
     protected IEnumerator FlashMat()

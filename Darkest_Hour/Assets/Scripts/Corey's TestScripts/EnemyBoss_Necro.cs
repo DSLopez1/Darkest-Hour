@@ -39,31 +39,32 @@ public class EnemyBoss_Necro : enemyRangedChild
         // Make sure not to trigger more than one attack
         _isAttacking = true;
 
-        yield return new WaitForSeconds(_attackDelayC);
-
-        if (canSummon)
+        if (!isDying)
         {
-            StartCoroutine(SummonAbility());
-        }
-        else if (phaseTwo && canAbility)
-        {
-            StartCoroutine(SpellAttack());
-        }
-        else if(_agentC.remainingDistance <= _agentC.stoppingDistance)
-        {
-            // Create system of if statements that will call functions to do mechanics
-            // All of which will be checked by a bool system to see if they can run or not
-            if (!phaseTwo && canAbility)
+            if (canSummon)
             {
-                StartCoroutine(ScytheAbility());
-            }          
-            else
-            {
-                MeleeAttack();
+                StartCoroutine(SummonAbility());
             }
+            else if (phaseTwo && canAbility)
+            {
+                StartCoroutine(SpellAttack());
+            }
+            else if (_agentC.remainingDistance <= _agentC.stoppingDistance)
+            {
+                // Create system of if statements that will call functions to do mechanics
+                // All of which will be checked by a bool system to see if they can run or not
+                if (!phaseTwo && canAbility)
+                {
+                    StartCoroutine(ScytheAbility());
+                }
+                else
+                {
+                    MeleeAttack();
+                }
+            }
+            // Space out attacks
+            yield return new WaitForSeconds(_timeBetweenAttacksC);
         }
-        // Space out attacks
-        yield return new WaitForSeconds(_timeBetweenAttacksC);
 
         _isAttacking = false;
     }
@@ -150,8 +151,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         {
             // Disable boss bar
             _bossUI.SetActive(false);
-            GameManager.instance.CompleteLevel(-1);
-            Destroy(gameObject);
+            StartCoroutine(Death());
         }
 
         // Lower HP on HP bar

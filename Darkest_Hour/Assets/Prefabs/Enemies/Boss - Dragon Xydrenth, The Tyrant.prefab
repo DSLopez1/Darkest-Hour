@@ -250,6 +250,9 @@ MonoBehaviour:
   _attackDelay: 0.5
   _timeBetweenAttacks: 1
   _HPBar: {fileID: 0}
+  _hitColl: {fileID: 8344377140149734295}
+  _deathUI: {fileID: 0}
+  _deathTimer: 5
   _wingAttack: 7
   _breathCD: 10
   _screamCD: 15
@@ -260,6 +263,7 @@ MonoBehaviour:
   _wingColliders:
   - {fileID: 4290328764842023}
   - {fileID: 1725815642139658351}
+  _winTimer: 5
   _breathPos: {fileID: 2156031183284448421}
   _breathAttack: {fileID: 4510698556058505381}
   _breathCol: {fileID: 44378417030964668}
