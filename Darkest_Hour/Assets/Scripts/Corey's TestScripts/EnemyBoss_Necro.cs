@@ -31,6 +31,8 @@ public class EnemyBoss_Necro : enemyRangedChild
     {
         base.Start();
         // Turn on boss bar and set name
+        _bossUI = GameManager.instance.bossUI;
+        _UI = GameManager.instance.bossText;
         _bossUI.SetActive(true);
         _UI.text = _name;
     }

@@ -6380,7 +6380,7 @@ GameObject:
   - component: {fileID: 70821128954110401}
   m_Layer: 5
   m_Name: Boss Health Background
-  m_TagString: Untagged
+  m_TagString: Boss UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6776,14 +6776,14 @@ MonoBehaviour:
   enemyCountText: {fileID: 3900233042726041431}
   _livesCountText: {fileID: 5175048503574551848}
   buttons: {fileID: 0}
+  bossUI: {fileID: 7280508565592364979}
+  bossText: {fileID: 563369958934814208}
+  bossHP: {fileID: 4005445651385926814}
   player: {fileID: 0}
   playerScript: {fileID: 0}
   _lives: 5
-  spawnPortal: {fileID: 0}
-  chest: {fileID: 0}
   PlayerCam: {fileID: 0}
   playerHPBar: {fileID: 3392724289961243631}
-  playerSpawnPos: {fileID: 0}
   playerDamageFlash: {fileID: 5043887702388832392}
   armAnim: {fileID: 0}
   abilities:

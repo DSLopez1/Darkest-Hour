@@ -304,6 +304,10 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     protected void UpdateUI()
     {
         // Updates HP bar
+        if (_HPBar == null)
+        {
+            _HPBar = GameManager.instance.bossHP;
+        }
         _HPBar.fillAmount = (float)_hp / _hpMax;
     }
 }
