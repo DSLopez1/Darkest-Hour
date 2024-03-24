@@ -46,7 +46,9 @@ public class Player : MonoBehaviour, IDamage, IPhysics
     {
         _HPOrig = HP;
         _controller = GetComponent<CharacterController>();
-        respawn();        
+        respawn();
+        AbilityHolder abilityHolder = gameObject.AddComponent<AbilityHolder>();
+        abilities.Add(abilityHolder);
     }
 
     public void MakeAbilityHolder()
@@ -57,10 +59,9 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         }
         for (int i = 0; i < 4; i++)
         {
-            GameObject abilityHolderObject = new GameObject("AbilityHolderObject");
-            AbilityHolder abilityHolder = abilityHolderObject.AddComponent<AbilityHolder>();
+            //GameObject abilityHolderObject = new GameObject("AbilityHolderObject");
+            AbilityHolder abilityHolder = gameObject.AddComponent<AbilityHolder>();
             abilities.Add(abilityHolder);
-
         }
     }
 

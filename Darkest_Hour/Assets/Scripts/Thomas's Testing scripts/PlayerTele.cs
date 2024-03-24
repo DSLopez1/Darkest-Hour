@@ -24,6 +24,12 @@ public class PlayerTeleportPortal : MonoBehaviour
                 DontDestroyOnLoad(livesCounter);
             }
 
+            GameObject UI = GameObject.FindGameObjectWithTag("UI");
+            if (UI != null)
+            {
+                DontDestroyOnLoad (UI);
+            }
+
             LoadNextScene();
         }
     }
