@@ -12,17 +12,17 @@ public class PlayerTeleportPortal : MonoBehaviour
             GameObject player = other.gameObject;
             DontDestroyOnLoad(player);
 
-            GameObject[] healthBars = GameObject.FindGameObjectsWithTag("HealthBar");
-            foreach (GameObject healthBar in healthBars)
-            {
-                DontDestroyOnLoad(healthBar);
-            }
+            //GameObject[] healthBars = GameObject.FindGameObjectsWithTag("HealthBar");
+            //foreach (GameObject healthBar in healthBars)
+            //{
+            //    DontDestroyOnLoad(healthBar);
+            //}
 
-            GameObject livesCounter = GameObject.FindGameObjectWithTag("LivesCounter");
-            if (livesCounter != null)
-            {
-                DontDestroyOnLoad(livesCounter);
-            }
+            //GameObject livesCounter = GameObject.FindGameObjectWithTag("LivesCounter");
+            //if (livesCounter != null)
+            //{
+            //    DontDestroyOnLoad(livesCounter);
+            //}
 
             GameObject UI = GameObject.FindGameObjectWithTag("UI");
             if (UI != null)
