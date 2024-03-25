@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
             _itemMenu.SetActive(true);
         }
     }
-
     public void StatePaused()
     {
         _isPaused = !_isPaused;

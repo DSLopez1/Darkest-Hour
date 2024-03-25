@@ -112,6 +112,14 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         _controller.enabled = true;
     }
 
+    public void PlayerSpawn()
+    {
+        _pushBack = Vector3.zero;
+        _controller.enabled = false;
+        transform.position = LevelManager.instance.playerSpawnPos.transform.position;
+        _controller.enabled = true;
+    }
+
     public void TakeDamage(int amount)
     {
         float reduction = (float)amount * damageMitigation;
