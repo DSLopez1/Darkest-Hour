@@ -15,6 +15,8 @@ public class SeekingBullets : MonoBehaviour
     private Rigidbody _rb;
     private bool _collided;
 
+    public GameObject impactVFX;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -62,12 +64,13 @@ public class SeekingBullets : MonoBehaviour
         if (!_collided && co.gameObject.tag != "Player")
         {
             _collided = true;
+            GameObject impact = Instantiate(impactVFX, co.contacts[0].point, Quaternion.identity);
 
             if (dmg != null)
             {
                 dmg.TakeDamage(damage);
             }
-
+            Destroy(impact, 1);
             Destroy(gameObject);
         }
     }

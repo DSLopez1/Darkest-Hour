@@ -200,6 +200,7 @@ MonoBehaviour:
   damage: 15
   speed: 10
   offset: 1
+  impactVFX: {fileID: 1727132951257432, guid: 6f8526c2293954249aad2296f9be198e, type: 3}
 --- !u!54 &8888171196500342408
 Rigidbody:
   m_ObjectHideFlags: 0
