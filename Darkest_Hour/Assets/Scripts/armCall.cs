@@ -20,8 +20,10 @@ public class armCall : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Attack") && !_isShooting)
+        if (Input.GetButton("Attack") && !_isShooting)
         {
+
+            _isShooting = true;
             _anim.SetTrigger("Auto");
         }
         
@@ -34,7 +36,6 @@ public class armCall : MonoBehaviour
 
     IEnumerator ShootAuto()
     {
-        _isShooting = true;
         GameManager.instance.PlayerCam.StartCoroutine(GameManager.instance.PlayerCam.shootRay());
 
         GameObject instObj = Instantiate(auto, _shootPos.position, Camera.main.transform.rotation);

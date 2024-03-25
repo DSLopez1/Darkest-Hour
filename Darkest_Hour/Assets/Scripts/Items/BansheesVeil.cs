@@ -13,5 +13,6 @@ public class BansheesVeil : Item
         script.HP += 50;
         script._HPOrig += 50;
         script.damageMitigation += .1f;
+        GameManager.instance.playerScript.updatePlayerUI();
     }
 }
