@@ -57,8 +57,6 @@ public class SeekingBullets : MonoBehaviour
 
     void OnCollisionEnter(Collision co)
     {
-
-        Debug.Log("Collision triggered");
         IDamage dmg = co.gameObject.GetComponent<IDamage>();
 
         if (!_collided && co.gameObject.tag != "Player")

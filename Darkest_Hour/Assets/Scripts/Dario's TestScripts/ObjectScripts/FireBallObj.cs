@@ -35,8 +35,6 @@ public class FireBallObj : MonoBehaviour
             _collided = true;
             impactVFX.SetActive(true);
             GameObject impact = Instantiate(impactVFX, co.contacts[0].point, Quaternion.identity);
-            Debug.Log("fireobj");
-            Debug.Log(damage);
 
             Destroy(impact, 1);
             Destroy(gameObject);

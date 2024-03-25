@@ -94,10 +94,6 @@ public class GlobalObjectFogController: MonoBehaviour
         {
             cam = FindObjectOfType<Camera>();
         }
-        if (cam == null)
-        {
-            Debug.LogError("Can't find camera!");
-        }
     }
 
     private void OnDisable()

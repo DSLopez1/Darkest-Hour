@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         Movement();
         if (Input.GetButtonDown("Attack") && !_isShooting)
         {
-            Debug.Log("Shooting");
             StartCoroutine(shootProjectile(_auto));
         }
     }
@@ -86,8 +85,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         {
             // Talk to game manager to lose or respawn based on lives left
             GameManager.instance.youLose();
-
-            Debug.Log("You died!"); // Delete once we implement the above code
 
         }
     }

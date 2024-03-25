@@ -15,7 +15,6 @@ public class FireBeam : Ability
 
     public override void Activate()
     {
-        Debug.Log("Activating");
         GameObject instantiatedBeam = Instantiate(beam, GameManager.instance.playerScript.firePos);
         beamScript = instantiatedBeam.GetComponent<FirebeamObj>();
         beamScript.activeTime = activeTime;

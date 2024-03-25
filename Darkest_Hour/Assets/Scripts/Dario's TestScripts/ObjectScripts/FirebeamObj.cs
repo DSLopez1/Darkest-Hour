@@ -46,7 +46,6 @@ public class FirebeamObj : MonoBehaviour
        {
            if (!isTicking)
            {
-               Debug.Log("starting coroutine");
                StartCoroutine(burn(dmg));
            }
        }

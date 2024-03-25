@@ -14,8 +14,6 @@ public class Explosion : MonoBehaviour
 
         if (dmg != null && !other.CompareTag("Player"))
         {
-            Debug.Log("Damage triggered");
-            Debug.Log(damage);
             dmg.TakeDamage(damage);
         }
     }

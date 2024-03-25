@@ -59,7 +59,6 @@ public class TempCameraController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, 100))
         {
-            Debug.Log("Shooting ray");
             GameManager.instance.playerScript.targetPos = hit.point;
         }
         yield return new WaitForSeconds(1);
