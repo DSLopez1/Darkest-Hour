@@ -29469,10 +29469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e880ea1fc6001324588b6f381050e639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPos: {x: 0, y: 0, z: 0}
   damage: 20
-  _grav: -18
-  _heightDisplacement: 3
+  force: 20
   impactVFX: {fileID: 4637832464223129633, guid: 266090a4c927fb34291fd351776ceb17, type: 3}
 --- !u!135 &7711189347368533202
 SphereCollider:

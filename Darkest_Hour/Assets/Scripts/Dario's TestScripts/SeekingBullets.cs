@@ -10,6 +10,7 @@ public class SeekingBullets : MonoBehaviour
     public float speed;
     public float offset;
     private Transform _target;
+    private SphereCollider _col;
 
     private Rigidbody _rb;
     private bool _collided;
@@ -17,9 +18,10 @@ public class SeekingBullets : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _col = GetComponent<SphereCollider>();
+        _col.radius = 1;
         _rb.useGravity = false;
         _rb.drag = 0;
-
         _rb.velocity = transform.forward * speed;
     }
 
@@ -27,8 +29,12 @@ public class SeekingBullets : MonoBehaviour
     {
         if (_target != null)
         {
-            transform.LookAt(_target);
+            transform.LookAt(new Vector3(_target.transform.position.x, _target.transform.position.y + 1, _target.transform.position.z));
             _rb.velocity = transform.forward * speed;
+        }
+        else
+        {
+            _col.radius += .1f;
         }
     }
 
@@ -42,9 +48,8 @@ public class SeekingBullets : MonoBehaviour
         if (dmg != null && other.tag != "Player")
         {
             _target = other.transform;
-            SphereCollider col = GetComponent<SphereCollider>();
-            col.isTrigger = false;
-            col.radius = 0.1f;
+            _col.isTrigger = false;
+            _col.radius = 0.1f;
         }
     }
 
