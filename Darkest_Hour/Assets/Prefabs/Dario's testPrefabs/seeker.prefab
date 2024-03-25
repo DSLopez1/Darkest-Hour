@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  speed: 10
+  speed: 20
   offset: 1
   impactVFX: {fileID: 1727132951257432, guid: 6f8526c2293954249aad2296f9be198e, type: 3}
 --- !u!54 &8888171196500342408
