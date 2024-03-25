@@ -21,6 +21,7 @@ public class EnemyBoss_Necro : enemyRangedChild
     [SerializeField] GameObject[] _enemies;
     [SerializeField] int _numToSpawn;
     [SerializeField] GameObject _spawnAnim;
+    [SerializeField] int maxEnemies;
     NavMeshHit hit;
 
     private bool phaseTwo = false;
@@ -43,7 +44,7 @@ public class EnemyBoss_Necro : enemyRangedChild
 
         if (!isDying)
         {
-            if (canSummon)
+            if (canSummon && GameManager.instance.enemyCount < maxEnemies)
             {
                 StartCoroutine(SummonAbility());
             }

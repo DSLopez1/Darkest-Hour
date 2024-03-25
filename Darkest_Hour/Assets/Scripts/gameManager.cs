@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     private InputAction _menuOpenCloseAction;
 
     private bool _isPaused;
-    int enemyCount;
+    public int enemyCount;
 
     // Start is called before the first frame update
     private void Awake()
