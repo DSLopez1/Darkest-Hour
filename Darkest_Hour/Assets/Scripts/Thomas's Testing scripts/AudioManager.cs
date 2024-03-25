@@ -62,7 +62,7 @@ public class AudioManager : MonoBehaviour
 
 
             soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
-            //soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
+            soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
             //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
             //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
