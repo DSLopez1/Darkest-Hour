@@ -14,12 +14,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Main Story");
     }
 
-    public void OnTutorialButtonClicked()
-    {
-        PlayButtonClickSound();
-        Tutorial();
-        
-    }
 
     public void OnOptionsButtonClicked()
     {
@@ -28,6 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        PlayButtonClickSound();
         Application.Quit();
     }
 
@@ -35,16 +30,5 @@ public class MainMenu : MonoBehaviour
     {
         if (buttonClickSound != null)
             buttonClickSound.Play();
-    }
-
-    public void Tutorial()
-    {
-        StartCoroutine(LoadTutorialWithDelay(2f));
-    }
-
-    private IEnumerator LoadTutorialWithDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("Tutorial level");
     }
 }
