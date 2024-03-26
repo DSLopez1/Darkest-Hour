@@ -19,6 +19,5 @@ public class SoundEffectsVolumeController : MonoBehaviour
     {
         audioManager.SetSoundEffectsVolume(value);
         audioManager.PlaySoundEffect("Hit");
-        audioManager.PlaySoundEffect("Fireball_Clip");
     }
 }
