@@ -15,6 +15,7 @@ public class LevelLoader : MonoBehaviour
         if (Input.anyKeyDown)
         {
             LoadNextLevel();
+            
         }
     }
 
