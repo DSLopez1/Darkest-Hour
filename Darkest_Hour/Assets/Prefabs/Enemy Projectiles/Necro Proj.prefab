@@ -245,11 +245,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1166513376676526122}
-  _damageAmount: 5
+  _damageAmount: 15
   _speed: 35
   _destroyTime: 3
   _hitEffect: {fileID: 8925026857431698610, guid: 024f03c27758a9c47910bbe333b3d9cd, type: 3}
   statusEffect: 0
+  Burn: 0
+  _burnDmg: 0
+  _burnDur: 0
+  _burnTick: 0
+  Slow: 0
+  _slowAmount: 0
+  _slowDur: 0
 --- !u!1 &1893653908974914489
 GameObject:
   m_ObjectHideFlags: 0

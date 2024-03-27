@@ -50,6 +50,7 @@ public class EnemyBoss_Necro : enemyRangedChild
             }
             else if (phaseTwo && canAbility)
             {
+                _agentC.speed = 0;
                 StartCoroutine(SpellAttack());
             }
             else if (_agentC.remainingDistance <= _agentC.stoppingDistance)
@@ -58,10 +59,12 @@ public class EnemyBoss_Necro : enemyRangedChild
                 // All of which will be checked by a bool system to see if they can run or not
                 if (!phaseTwo && canAbility)
                 {
+                    _agentC.speed = 0;  
                     StartCoroutine(ScytheAbility());
                 }
                 else
                 {
+                    _agentC.speed = 0;
                     MeleeAttack();
                 }
             }
@@ -115,12 +118,10 @@ public class EnemyBoss_Necro : enemyRangedChild
 
     private IEnumerator ScytheAbility()
     {
-        // Start CD
+        // Disallow multiple calls
         canAbility = false;
-
         // Trigger animation
         _animC.SetTrigger("Ability");
-
         // Start cooldown
         yield return new WaitForSeconds(_scytheCD);
         // Allow ability again
@@ -128,11 +129,14 @@ public class EnemyBoss_Necro : enemyRangedChild
     }
     private IEnumerator SpellAttack()
     {
+        // Disallow multiple calls
+        canAbility = false;
         // Trigger animation
         _animC.SetTrigger("Spell");
-
         // Start cooldown
         yield return new WaitForSeconds(_spellCD);
+        // Allow ability agian
+        canAbility = true;
     }
 
     public override void TakeDamage(int amount)
