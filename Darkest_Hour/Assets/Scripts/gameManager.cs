@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerInput playerInput;
     [SerializeField] GameObject _pauseMenuFirst;
     [SerializeField] GameObject _deathMenuFirst;
+    [SerializeField] GameObject _optMenuFirst;
     private bool MenuOpenCloseInput;
     private InputAction _menuOpenCloseAction;
 
@@ -89,21 +90,19 @@ public class GameManager : MonoBehaviour
 
         // Input Initialized
         _menuOpenCloseAction = playerInput.actions["MenuOpenClose"];
-
     }
 
     // Update is called once per frame
     private void Update()
     {
         MenuOpenCloseInput = _menuOpenCloseAction.WasPressedThisFrame();
-        if (MenuOpenCloseInput && _menuActive == null)  //(Input.GetButtonDown("Cancel") && _menuActive == null)
+        if (MenuOpenCloseInput && _menuActive == null)  
         {
 
             StatePaused();
             _menuActive = _menuPause;
             _menuActive.SetActive(_isPaused);
             EventSystem.current.SetSelectedGameObject(_pauseMenuFirst);
-            //EventSystem.current.firstSelectedGameObject = _pauseMenuFirst;
         }
         else if (MenuOpenCloseInput && _menuActive != null)
         {
@@ -142,6 +141,25 @@ public class GameManager : MonoBehaviour
         _menuActive.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
         _menuActive = null;
+    }
+
+    public void OpenOptions()
+    {
+        // Deactivate pause menu
+        _menuPause.SetActive(false);
+        // Open options
+        _optionsMenu.SetActive(true);
+        // Change event system option to new first obj
+        EventSystem.current.SetSelectedGameObject(_optMenuFirst);
+    }
+    public void CloseOptions()
+    {
+        // Deactivate options menu
+        _optionsMenu.SetActive(false);
+        // Open pause menu
+        _menuPause.SetActive(true);
+        // Change event system first option
+        EventSystem.current.SetSelectedGameObject(_pauseMenuFirst);
     }
 
     public void CompleteLevel(int amount)
