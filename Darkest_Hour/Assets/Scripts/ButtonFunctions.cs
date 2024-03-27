@@ -93,8 +93,14 @@ public class ButtonFunctions : MonoBehaviour
             return;
         }
 
+        
+
         for (int i = 0; i < 4; i++)
         {
+            if (GameManager.instance.playerScript.abilities[i].ability == tempAbility)
+            {
+                return;
+            }
             if (GameManager.instance.playerScript.abilities[i].ability == null)
             {
 
