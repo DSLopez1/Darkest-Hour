@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     public AudioClip mainMenuMusicClip;
 
-    [Header("----AudioSources----")]
+     [Header("----AudioSources----")]
     private AudioSource mainMenuMusic;
     private AudioSource levelMusic;
     private AudioSource soundEffectSource;
@@ -48,10 +48,12 @@ public class AudioManager : MonoBehaviour
             mainMenuMusic.loop = true;
 
             levelMusic = gameObject.AddComponent<AudioSource>();      //Reciever for setting levelMusic
-            soundEffectSource = gameObject.AddComponent<AudioSource>(); //Reciever for settingSoundeffects
+            soundEffectSource = gameObject.AddComponent<AudioSource>();//Reciever for settingSoundeffects
 
 
             
+            //levelMusicClips.Add("Main Story", Resources.Load<AudioClip>("Main_Story"));
+            //levelMusicClips.Add("intro", Resources.Load<AudioClip>("War_Drums"));
             //levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
             //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
             //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
@@ -61,10 +63,8 @@ public class AudioManager : MonoBehaviour
             //levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
 
 
-            soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
-            soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
-            soundEffects.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
-
+            //soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
+            //soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
             //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
             //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
@@ -72,13 +72,7 @@ public class AudioManager : MonoBehaviour
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
-               
-                mainMenuMusic.Play();
-                
-            }
-            else if (SceneManager.GetActiveScene().name == "TeamLogo")
-            {
-
+                mainMenuMusic.Play(); 
             }
             else
             {
@@ -96,13 +90,14 @@ public class AudioManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string sceneName = scene.name;
-
+        // loads level music when scene loads
         if (levelMusic.isPlaying)
         {
             levelMusic.Stop();
         }
         if (levelMusicClips.ContainsKey(sceneName))
         {
+           
             mainMenuMusic.Stop();
             levelMusic.clip = levelMusicClips[sceneName];
             levelMusic.Play();
@@ -110,16 +105,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundEffect(string soundEffectKey)
+    //play sfx stored containing the key name
+    public void PlaySoundEffect(string soundEffectKey, bool loop = false)
     {
         if (soundEffects.ContainsKey(soundEffectKey))
         {
-            soundEffectSource.PlayOneShot(soundEffects[soundEffectKey]);
-        }
-        else
-        {
+            if(loop)
+            {
+                soundEffectSource.clip = soundEffects[soundEffectKey];
+                soundEffectSource.loop = true;
+                soundEffectSource.Play();
+            }
+            else
+            {
+                soundEffectSource.loop = false;
+                soundEffectSource.PlayOneShot(soundEffects[soundEffectKey]);
+            }
             
         }
+       
     }
 
     public void SetBackgroundVolume(float volume)
