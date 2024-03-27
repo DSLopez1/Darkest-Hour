@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _menuDied;
     [SerializeField] private GameObject _menuAbility;
     [SerializeField] private GameObject _itemMenu;
+    [SerializeField] private GameObject _optionsMenu;
     [SerializeField] TMP_Text enemyCountText;
     [SerializeField] TMP_Text _livesCountText;
     public ButtonFunctions buttons;
