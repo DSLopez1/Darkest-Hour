@@ -960,11 +960,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 38f594f7-cb74-4c54-8c48-21134eebc3b0
+  cloudProjectId: 308bb28b-2d12-4efe-a4c0-a59ae3c1d166
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Darkest_Hour 2024-03-05_18-17-44
-  organizationId: dario3578
+  projectName: Darkest Hour
+  organizationId: dev_drez
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
