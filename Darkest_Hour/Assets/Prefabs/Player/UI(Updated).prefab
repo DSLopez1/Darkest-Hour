@@ -7092,6 +7092,7 @@ MonoBehaviour:
   _pauseMenuFirst: {fileID: 2324305425925306247}
   _deathMenuFirst: {fileID: 350983535891690136}
   _optMenuFirst: {fileID: 202484025455441767}
+  destUI: {fileID: 2143237511582554748}
   enemyCount: 0
 --- !u!114 &1660484842125764335
 MonoBehaviour:
