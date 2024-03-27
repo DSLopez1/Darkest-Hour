@@ -32,6 +32,7 @@ public class ButtonFunctions : MonoBehaviour
     {
         Application.Quit();
     }
+
     public void Quit()
     {
         GameManager.instance.StateUnpaused();
