@@ -44,51 +44,60 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             mainMenuMusic = gameObject.AddComponent<AudioSource>();
-            mainMenuMusic.clip = mainMenuMusicClip;
             mainMenuMusic.loop = true;
 
             levelMusic = gameObject.AddComponent<AudioSource>();      //Reciever for setting levelMusic
             soundEffectSource = gameObject.AddComponent<AudioSource>();//Reciever for settingSoundeffects
 
 
-            
-            //levelMusicClips.Add("Main Story", Resources.Load<AudioClip>("Main_Story"));
-            //levelMusicClips.Add("intro", Resources.Load<AudioClip>("War_Drums"));
-            //levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
-            //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
-            //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
-            //levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
-            //levelMusicClips.Add("Dragon Cave", Resources.Load<AudioClip>("BossFight"));
-            //levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
-            //levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
+            levelMusicClips.Add("MainMenu", Resources.Load<AudioClip>("MainMenu"));
+            levelMusicClips.Add("Main Story", Resources.Load<AudioClip>("Main_Story"));
+            levelMusicClips.Add("intro", Resources.Load<AudioClip>("War_Drums"));
+            levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
+            levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
+            levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
+            levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
+            levelMusicClips.Add("Dragon Cave", Resources.Load<AudioClip>("BossFight"));
+            levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
+            levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
 
 
             //soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
-            //soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
+            soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
             //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
             //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
-            //soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
+            soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
+                mainMenuMusic.clip = levelMusicClips["MainMenu"];
                 mainMenuMusic.Play(); 
             }
-            else
-            {
-                Destroy(gameObject);
-            }
-
         }
     }
 
     private void Start()
     {
+        if(Instance != this)
+        {
+            Destroy(gameObject); //destroy other instances
+        }
+
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if(levelMusic == null)
+        {
+            levelMusic = gameObject.AddComponent<AudioSource>();
+        }
+        if (mainMenuMusic == null)
+        {
+            mainMenuMusic = gameObject.AddComponent<AudioSource>();
+        }
+
         string sceneName = scene.name;
         // loads level music when scene loads
         if (levelMusic.isPlaying)
