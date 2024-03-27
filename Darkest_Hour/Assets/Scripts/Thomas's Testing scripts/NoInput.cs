@@ -8,7 +8,6 @@ public class NoInput : MonoBehaviour
     private float delayBeforeLoading = 3f;
     [SerializeField] string sceneNameToLoad;
 
-    
     private float timeElapsed;
 
     private void Update()

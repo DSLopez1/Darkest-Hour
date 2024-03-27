@@ -7,7 +7,8 @@ public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
 
-    public float transitionTime = 3f;
+    public float transitionTime = 1f;
+
 
     // Update is called once per frame
     void Update()
@@ -15,7 +16,6 @@ public class LevelLoader : MonoBehaviour
         if (Input.anyKeyDown)
         {
             LoadNextLevel();
-            
         }
     }
 

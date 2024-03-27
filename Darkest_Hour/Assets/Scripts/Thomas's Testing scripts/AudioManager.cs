@@ -23,9 +23,6 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager Instance;
     public AudioClip mainMenuMusicClip;
-    
-
-
 
     [Header("----AudioSources----")]
     private AudioSource mainMenuMusic;
@@ -52,32 +49,36 @@ public class AudioManager : MonoBehaviour
 
             levelMusic = gameObject.AddComponent<AudioSource>();      //Reciever for setting levelMusic
             soundEffectSource = gameObject.AddComponent<AudioSource>(); //Reciever for settingSoundeffects
+
+
             
-           
-         
-           
-            levelMusicClips.Add("Main Story", Resources.Load<AudioClip>("Main_Story"));
-            levelMusicClips.Add("intro", Resources.Load<AudioClip>("War_Drums"));
-            levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
-            levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
-            levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
-            levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
-            levelMusicClips.Add("Dragon Cave", Resources.Load<AudioClip>("BossFight"));
-            levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
-            levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
+            //levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
+            //levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
+            //levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
+            //levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
+            //levelMusicClips.Add("Dragon Cave", Resources.Load<AudioClip>("BossFight"));
+            //levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
+            //levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
 
 
             soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
-            //soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
-            //soundEffects.Add("", Resources.Load<AudioClip>(""));
+            soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
+            soundEffects.Add("TeamLogo", Resources.Load<AudioClip>("Fireball_Clip"));
+
+            //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
             //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
             //soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
-            
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
+               
                 mainMenuMusic.Play();
+                
+            }
+            else if (SceneManager.GetActiveScene().name == "TeamLogo")
+            {
+
             }
             else
             {
@@ -107,7 +108,6 @@ public class AudioManager : MonoBehaviour
             levelMusic.Play();
             levelMusic.loop = true;
         }
-
     }
 
     public void PlaySoundEffect(string soundEffectKey)
@@ -116,7 +116,10 @@ public class AudioManager : MonoBehaviour
         {
             soundEffectSource.PlayOneShot(soundEffects[soundEffectKey]);
         }
-    
+        else
+        {
+            
+        }
     }
 
     public void SetBackgroundVolume(float volume)
