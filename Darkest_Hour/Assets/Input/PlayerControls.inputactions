@@ -37,6 +37,17 @@
                     "action": "MenuOpenClose",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9680840-36ef-47e4-a4f2-f3d82e6bd3fa",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MenuOpenClose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
