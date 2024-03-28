@@ -836,8 +836,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4279440369
+  m_fontColor: {r: 0.9433962, g: 0.07564971, b: 0.07564971, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5010,6 +5010,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5501115265690662584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1736478469552339727, guid: a412dda909bcb154c86946ac466e7c5b, type: 3}
+  m_PrefabInstance: {fileID: 6075029101284920759}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2957926469836667736}
+  m_Layer: 0
+  m_Name: 'Optionsmenu'' (Missing Prefab with guid: a412dda909bcb154c86946ac466e7c5b)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2957926469836667736
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9025913715813873391, guid: a412dda909bcb154c86946ac466e7c5b, type: 3}
+  m_PrefabInstance: {fileID: 6075029101284920759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5501115265690662584}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5988858886098515811}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 41, y: 154}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5540662486475863709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5616,8 +5651,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4279820782
+  m_fontColor: {r: 0.9339623, g: 0.8811353, b: 0.09251513, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7091,8 +7126,9 @@ MonoBehaviour:
   playerInput: {fileID: 1660484842125764335}
   _pauseMenuFirst: {fileID: 2324305425925306247}
   _deathMenuFirst: {fileID: 350983535891690136}
-  _optMenuFirst: {fileID: 202484025455441767}
+  _optMenuFirst: {fileID: 0}
   destUI: {fileID: 2143237511582554748}
+  audManager: {fileID: 0}
   enemyCount: 0
 --- !u!114 &1660484842125764335
 MonoBehaviour:
@@ -7989,21 +8025,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a412dda909bcb154c86946ac466e7c5b, type: 3}
---- !u!1 &202484025455441767 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6233413864169011920, guid: a412dda909bcb154c86946ac466e7c5b, type: 3}
-  m_PrefabInstance: {fileID: 6075029101284920759}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2957926469836667736 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9025913715813873391, guid: a412dda909bcb154c86946ac466e7c5b, type: 3}
-  m_PrefabInstance: {fileID: 6075029101284920759}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5501115265690662584 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1736478469552339727, guid: a412dda909bcb154c86946ac466e7c5b, type: 3}
-  m_PrefabInstance: {fileID: 6075029101284920759}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7991874624259966543
 PrefabInstance:
   m_ObjectHideFlags: 0

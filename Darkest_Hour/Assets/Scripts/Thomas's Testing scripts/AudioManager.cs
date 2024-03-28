@@ -19,12 +19,11 @@ public class AudioManager : MonoBehaviour
 							  audio
     also if your working in a scene and it gives you a null refernce error or the portal doesnt work just make a empty game object and put the audio manager script on it and ur good to go, 
     just remember to delete it before playing through the game */
-
+    
 
     public static AudioManager Instance;
-    public AudioClip mainMenuMusicClip;
-
      [Header("----AudioSources----")]
+
     private AudioSource mainMenuMusic;
     private AudioSource levelMusic;
     private AudioSource soundEffectSource;
@@ -67,13 +66,14 @@ public class AudioManager : MonoBehaviour
             //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
             //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
             //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
-            soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
+            //soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
 
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
                 mainMenuMusic.clip = levelMusicClips["MainMenu"];
                 mainMenuMusic.Play(); 
             }
+      
         }
     }
 
@@ -81,7 +81,7 @@ public class AudioManager : MonoBehaviour
     {
         if(Instance != this)
         {
-            Destroy(gameObject); //destroy other instances
+            Destroy(gameObject);
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
