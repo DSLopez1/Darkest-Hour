@@ -14,21 +14,27 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource bgMusicSource; // referencing bglvl music
     private Dictionary<string, AudioClip> lvlMusicMap;
+
     private AudioSource soundFXsource; // referencing sfx
 
     private void Awake()
     {
-        if(instance == null)
+        if(instance != null && instance != this)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            //Destroy(gameObject);
+            Destroy(gameObject);
 
             return;
         }
+         
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        Initialize();
+    }
+
+    private void Initialize()
+    {
         bgMusicSource = gameObject.AddComponent<AudioSource>(); // add clips for background music
         bgMusicSource.loop = true;
         soundFXsource = gameObject.AddComponent<AudioSource>(); // add clips for sfx
@@ -36,6 +42,7 @@ public class AudioManager : MonoBehaviour
         PlayBGmusicInLvl(SceneManager.GetActiveScene().name);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
     //setting clip to scenename to play
     private void InitializelvlMusicMap()
     {
