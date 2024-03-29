@@ -36,6 +36,8 @@ public class ButtonFunctions : MonoBehaviour
     public void Quit()
     {
         GameManager.instance.StateUnpaused();
+        GameManager.instance.DestroyAll();
+        AudioManager.Instance.DestroySelf();
         SceneManager.LoadScene("MainMenu");
     }
 

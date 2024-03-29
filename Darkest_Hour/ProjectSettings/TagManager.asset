@@ -15,6 +15,7 @@ TagManager:
   - UI
   - Chest
   - Boss UI
+  - AudioManager
   layers:
   - Default
   - TransparentFX

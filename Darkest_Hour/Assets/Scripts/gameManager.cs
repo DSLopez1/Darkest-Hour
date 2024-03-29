@@ -80,8 +80,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-        }
-        
+        }        
 
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
@@ -182,7 +181,12 @@ public class GameManager : MonoBehaviour
     public void YouWin()
     {
         SceneManager.LoadScene("YouWin_Credits");
-        if(player != null)
+        DestroyAll();
+    }
+
+    public void DestroyAll()
+    {
+        if (player != null)
         {
             Destroy(player);
         }
@@ -193,7 +197,7 @@ public class GameManager : MonoBehaviour
         if (audManager != null)
         {
             Destroy(audManager);
-        } 
+        }
     }
 
     public void YouDied()
