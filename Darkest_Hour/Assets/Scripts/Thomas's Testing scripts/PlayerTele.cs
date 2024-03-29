@@ -9,6 +9,7 @@ public class PlayerTeleportPortal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.instance.PlaySoundEffect(2);
             GameObject player = other.gameObject;
             DontDestroyOnLoad(player);
 

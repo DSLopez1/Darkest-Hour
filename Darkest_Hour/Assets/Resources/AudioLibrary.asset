@@ -26,3 +26,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2973f03e60a6f574db9e02733fc82f26, type: 3}
   soundEffects:
   - {fileID: 8300000, guid: 6d49cafb4fc2e0b40bc91f406d89814d, type: 3}
+  - {fileID: 8300000, guid: f652220cd1e59414e9ece1439bc37b99, type: 3}
+  - {fileID: 8300000, guid: d8eebec894550e045865aa39323e17ad, type: 3}
+  - {fileID: 8300000, guid: 3f6b1e43a0f888b4ab821272e0971350, type: 3}
+  - {fileID: 8300000, guid: 67520fa337d170f498c19aed650069ad, type: 3}
+  - {fileID: 8300000, guid: 2f46e4b2a548a7b48a03364dc4c9bfd9, type: 3}

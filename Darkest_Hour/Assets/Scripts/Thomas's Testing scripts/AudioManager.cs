@@ -19,18 +19,15 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance != null && instance != this)
-        {
-            Destroy(gameObject);
+        //if(instance != null && instance != this)
+        //{
+        //Destroy(gameObject);
 
-            return;
-        }
-         
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-
+        // return;
+        //}
         Initialize();
+        instance = this;
+        DontDestroyOnLoad(gameObject); //usual persitance path: DontDestroyOnLoad
     }
 
     private void Initialize()
@@ -59,7 +56,7 @@ public class AudioManager : MonoBehaviour
         if(lvlMusicMap.ContainsKey(sceneName))
         {
             AudioClip clip = lvlMusicMap[sceneName];
-            bgMusicSource.clip = clip;
+            bgMusicSource.clip = clip; // getting NullRef if hitting Play MultipleTimes in Unity, brings you here.
             bgMusicSource.Play();
         }
     }
