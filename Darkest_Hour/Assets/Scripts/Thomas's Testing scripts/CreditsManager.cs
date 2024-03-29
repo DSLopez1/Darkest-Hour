@@ -13,6 +13,7 @@ public class CreditsManager : MonoBehaviour
     IEnumerator ReturnToMainMenu()
     {
         yield return new WaitForSeconds(30f);
+        AudioManager.Instance.DestroySelf();
         SceneManager.LoadScene("MainMenu");
     }
 }
