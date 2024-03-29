@@ -1,138 +1,91 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
+    public AudioLibrary audioLibrary; // referencing audiolibrary
 
-    /* Audio Mamager - in the main menu scene create a (empty 3D object) and attach the audio manager script to the object, make sure your Audio is in a file called Resources Or 
-     * if its in a file called Audio change from Resources.Load<AudioClip> to Audio.Load<AudioClip> 
-     * just make sure the folder where all the audio is stored you use the EXACT name in the ____.Load<AudioClip>, also for example if my attack animations was called "Slash_Clip" 
-     * when i add the sound to my library in the Audio Manager it would look like soundEffects.Add("Attack", Resources.Load<AudioClip>("Slash_Clip"));
-     * make sure Exactly how you have the audio clip labeled its the same Exact way in here..including caps bc its case sensitive. here's a lil breakdown.
- soundEffects.Add("Attack", Resources.Load<AudioClip>("Attack_Clip"));
-                   ^          ^                            ^
-       trigger/function     Exact folder               Exact name that
-      that triggers the     name audio is           the audio clip is named            > CASE SENSITIVE!
-              audio           stored                  in the folder u keep the 
-							  audio
-    also if your working in a scene and it gives you a null refernce error or the portal doesnt work just make a empty game object and put the audio manager script on it and ur good to go, 
-    just remember to delete it before playing through the game */
-    
-
-    public static AudioManager Instance;
-     [Header("----AudioSources----")]
-
-   // private AudioSource mainMenuMusic;
-    static private AudioSource levelMusic;
-    static private AudioSource soundEffectSource;
-
-    private float overallVolume = 1f;
+    private float MainVolume = 1f;
     private float backgroundVolume = 1f;
-    private float soundEffectsVolume = 1f;
+    private float SFXvolume = 1f;
 
-    private Dictionary<string, AudioClip> levelMusicClips = new Dictionary<string, AudioClip>();
-    private Dictionary<string, AudioClip> soundEffects = new Dictionary<string, AudioClip>();
+    private AudioSource bgMusicSource; // referencing bglvl music
+    private Dictionary<string, AudioClip> lvlMusicMap;
+    private AudioSource soundFXsource; // referencing sfx
 
     private void Awake()
     {
-        Instance = this;
-        if (Instance != this)
+        if(instance == null)
         {
-            Destroy(gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
-        
-        levelMusic = gameObject.AddComponent<AudioSource>();      //Reciever for setting levelMusic
-        
-        soundEffectSource = gameObject.AddComponent<AudioSource>();//Reciever for settingSoundeffects
+        else
+        {
+            //Destroy(gameObject);
 
-
-        levelMusicClips.Add("MainMenu", Resources.Load<AudioClip>("MainMenu"));
-        levelMusicClips.Add("Main Story", Resources.Load<AudioClip>("Main_Story"));
-        levelMusicClips.Add("intro", Resources.Load<AudioClip>("War_Drums"));
-        levelMusicClips.Add("Tutorial level", Resources.Load<AudioClip>("Tutorial_Level_Clip"));
-        levelMusicClips.Add("Outside City (Lvl 1)", Resources.Load<AudioClip>("Level1_Clip"));
-        levelMusicClips.Add("Catacombs", Resources.Load<AudioClip>("Level1_Clip"));
-        levelMusicClips.Add("Throne Room", Resources.Load<AudioClip>("War_Drums"));
-        levelMusicClips.Add("Dragon Cave", Resources.Load<AudioClip>("BossFight"));
-        levelMusicClips.Add("YouWin_Credits", Resources.Load<AudioClip>("YouWin!_Clip"));
-        levelMusicClips.Add("GameOver!", Resources.Load<AudioClip>("GameOver!_Clip"));
-
-
-        //soundEffects.Add("ButtonClick", Resources.Load<AudioClip>("ButtonClick"));
-        soundEffects.Add("Hit", Resources.Load<AudioClip>("Hit_Clip"));
-        //soundEffects.Add("Die", Resources.Load<AudioClip>("FemaleGrunt_Clip"));
-        //soundEffects.Add("spawnPortal", Resources.Load<AudioClip>("Teleport_Clip"));
-        //soundEffects.Add("Respawn", Resources.Load<AudioClip>("Respawn_Clip"));
-        //soundEffects.Add("ItemPickUp", Resources.Load<AudioClip>("ItemEquip"));
-
-        SceneManager.sceneLoaded += OnSceneLoaded;       
+            return;
+        }
+        bgMusicSource = gameObject.AddComponent<AudioSource>(); // add clips for background music
+        bgMusicSource.loop = true;
+        soundFXsource = gameObject.AddComponent<AudioSource>(); // add clips for sfx
+        InitializelvlMusicMap();
+        PlayBGmusicInLvl(SceneManager.GetActiveScene().name);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
+    //setting clip to scenename to play
+    private void InitializelvlMusicMap()
+    {
+        lvlMusicMap = new Dictionary<string, AudioClip>();
+        foreach (var levelMusic in audioLibrary.backgroundMusic)
+        {
+            string sceneName = levelMusic.name;
+            lvlMusicMap[sceneName] = levelMusic;
+        }
+    }
+    // play lvl music make sure music clip is same name as scene name
+    private void PlayBGmusicInLvl(string sceneName)
+    {
+        if(lvlMusicMap.ContainsKey(sceneName))
+        {
+            AudioClip clip = lvlMusicMap[sceneName];
+            bgMusicSource.clip = clip;
+            bgMusicSource.Play();
+        }
+    }
+    // play audio clips when scene loads
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        string sceneName = scene.name;
-        // loads level music when scene loads
-        if (levelMusic.isPlaying)
-        {
-            levelMusic.Stop();
-        }
-        if (levelMusicClips.ContainsKey(sceneName))
-        {
-           
-           // mainMenuMusic.Stop();
-            levelMusic.clip = levelMusicClips[sceneName];
-            levelMusic.Play();
-            levelMusic.loop = true;
-        }
+        PlayBGmusicInLvl(scene.name);
     }
-
-    //play sfx stored containing the key name
-    public void PlaySoundEffect(string soundEffectKey, bool loop = false)
+    // play sfx audio from array in audio library
+    public void PlaySoundEffect(int index)
     {
-        if (soundEffects.ContainsKey(soundEffectKey))
-        {
-            if(loop)
-            {
-                soundEffectSource.clip = soundEffects[soundEffectKey];
-                soundEffectSource.loop = true;
-                soundEffectSource.Play();
-            }
-            else
-            {
-                soundEffectSource.loop = false;
-                soundEffectSource.PlayOneShot(soundEffects[soundEffectKey]);
-            }
-            
-        }
-       
-    }
+        if(index < 0 || index >= audioLibrary.soundEffects.Length)
+            return;
 
-    public void SetBackgroundVolume(float volume)
+        AudioClip clip = audioLibrary.soundEffects[index];
+        soundFXsource.PlayOneShot(clip, SFXvolume);
+    }
+    // setting lvl music volume
+    public void SetLvlMusicVolume(float volume)
     {
         backgroundVolume = volume;
-        levelMusic.volume = overallVolume * backgroundVolume;
+        bgMusicSource.volume = MainVolume * backgroundVolume;
     }
-
-    public void SetSoundEffectsVolume(float volume)
+    // setting sfx volume
+    public void SetSoundFXvolume(float volume)
     {
-        soundEffectsVolume = volume;
-        soundEffectSource.volume = overallVolume * soundEffectsVolume;
+        SFXvolume = volume;
     }
-
-    public void SetOverallVolume(float volume)
+    // setting main volume
+    public void SetMainVolume(float volume)
     {
-        overallVolume = volume;
-        levelMusic.volume = overallVolume * backgroundVolume;
-        soundEffectSource.volume = overallVolume * soundEffectsVolume;
+        MainVolume = volume;
+        bgMusicSource.volume = MainVolume * backgroundVolume;
+        soundFXsource.volume = MainVolume * SFXvolume;
     }
-
-    public void DestroySelf()
-    {
-        Destroy(gameObject);
-        Instance = null;
-    }
-
 }

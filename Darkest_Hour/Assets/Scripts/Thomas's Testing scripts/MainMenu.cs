@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
-    public AudioSource buttonClickSound;
+    
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject firstObj;
     [SerializeField] GameObject optionsObj;
@@ -22,7 +22,6 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlayButtonClicked()
     {
-        PlayButtonClickSound();
         SceneManager.LoadScene("Main Story");
     }
 
@@ -31,7 +30,7 @@ public class MainMenu : MonoBehaviour
     {
         optionsMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(optionsObj);
-        PlayButtonClickSound();
+        
     }
 
     public void OptionsBack()
@@ -41,13 +40,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        PlayButtonClickSound();
         Application.Quit();
     }
 
-    public void PlayButtonClickSound()
-    {
-        if (buttonClickSound != null)
-            buttonClickSound.Play();
-    }
 }

@@ -10,14 +10,14 @@ public class SoundEffectsVolumeController : MonoBehaviour
 
     void Start()
     {
-        audioManager = AudioManager.Instance;
+        audioManager = AudioManager.instance;
         slider = GetComponent<Slider>();
         slider.onValueChanged.AddListener(UpdateSoundEffectsVolume);
     }
 
     private void UpdateSoundEffectsVolume(float value)
     {
-        audioManager.SetSoundEffectsVolume(value);
-        audioManager.PlaySoundEffect("Hit");
+        audioManager.SetSoundFXvolume(value);
+        audioManager.PlaySoundEffect(0); // number of array on clip
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,15 @@ public class MainVolume : MonoBehaviour
     private Slider slider;
     private AudioManager audioManager;
 
-    void Start()
+    private void Start()
     {
-        audioManager = AudioManager.Instance;
+        audioManager = AudioManager.instance;
         slider = GetComponent<Slider>();
-        slider.onValueChanged.AddListener(UpdateOverallVolume);
+        slider.onValueChanged.AddListener(ChangeMainVolume);
     }
 
-    private void UpdateOverallVolume(float value)
+    private void ChangeMainVolume(float value)
     {
-        audioManager.SetOverallVolume(value);
+       audioManager.SetMainVolume(value);
     }
 }
