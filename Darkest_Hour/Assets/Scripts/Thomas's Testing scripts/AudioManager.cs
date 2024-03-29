@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
     just remember to delete it before playing through the game */
     
 
+    //hu
     public static AudioManager Instance;
      [Header("----AudioSources----")]
 
@@ -46,7 +47,8 @@ public class AudioManager : MonoBehaviour
             mainMenuMusic.loop = true;
 
             levelMusic = gameObject.AddComponent<AudioSource>();      //Reciever for setting levelMusic
-            soundEffectSource = gameObject.AddComponent<AudioSource>();//Reciever for settingSoundeffects
+            Debug.Log("Level Music: " + levelMusic);
+            soundEffectSource = gameObject.AddComponent<AudioSource>(); //Reciever for settingSoundeffects
 
 
             levelMusicClips.Add("MainMenu", Resources.Load<AudioClip>("MainMenu"));
@@ -99,7 +101,8 @@ public class AudioManager : MonoBehaviour
         }
 
         string sceneName = scene.name;
-        // loads level music when scene loads
+
+        Debug.Log("Scene loaded: " + sceneName);
         if (levelMusic.isPlaying)
         {
             levelMusic.Stop();
