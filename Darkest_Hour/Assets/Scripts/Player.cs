@@ -106,7 +106,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         _pushBack = Vector3.zero;
         HP = _HPOrig;
         updatePlayerUI();
-        AudioManager.instance.PlaySoundEffect(5);
+        AudioManager.instance?.PlaySoundEffect(5);
 
         _controller.enabled = false;
         transform.position = LevelManager.instance.playerSpawnPos.transform.position;

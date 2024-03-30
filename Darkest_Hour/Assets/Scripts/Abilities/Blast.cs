@@ -21,5 +21,6 @@ public class Blast : Ability
         blastScript.damage = _damage;
         blastScript.radius = _radius;
         blastScript.pushBack = _pushBack;
+        AudioManager.instance.PlaySoundEffect(19);
     }
 }

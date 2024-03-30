@@ -11,7 +11,7 @@ public class Seeker : Ability
     public override void Activate()
     {
         Vector3 pos = GameManager.instance.playerScript.shootPos.position;
-
+        AudioManager.instance.PlaySoundEffect(16);
         GameObject intBullet = Instantiate(_bullet, pos, Camera.main.transform.rotation);
     }
 }
