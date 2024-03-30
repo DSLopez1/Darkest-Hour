@@ -26,6 +26,7 @@ public class Dash : MonoBehaviour
     {
         if (Input.GetKeyDown(_key) && !_isDashing)
         {
+            AudioManager.instance.PlaySoundEffect(1);
             StartCoroutine(dash());
         }
 

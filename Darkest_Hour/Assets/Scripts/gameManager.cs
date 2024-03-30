@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     [Header("-----Destroy Me------")]
     [SerializeField] GameObject destUI;
-    public GameObject audManager;
+    //public GameObject audManager;
 
     private bool _isPaused;
     public int enemyCount;
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         _livesCountText.text = _lives.ToString("F0");
         itemCopy = allItems.ToList();
 
-        audManager = GameObject.FindWithTag("AudioManager");
+        //audManager = GameObject.FindWithTag("AudioManager");
 
         // Input Initialized
         _menuOpenCloseAction = playerInput.actions["MenuOpenClose"];
@@ -194,10 +194,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(destUI);
         }
-        if (audManager != null)
-        {
-            Destroy(audManager);
-        }
+        //if (audManager != null)
+        //{
+           //Destroy(audManager);
+        //}
     }
 
     public void YouDied()

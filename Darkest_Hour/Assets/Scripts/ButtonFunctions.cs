@@ -37,7 +37,6 @@ public class ButtonFunctions : MonoBehaviour
     {
         GameManager.instance.StateUnpaused();
         GameManager.instance.DestroyAll();
-        AudioManager.Instance.DestroySelf();
         SceneManager.LoadScene("MainMenu");
     }
 

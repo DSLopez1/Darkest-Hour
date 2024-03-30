@@ -106,6 +106,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         _pushBack = Vector3.zero;
         HP = _HPOrig;
         updatePlayerUI();
+        AudioManager.instance.PlaySoundEffect(5);
 
         _controller.enabled = false;
         transform.position = LevelManager.instance.playerSpawnPos.transform.position;
@@ -126,7 +127,7 @@ public class Player : MonoBehaviour, IDamage, IPhysics
         HP -= amount - (int)reduction;
         updatePlayerUI();
         StartCoroutine(flashDamage());
-        
+        AudioManager.instance.PlaySoundEffect(4);
         if (HP <= 0)
         {
             GameManager.instance.YouDied();

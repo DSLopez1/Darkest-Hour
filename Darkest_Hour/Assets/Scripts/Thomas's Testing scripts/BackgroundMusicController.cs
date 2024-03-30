@@ -10,13 +10,13 @@ public class BackgroundMusicController : MonoBehaviour
 
     void Start()
     {
-        audioManager = AudioManager.Instance;
+        audioManager = AudioManager.instance;
         slider = GetComponent<Slider>();
         slider.onValueChanged.AddListener(UpdateBackgroundVolume);
     }
 
     private void UpdateBackgroundVolume(float value)
     {
-        audioManager.SetBackgroundVolume(value);
+        audioManager.SetLvlMusicVolume(value);
     }
 }

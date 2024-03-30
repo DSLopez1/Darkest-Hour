@@ -22,7 +22,7 @@ public class armCall : MonoBehaviour
     {
         if (Input.GetButton("Attack") && !_isShooting)
         {
-
+            AudioManager.instance.PlaySoundEffect(3);
             _isShooting = true;
             _anim.SetTrigger("Auto");
         }
