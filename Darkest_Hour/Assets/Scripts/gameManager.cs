@@ -144,6 +144,10 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         _menuActive.SetActive(false);
+        if (_optionsMenu == true)
+        {
+            _optionsMenu.SetActive(false);
+        }
         EventSystem.current.SetSelectedGameObject(null);
         _menuActive = null;
     }

@@ -95,7 +95,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
             // Roam because player isn't in range
             StartCoroutine(Roam());
         }
-        else
+        else if (!isDying)
         {
             // Player is in range check if it they're in the view cone
             CanSeePlayer();
@@ -274,7 +274,22 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
         } 
         yield return new WaitForSeconds(_deathTimer);
         // Delete me
-        Destroy(gameObject);
+        StartCoroutine(PhaseOut());
+    }
+
+    protected IEnumerator PhaseOut()
+    {
+        _agent.enabled = false;
+        Vector3 start = transform.position;
+        float y = transform.position.y - 10;
+        Vector3 end = new Vector3(start.x, y, start.z);
+        while (start != end)
+        {
+            y = transform.position.y - 0.01f;
+            transform.position = new Vector3(start.x, y, start.z);
+            yield return new WaitForSeconds(0.01f);
+        }
+        Destroy(gameObject);  
     }
 
     protected IEnumerator FlashMat()
