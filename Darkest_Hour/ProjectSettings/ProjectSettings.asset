@@ -940,7 +940,13 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -960,11 +966,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 308bb28b-2d12-4efe-a4c0-a59ae3c1d166
+  cloudProjectId: ae4b011b-c563-4744-80a6-ca2d95bbab55
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Darkest Hour
-  organizationId: dev_drez
+  projectName: Darkest_Hour (1)
+  organizationId: kyojinn71089
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

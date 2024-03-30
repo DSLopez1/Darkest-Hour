@@ -90,6 +90,7 @@ public class EnemyBoss_Dragon : EnemyAI
             else if (canBreathAttack && isGrounded)
             {
                 // Do Breath on ground
+                AudioManager.instance.PlaySoundEffect(7);
                 StartCoroutine(BreathAttack());
             }
             else if (isGrounded)
@@ -139,6 +140,7 @@ public class EnemyBoss_Dragon : EnemyAI
         canScreamAttack = false;
         // Call animation
         _animC.SetTrigger("Scream");
+        AudioManager.instance.PlaySoundEffect(13);
         // Cooldown
         yield return new WaitForSeconds(_screamCD);
         // Allow attack
@@ -207,6 +209,7 @@ public class EnemyBoss_Dragon : EnemyAI
         canWingAttack = false;
         // Trigger animation which turns on colliders
         _animC.SetTrigger("Wing");
+        AudioManager.instance.PlaySoundEffect(14);
         // Cooldown
         yield return new WaitForSeconds(_wingAttack);
         // Allow attack again

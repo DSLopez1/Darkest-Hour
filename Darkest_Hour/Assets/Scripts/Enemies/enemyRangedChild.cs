@@ -23,7 +23,7 @@ public class enemyRangedChild : EnemyAI
 
                 // Trigger shoot animation
                 _animC.SetTrigger("Attack");
-
+                AudioManager.instance.PlaySoundEffect(12);
                 // Audio for shoot animation
 
                 // Delay before next attack can trigger

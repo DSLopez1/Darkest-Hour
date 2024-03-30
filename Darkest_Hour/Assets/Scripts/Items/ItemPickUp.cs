@@ -41,11 +41,13 @@ public class ItemPickUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.isTrigger)
             return;
 
         if (other.tag == "Player")
         {
+            AudioManager.instance.PlaySoundEffect(6);
             DescriptionController.instance.StartCoroutine(DescriptionController.instance.callDesc(item.name));
             GameManager.instance.buttons.BuyItem(item.name);
             Destroy(gameObject);
