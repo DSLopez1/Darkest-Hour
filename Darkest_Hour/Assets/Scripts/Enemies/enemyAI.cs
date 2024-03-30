@@ -141,6 +141,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IPhysics
     {
         // Start animation
         _anim.SetTrigger("Attack");
+        AudioManager.instance.PlaySoundEffect(8);
     }
 
     public void MeleeColliderOn()

@@ -82,7 +82,8 @@ public class EnemyBoss_Necro : enemyRangedChild
 
         // Trigger animation
         _animC.SetTrigger("Spawn");
-        
+        AudioManager.instance.PlaySoundEffect(9);
+
         // Start cooldown
         yield return new WaitForSeconds(_summonCD);
 
@@ -122,6 +123,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         canAbility = false;
         // Trigger animation
         _animC.SetTrigger("Ability");
+        AudioManager.instance.PlaySoundEffect(10);
         // Start cooldown
         yield return new WaitForSeconds(_scytheCD);
         // Allow ability again
@@ -133,6 +135,7 @@ public class EnemyBoss_Necro : enemyRangedChild
         canAbility = false;
         // Trigger animation
         _animC.SetTrigger("Spell");
+        AudioManager.instance.PlaySoundEffect(11);
         // Start cooldown
         yield return new WaitForSeconds(_spellCD);
         // Allow ability agian
