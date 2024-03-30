@@ -20,6 +20,7 @@ public class FireBeam : Ability
         beamScript.activeTime = activeTime;
         beamScript.damage = _damage;
         beamScript._pulseInterval = _pulseInterval;
+        AudioManager.instance.PlaySoundEffect(20);
     }
 
 }

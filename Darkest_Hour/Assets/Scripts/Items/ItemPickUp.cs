@@ -47,7 +47,7 @@ public class ItemPickUp : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            AudioManager.instance.PlaySoundEffect(6);
+            AudioManager.instance.PlaySoundEffect(15);
             DescriptionController.instance.StartCoroutine(DescriptionController.instance.callDesc(item.name));
             GameManager.instance.buttons.BuyItem(item.name);
             Destroy(gameObject);

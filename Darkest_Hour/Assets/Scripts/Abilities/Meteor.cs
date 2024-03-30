@@ -33,5 +33,6 @@ public class Meteor : Ability
         _startPos.y += _spawnHeight;
 
         GameObject meteor = Instantiate(_meteor,_startPos, Quaternion.Euler(90, 0, 0));
+        AudioManager.instance.PlaySoundEffect(17);
     }
 }

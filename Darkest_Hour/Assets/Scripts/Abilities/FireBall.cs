@@ -21,5 +21,6 @@ public class FireBall : Ability
         script = fireBall.GetComponent<FireBallObj>();
         script.damage = _damage;
         Instantiate(fireBall, GameManager.instance.playerScript.shootPos.position, Camera.main.transform.rotation);
+        AudioManager.instance.PlaySoundEffect(18);
     }
 }
