@@ -32,6 +32,8 @@ public class Chest : MonoBehaviour
         {
             itemDispensed = true;
             anim.SetTrigger("open");
+
+            AudioManager.instance.PlaySoundEffect(22);
             Invoke(nameof(open), 1.5f);
 
         }
@@ -44,5 +46,6 @@ public class Chest : MonoBehaviour
         GameObject instItem = Instantiate(item, pos, Quaternion.identity);
         rb = instItem.GetComponent<Rigidbody>();
         rb.AddForce(vel * force, ForceMode.Impulse);
+
     }
 }
