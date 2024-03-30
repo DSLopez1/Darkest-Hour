@@ -12,10 +12,10 @@ public class AudioManager : MonoBehaviour
     private float backgroundVolume = 1f;
     private float SFXvolume = 1f;
 
-    private AudioSource bgMusicSource; // referencing bglvl music
+    static private AudioSource bgMusicSource; // referencing bglvl music
     private Dictionary<string, AudioClip> lvlMusicMap;
 
-    private AudioSource soundFXsource; // referencing sfx
+    static private AudioSource soundFXsource; // referencing sfx
 
     private void Awake()
     {
