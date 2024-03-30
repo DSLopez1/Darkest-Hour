@@ -19,12 +19,12 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        //if(instance != null && instance != this)
-        //{
-        //Destroy(gameObject);
+        if(instance != null && instance != this)
+        {
+          Destroy(gameObject);
 
-        // return;
-        //}
+          return;
+        }
         Initialize();
         instance = this;
         DontDestroyOnLoad(gameObject); //usual persitance path: DontDestroyOnLoad
